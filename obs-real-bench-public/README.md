@@ -1,346 +1,182 @@
 # obs-real-bench
 
-A benchmark for evaluating whether code models and coding agents can restore
-observability instrumentation that has been stripped from real production or
-reference code.
+`obs-real-bench` is a benchmark for evaluating whether code models and coding
+agents can restore observability instrumentation that has been removed from
+real functions.
 
-The benchmark is function-level: each instance points to a real source file and
-a target function. The pipeline reads the original function, removes logging,
-tracing, and metrics calls, asks a model or agent to add observability back, and
-then scores the generated function against the original observability behavior.
+Each instance points to one target function in a source repository. The runner
+loads the original function, removes logging, tracing, and metrics calls, asks a
+model or coding agent to add observability back, and scores the generated
+function against the original observability behavior.
 
-This public copy contains the open-source benchmark instances only. Local run
-outputs are intentionally not bundled.
+## Public Release Scope
 
----
-
-## Repository Status
-
-The current repository is the OSS-only public benchmark subset.
-
-Current on-disk instance set:
+The full research corpus contains both open-source and industrial instances:
 
 ```text
-instance JSON files: 680
-runnable instances:  561
-quarantined:         119
-languages:           cpp, cs, go, java, js, php, py, rb, rs, ts
-largest slices:      trainticket, otel-demo, deathstar, vector, strapi,
-              eshop, nestjs, boutique, sockshop, robusta
+open-source instances: 441
+industrial instances:  782
 ```
 
-The public copy does not include generated `results/` or `runs/` directories.
-New experiment outputs are generated locally when you run the pilot.
+Due to company policy, the industrial instances cannot be released. This public
+repository contains only the open-source portion of the benchmark. Industrial
+source-code references, internal instance files, generated runs, logs, and
+experiment outputs are intentionally excluded.
 
-Important: `python -m tools.pilot --all` uses the current contents of
-`instances/function/`, skipping only files marked `_runnable: false`. In this
-repository, `--all` means the OSS-only public benchmark unless an explicit
-filter or manifest is added.
+No paper result tables are bundled in this repository. The code here is for
+reproducing runs on the public open-source instances and for inspecting the
+benchmark pipeline.
 
----
+## Task Definition
 
-## Core Task
+For each benchmark instance, the pipeline:
 
-For each target function:
+1. Reads the source repository configured by `repo.local_path` or a runtime
+   override.
+2. Locates the target function described by the instance JSON.
+3. Strips observability statements from the target function.
+4. Renders a prompt from `prompts/`.
+5. Calls the selected backend.
+6. Extracts the generated target function from the model response.
+7. Extracts observability sites from both the original and generated function.
+8. Computes placement and key-recovery scores.
+9. Writes local outputs under `results/<run-id>/`.
 
-1. Read the ground-truth source from `repo.local_path + target.file`.
-2. Extract the target function by name.
-3. Strip observability calls from that function.
-4. Render one prompt level.
-5. Call the selected backend.
-6. Extract one generated function from the response.
-7. Extract observability sites from ground truth and generated code.
-8. Score placement and key recovery.
-9. Persist per-cell results under `results/<run-id>/`.
+The benchmark does not score whole-file text similarity. It evaluates whether
+the generated function restores observability in the right control-flow slots
+and recovers the expected observability keys or keyword concepts.
 
-The benchmark does not score whole-file text similarity. It scores whether the
-model put observability in the right business-logic slots and recovered the
-right observability keys or keyword concepts.
+## Prompt Levels
 
----
+The public runner includes three prompt levels:
 
-## Prompt Ladder
-
-The active prompt ladder is:
-
-| Prompt | Purpose |
+| Prompt | Description |
 |---|---|
-| `p_blind` | Control prompt. Gives the stripped target function and scrubbed context without explicitly asking for observability. |
-| `p1_obs_hinted` | Adds the instruction that the function lacks observability and should be instrumented. |
-| `p_fewshot` | Same task framing as `p1_obs_hinted`, plus same-file sibling examples when available. |
+| `p_blind` | Control prompt with the stripped target function and context, without explicitly asking for observability. |
+| `p1_obs_hinted` | Observability-restoration prompt that tells the model the function is missing instrumentation. |
+| `p_fewshot` | Same task as `p1_obs_hinted`, plus same-file sibling examples when available. |
 
-Prompt files live in `prompts/`:
+Prompt templates are stored in `prompts/`.
 
-- `prompts/p_blind.md`
-- `prompts/p1_obs_hinted.md`
-- `prompts/p_fewshot.md`
+## Metrics
 
-All active prompts enforce the same output discipline: exactly one code block,
-only the target function definition, no helper functions, no imports, no
-module-level variables, and no prose outside the code block. These constraints
-are important because the scorer expects to recover usable code from the model
-response.
+The main scoring code lives in `tools/score_anchor.py` and
+`tools/score_anchor_ts.py`.
 
-Headline comparisons should use the three active prompts above.
+Commonly reported metrics include:
 
----
-
-## Few-Shot Sibling Selection
-
-`p_fewshot` uses sibling functions selected ahead of time and stored in each
-instance JSON under the `siblings` field.
-
-The sibling builder is `tools/build_siblings.py`. Its selection rule is:
-
-1. Read the same ground-truth source file as the target function.
-2. Enumerate functions or methods in that file.
-3. Exclude the target function itself.
-4. Extract observability sites for each remaining function.
-5. Keep only functions with `n_gt > 0` observability sites.
-6. Sort by `n_gt` descending, then by function name ascending.
-7. Store up to `K` siblings in the instance JSON.
-
-At render time, `p_fewshot.md` currently has `fewshot_k: 2`, so the pilot takes
-the first two stored siblings and inserts their full original function bodies
-with observability intact.
-
-Some instances have no available sibling examples. In that case the rendered
-prompt contains a neutral fallback message. Analyses of few-shot effects should
-report or stratify by the number of rendered siblings.
-
----
-
-## Backends
-
-The unified model caller is `tools/llm_client.py`. The pilot supports:
-
-| Backend | Meaning |
+| Metric | Meaning |
 |---|---|
-| `api` | Direct model call through the local Azure OpenAI helper. |
-| `agent` | GitHub Copilot SDK / agent runtime. |
+| Position F1 | Whether restored observability appears in the correct anchor slot. |
+| Key Bag F1 | Whether restored observability keys or keyword concepts match the ground truth. |
 
-The agent batch wrapper is `run_all_agent.sh`. It performs a lightweight auth
-and model preflight, then calls `tools.pilot` with `--backend agent`.
+For paper-style aggregation, use the same corpus scope, prompt set, backend,
+model, and filtering policy across all compared systems.
 
-Authentication should be supplied through environment variables or local CLI
-auth. Do not store tokens in the repository, result files, prompts, or shell
-history intended for sharing.
-
----
-
-## Results
-
-Generated results are not included in this public copy. A completed pilot run
-will create `results/<run-id>/summary.json`, and
-`tools/aggregate_repo_lang.py <run-id>` will create the corresponding aggregate
-Markdown report.
-
-## Scoring
-
-The primary metric for v2.x is **Key Bag F1 under STRICT filtering**.
-
-STRICT policy:
-
-1. Drop cells where the ground-truth function has `n_gt == 0` observability
-   sites. These functions do not define a meaningful restoration target.
-2. For remaining cells, count `key_bag_f1 == null` as 0 rather than removing the
-   cell from the denominator.
-
-Main scoring files:
-
-| File | Purpose |
-|---|---|
-| `tools/score_anchor.py` | Python AST branch and shared anchor/Key Bag scoring. |
-| `tools/score_anchor_ts.py` | Tree-sitter-backed scoring for non-Python languages. |
-| `tools/aggregate_repo_lang.py` | Aggregates summary rows by repo and language. |
-| `tools/rescore.py` | Recomputes scores for existing result directories. |
-
-Each summary row may also include:
-
-- Position F1: whether observability appears in the correct anchor slot.
-- Key Bag precision/recall/F1: whether observability keys or keyword concepts
-  match the ground truth.
-- OldF1: legacy type-bag metric retained for backward compatibility.
-
-Use Key Bag F1 as the primary metric unless a specific analysis says
-otherwise.
-
----
-
-## Directory Guide
+## Directory Layout
 
 | Path | Purpose |
 |---|---|
-| `instances/function/` | Function-level benchmark instances. |
-| `prompts/` | Prompt templates and prompt frontmatter. |
-| `tools/pilot.py` | End-to-end runner: strip, prompt, call backend, score, persist. |
-| `tools/prompt_render.py` | Loads prompt templates and substitutes fields. |
-| `tools/strip/` | Per-language observability stripping. |
-| `tools/extract/` | Per-language observability-site extraction. |
-| `tools/langspec.py` | Language registry for polyglot parsing and obs APIs. |
-| `results/` | Generated run outputs and summaries; not bundled in this public copy. |
-| `runs/` | Optional local experiment logs; not bundled in this public copy. |
-| `run_all_agent.sh` | Batch wrapper for agent-runtime experiments. |
+| `instances/function/` | Public open-source function-level benchmark instances. |
+| `prompts/` | Prompt templates. |
+| `tools/pilot.py` | End-to-end runner. |
+| `tools/prompt_render.py` | Prompt rendering utilities. |
+| `tools/strip/` | Language-specific observability stripping. |
+| `tools/extract/` | Language-specific observability-site extraction. |
+| `tools/langspec.py` | Language and observability API registry. |
+| `tools/aggregate_repo_lang.py` | Aggregates local run summaries. |
+| `run_all_agent.sh` | Convenience wrapper for agent-backend runs. |
 
----
+Generated `results/`, `runs/`, logs, traces, and model outputs are not included
+in this public copy.
 
-## Common Commands
+## Setup
 
-Activate the local environment:
+Create a local Python environment:
 
 ```bash
+cd obs-real-bench-public
 python -m venv .venv
 source .venv/bin/activate
-cd obs-real-bench-public
+python -m pip install -U pip
 ```
 
-Run a single cell:
+Install any parser or backend dependencies required by the tools you plan to
+run. The repository intentionally does not bundle source checkouts for the
+upstream open-source projects. Clone the needed source repositories locally and
+either update `repo.local_path` in a private copy of the instance files or pass
+runtime overrides.
+
+## Running One Instance
 
 ```bash
 python -m tools.pilot \
   --instance otel-demo__py__recommendation__ListRecommendations-v1 \
   --prompt p_fewshot \
-  --model gpt-5.5-20260424 \
+  --model <model-id> \
   --backend api \
-  --run-id scratch-one
+  --run-id scratch-one \
+  --repo-path-override open-telemetry/opentelemetry-demo=/path/to/opentelemetry-demo
 ```
 
-Run all currently runnable instances with the API backend:
+Use `--backend agent` for an agent-runtime experiment:
+
+```bash
+python -m tools.pilot \
+  --instance otel-demo__py__recommendation__ListRecommendations-v1 \
+  --prompt p1_obs_hinted \
+  --model <model-id> \
+  --backend agent \
+  --run-id scratch-agent \
+  --repo-path-override open-telemetry/opentelemetry-demo=/path/to/opentelemetry-demo
+```
+
+## Running A Batch
+
+Run all runnable public open-source instances:
 
 ```bash
 python -m tools.pilot \
   --all \
   --prompts p_blind,p1_obs_hinted,p_fewshot \
-  --model gpt-5.5-20260424 \
+  --model <model-id> \
   --backend api \
-  --run-id my-api-run \
-  --workers 70 \
-  --skip-existing
+  --run-id my-public-run \
+  --workers 16 \
+  --skip-existing \
+  --repo-search-root /path/to/source-repos
 ```
 
-Run all currently runnable instances with the agent backend:
+The agent wrapper provides the same kind of batch workflow for the agent
+backend:
 
 ```bash
 ./run_all_agent.sh \
   --run-id my-agent-run \
-  --model gpt-5.5 \
+  --model <model-id> \
   --prompts p_blind,p1_obs_hinted,p_fewshot \
-  --workers 64
+  --workers 16 \
+  --repo-search-root /path/to/source-repos
 ```
 
-For audited repo-visible agent runs, add:
+## Aggregating Local Results
 
-```bash
-./run_all_agent.sh \
-  --run-id my-agent-trace-run \
-  --model gpt-5.5 \
-  --prompts p_blind,p1_obs_hinted,p_fewshot \
-  --workers 64 \
-  --allow-agent-tools \
-  --agent-repo-context related \
-  --agent-trace
-```
-
-If an instance JSON contains a stale `repo.local_path`, override it at runtime
-instead of editing the instance file:
-
-```bash
-python tools/pilot.py \
-  --instance otel-demo__py__recommendation__ListRecommendations \
-  --prompts p_blind \
-  --model gpt-4.1 \
-  --backend agent \
-  --repo-path-override open-telemetry/opentelemetry-demo=/path/to/opentelemetry-demo
-```
-
-For larger batches, repeat `--repo-path-override KEY=/abs/path` or add
-`--repo-search-root /path/to/repos`. `KEY` may be the repo name, the old
-`repo.local_path`, a basename, or an `owner__repo` form.
-
-Run a repo-visible agent cell while blocking direct reads of the target file and
-persisting the full Copilot SDK trace:
-
-```bash
-python tools/pilot.py \
-  --instance otel-demo__py__recommendation__ListRecommendations \
-  --prompts p_blind \
-  --model gpt-4.1 \
-  --backend agent \
-  --allow-agent-tools \
-  --agent-repo-context related \
-  --agent-trace \
-  --run-id my-agent-trace-run
-```
-
-In this mode the source repo is still exposed as the Copilot workspace, but the
-current instance's target file (`target.file` resolved under that instance's
-repo root) is added to the permission deny list. The preflight turn asks the
-agent to inspect other related files in that same instance repo for conventions
-relevant to the task, helper APIs, and similar non-target implementations. Each
-cell writes `agent_trace.json` beside `result.json`; inspect `tool.execution_*`
-and `permission.*` events to verify whether the agent actually used repo tools
-and which paths were touched.
-
-Aggregate a run:
+After a run finishes, aggregate the local output:
 
 ```bash
 python tools/aggregate_repo_lang.py <run-id>
 ```
 
-Re-score an existing run without new model calls:
+To recompute scores for an existing local run:
 
 ```bash
 python -m tools.rescore --run-id <run-id>
 python tools/aggregate_repo_lang.py <run-id>
 ```
 
----
-
 ## Reproducibility Notes
 
-This public copy omits generated runs and source checkouts. Prepare local source
-repositories and configure runtime paths before reproducing experiments:
-
-| Resource | Current assumption |
-|---|---|
-| API backend helper | Set `OBS_CLOUDGPT_HELPER` to a CloudGPT-compatible helper script if using `--backend api` |
-| Python environment | Create a local virtual environment such as `.venv` |
-| Source repositories | Paths stored in each instance JSON under `repo.local_path`, or supplied with `--repo-path-override` |
-| Source snapshot | Record the exact source commit used for each reproduction run |
-
-Before publishing or sharing a new result, record:
-
-- run id
-- backend
-- model id
-- prompt list
-- prompt file hashes
-- instance set or manifest
-- number of rendered siblings per few-shot cell
-- source repository snapshot
-- scoring code version
-
-The current `--all` behavior is convenient for exploration but depends on the
-contents of `instances/function/` at run time. For paper-grade reproduction,
-prefer a fixed manifest or explicitly documented instance list.
-
----
-
-
-
-## Recommended Next Cleanups
-
-1. Add fixed manifests for the expanded benchmark and any smaller comparison sets.
-2. Add `--manifest` or `--corpus` support to `tools.pilot`.
-3. Record rendered sibling count in each `result.json` and summary row.
-4. Normalize source repository commit metadata across all instances.
-5. Move local absolute paths behind environment variables.
-6. Add a short publication checklist before pushing new runs to GitHub.
-
----
-
-## Short Summary
-
-`obs-real-bench` is an OSS-only public observability-restoration benchmark in
-this copy. Always state the corpus scope, prompt set, backend, model, and run id
-before comparing prompt or backend performance.
+When reporting new results, record the public instance set, source repository
+commits, prompt files, backend, model id, run id, and scorer version. Generated
+results should be kept outside the public source tree unless they have been
+reviewed for release.

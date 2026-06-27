@@ -1,195 +1,136 @@
-# vibe_coding — observability of vibe-coded microservices
+# vibe_coding
 
-Agent handoff / operational notes: see [`AGENT_README.md`](AGENT_README.md).
+`vibe_coding` is a local benchmark environment for running generated
+microservices under Kubernetes and checking whether their logs expose useful
+signals during fault injection.
 
-187 core microservices, plus 13 later extension services, for local
-observability and fault-injection experiments. The current checkout contains
-200 runnable service directories under `services/`: IDs `01` through `187` are
-the core benchmark set, and IDs `188` through `200` are extension cases.
+The repository contains service implementations, Kubernetes manifests, fault
+templates, and a log-window judge. It is designed for local experiments with a
+kind cluster and Chaos Mesh.
 
-Each service is deployable to a local kind cluster, has a chaos-mesh
-fault-injection set, and is judged by analyzing pod-log windows around each
-injection.
+## Public Release Scope
 
-This repo is **self-contained**: it brings its own kind cluster, chaos-mesh,
-log collector, and judge. Nothing is shared with `obs-real-bench/`.
+This public copy includes the runnable benchmark code and service definitions.
+Generated experiment outputs are intentionally excluded: no `runs/`, `results/`,
+logs, traces, or model output directories are bundled.
 
-## At a glance
+The README does not include result tables. Run the benchmark locally to generate
+fresh outputs for your own environment.
 
-Current service inventory:
+## What Is Included
 
-```text
-core service set:      187 services, IDs 01-187
-extension services:     13 services, IDs 188-200
-service directories:   200 total under services/
-service marker files:  every service has SPEC.md, run.sh, Dockerfile, and k8s/deployment.yaml
-fault YAMLs:           1,615 rendered fault manifests, 2-11 per service
-evaluated fault types: 13 primitives, F01-F13
-```
+The benchmark contains generated microservice directories under `services/`.
+Each service directory is expected to include:
 
-The service set spans several implementation stacks, including Python, Go,
-Java, C#, C++, JavaScript/TypeScript, Rust, Ruby, PHP, and additional lightweight
-framework stacks documented in each `SPEC.md`.
+- source code
+- `Dockerfile`
+- `k8s/deployment.yaml`
+- rendered fault manifests under `faults/`
+- `run.sh`
+- `exercise.sh`
+- `SPEC.md`
 
-Representative boundary examples:
+The framework provides:
 
-| Range | Examples |
+| Path | Purpose |
 |---|---|
-| Core start | `01-catalog-api`, `02-cart-service`, `03-order-api` |
-| Core end | `185-mqtt-bridge`, `186-notification-router`, `187-file-metadata` |
-| Extensions | `188-heartbeat-monitor`, `189-pubsub-broker`, ..., `200-event-enricher` |
+| `Makefile` | Top-level local workflow. |
+| `infra/` | kind cluster setup, Chaos Mesh installation, and shared dependencies. |
+| `faults/` | Fault primitive documentation and templates. |
+| `_lib/fault-templates/` | Additional reusable fault templates. |
+| `judge/` | Log-window detection logic and oracle patterns. |
+| `services/` | Service implementations and per-service run scripts. |
+| `tools/` | Helper scripts for generation and local workflows. |
 
-Use `make list` to print the current service list from the filesystem.
+## Requirements
 
-Fault primitives are documented in [`faults/README.md`](faults/README.md). The
-result of record below evaluates 13 fault types, F01-F13.
-Detection model is documented in [`judge/README.md`](judge/README.md).
+Install these tools before running the benchmark:
 
-## Result of Record
+- Docker
+- kind
+- kubectl
+- helm
+- make
+- Python 3.10 or newer
 
-The current multifault result is stored under
-`runs/chaos_multifault_20260526T161758Z_multifault_p48_postfix_v2/`. The
-human-readable Markdown summary is
-`runs/chaos_multifault_20260526T161758Z_multifault_p48_postfix_v2/fault-specific-by-fault.md`.
+The local cluster and service builds can use substantial CPU, memory, and disk
+space. Start with a single service before running the full suite.
 
-Campaign summary:
-
-```text
-campaign:              20260526T161758Z_multifault_p48_postfix_v2
-generated:             2026-05-27 06:55:06 UTC
-services targeted:     187
-services with summary: 187
-fault instances total: 1507
-fault instances caught: 312 (20.70%)
-fault instances no_signal: 1195 (79.30%)
-```
-
-Scoring modes supported by the judge:
-
-| Mode | Meaning |
-|---|---|
-| `current` | Generic matchers plus per-fault matchers. |
-| `strict` | Drops synthetic `[access]` lines and excludes the generic HTTP 5xx matcher. |
-| `fault-specific` | Strongest anti-inflation mode: drops synthetic `[access]` lines and uses only per-fault matchers. |
-
-The Markdown table below is the fault-specific by-fault result for the campaign.
-
-By-fault detection results from that run:
-
-| Fault | Samples | Caught | Detection Rate | No Signal | No Signal Ratio | Matcher | Pod Restart | Errors |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| F01-pod-kill | 187 | 111 | 59.36% | 76 | 40.64% | 111 | 0 | 0 |
-| F02-network-delay | 187 | 63 | 33.69% | 124 | 66.31% | 63 | 0 | 0 |
-| F03-upstream-fail | 15 | 11 | 73.33% | 4 | 26.67% | 11 | 0 | 0 |
-| F04-upstream-slow | 15 | 3 | 20.00% | 12 | 80.00% | 3 | 0 | 0 |
-| F05-db-down | 128 | 12 | 9.38% | 116 | 90.62% | 12 | 0 | 0 |
-| F06-db-slow | 128 | 6 | 4.69% | 122 | 95.31% | 6 | 0 | 0 |
-| F07-cache-down | 100 | 39 | 39.00% | 61 | 61.00% | 39 | 0 | 0 |
-| F08-cache-slow | 100 | 28 | 28.00% | 72 | 72.00% | 28 | 0 | 0 |
-| F09-queue-down | 61 | 7 | 11.48% | 54 | 88.52% | 7 | 0 | 0 |
-| F10-queue-slow | 61 | 4 | 6.56% | 57 | 93.44% | 4 | 0 | 0 |
-| F11-cpu-stress | 175 | 11 | 6.29% | 164 | 93.71% | 11 | 0 | 0 |
-| F12-net-corrupt | 175 | 17 | 9.71% | 158 | 90.29% | 17 | 0 | 0 |
-| F13-time-skew | 175 | 0 | 0.00% | 175 | 100.00% | 0 | 0 | 0 |
-
-This campaign covers 13 fault types, F01-F13.
-
-## Quick start
-
-Prereqs on your machine: `docker`, `kind` (>=0.20), `kubectl`, `helm`,
-`make`, `python3` (>=3.10), and ~8 GB free RAM.
+## Quick Start
 
 ```bash
-cd vibe_coding
+cd vibe_coding_public
 
-# One-time: bring up cluster + chaos-mesh + shared deps (postgres/redis/...)
+# Create the local cluster, install Chaos Mesh, and deploy shared dependencies.
 make up
 
-# Build + deploy a single service end-to-end, then run all its faults
+# Build, deploy, exercise, inject faults, and judge one service.
 make demo SVC=01-catalog-api
 
-# Or just one piece at a time
-make build SVC=01-catalog-api      # docker build + kind load
-make deploy SVC=01-catalog-api     # kubectl apply
-make inject SVC=01-catalog-api FAULT=F01-pod-kill
-make judge SVC=01-catalog-api
-
-# Run every service end-to-end (slow; serializes per service)
-make all
-
-# Tear down
+# Tear down the local cluster when finished.
 make down
 ```
 
-## Layout
+## Running Individual Steps
 
-```
-vibe_coding/
-├── README.md
-├── Makefile                            top-level orchestrator
-├── infra/
-│   ├── kind-cluster.yaml               kind config (cluster: vibe)
-│   ├── install/
-│   │   ├── up.sh                       create cluster + install chaos-mesh + apply deps
-│   │   └── down.sh                     delete cluster
-│   └── deps/
-│       ├── namespace.yaml              vibe-coding ns
-│       ├── postgres.yaml               one shared Postgres (app=postgres)
-│       ├── redis-cache.yaml            one shared Redis cache (app=redis-cache)
-│       ├── redis-stream.yaml           one shared Redis stream broker (app=redis-stream)
-│       └── mock-upstream.yaml          one shared echo-style upstream (app=mock-upstream)
-├── faults/
-│   ├── README.md                       fault primitive defs + chaos-mesh gotchas
-│   └── templates/                      base F01-F10 *.tpl.yaml templates
-├── _lib/
-│   └── fault-templates/                extension F11-F15 templates
-├── judge/
-│   ├── README.md                       detection model
-│   ├── judge.py                        log-window analyzer
-│   └── oracle.yaml                     per-fault regex patterns (canonical)
-├── services/
-│   ├── 01-catalog-api/                 core service
-│   ├── ...
-│   ├── 187-file-metadata/              final core service
-│   ├── 188-heartbeat-monitor/          extension service
-│   ├── ...
-│   └── 200-event-enricher/             extension service
-└── runs/                               (created at runtime) one dir per `make demo`
+```bash
+cd vibe_coding_public
+
+make build SVC=01-catalog-api
+make deploy SVC=01-catalog-api
+make inject SVC=01-catalog-api FAULT=F01-pod-kill
+make judge SVC=01-catalog-api
 ```
 
-Each `services/<id>/` contains:
+Most services also support direct script usage:
 
-- `src/` (Python, Go) or root-level (Java/C#/C++) — source code
-- `Dockerfile`
-- `k8s/deployment.yaml` — Deployment + Service in ns `vibe-coding`
-- `faults/F*.yaml` — rendered chaos CRDs (selectors filled in)
-- `run.sh` — `build | deploy | wait | smoke | inject FAULT | judge | cleanup | demo`
-- `exercise.sh` — per-service traffic generator. Defines `exercise_once <BASE_URL>`. The framework runs this in a tight 1 Hz loop during the fault window so the service exercises its deps and emits log signal the judge can score.
-- `SPEC.md` — Chinese-language project spec for this service (endpoints, deps, all run/inject/judge commands)
+```bash
+cd services/01-catalog-api
+./run.sh build
+./run.sh deploy
+./run.sh wait
+./run.sh smoke
+./run.sh inject F01-pod-kill
+./run.sh judge
+./run.sh cleanup
+```
 
-## Detection model (short version)
+## Running Multiple Services
 
-Each fault `inject` records `t_start` and `t_end`. During the window, the
-framework also runs a per-service traffic generator (`exercise.sh::exercise_once`)
-through a kubectl port-forward, exercising the dep being faulted. The judge
-then runs `kubectl logs --since-time=t_start` on the service pod(s),
-filters to lines with timestamps in `[t_start, t_end + buffer]`, and applies
-the per-fault regex set from `judge/oracle.yaml`. A fault is **caught** if
-at least one regex hits inside the window. F01 (pod-kill) is additionally
-caught when the pod's `restartCount` advances from the baseline.
+The repository includes serial and parallel helpers:
 
-Full detail in [`judge/README.md`](judge/README.md).
+```bash
+./run_all_demos.sh
+./run_parallel_demos.sh
+```
 
-## Status
+For a full local run through the Makefile:
 
-- 187 core service implementations ✅
-- 13 extension service implementations ✅
-- 200 total service directories with `SPEC.md`, `run.sh`, `Dockerfile`, and Kubernetes manifests ✅
-- 13 evaluated fault primitives in the result of record ✅
-- Cluster + chaos-mesh + shared deps ✅
-- Per-service `SPEC.md` with run / inject / detect commands ✅ — see `services/<id>/SPEC.md`
-- Multifault result of record: 187 services, 1507 fault instances, 312 caught (20.70%) ✅
-- Parallel and serial demo runners available via `run_parallel_demos.sh`, `run_all_demos.sh`, and `make all` ✅
+```bash
+make all
+```
 
-For per-service usage details (Chinese), open the matching SPEC, e.g.
-[`services/01-catalog-api/SPEC.md`](services/01-catalog-api/SPEC.md).
+Large runs create local output directories such as `runs/`. These directories
+are intentionally ignored by git and should be reviewed before sharing.
+
+## Faults And Judging
+
+Fault primitives are documented in `faults/README.md`. During a fault window,
+the framework drives traffic through each service with `exercise.sh`, collects
+pod logs, and applies the detection rules in `judge/oracle.yaml`.
+
+The judge marks a fault as detected when a configured pattern appears in the
+log window. Pod-kill faults can also be detected through Kubernetes restart
+counts.
+
+## Service Documentation
+
+Each service has a `SPEC.md` with its endpoints, dependencies, run commands,
+fault commands, and expected detection behavior. For example:
+
+```bash
+less services/01-catalog-api/SPEC.md
+```
+
+Use the per-service `SPEC.md` files as the source of truth for service-specific
+details.
