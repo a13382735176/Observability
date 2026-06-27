@@ -1,0 +1,97 @@
+{
+  "instance_id": "otel-demo__go__cart-pg-pool-exhaust-v1",
+  "schema_version": "0.1",
+  "tier": "system",
+
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "url": "https://github.com/open-telemetry/opentelemetry-demo",
+    "base_commit": "TODO_FILL_REAL_SHA_AFTER_PINNING",
+    "local_path": "repos/opentelemetry-demo",
+    "license": "Apache-2.0"
+  },
+
+  "target": {
+    "language": "go",
+    "files": [
+      "src/cart/cmd/cartservice/main.go",
+      "src/cart/internal/db/postgres.go",
+      "src/cart/internal/handler/add_item.go"
+    ],
+    "scope": "entire cart microservice (init + DB layer + handler)"
+  },
+
+  "incident": {
+    "title": "PostgreSQL connection pool exhaustion under sustained AddItem load",
+    "description": "Under sustained high-concurrency AddItem traffic, p99 latency rises sharply and a small fraction of requests start failing with context-deadline-exceeded. Without observability, on-call cannot tell whether the bottleneck is (a) PG connection pool saturation, (b) slow individual queries, (c) lock contention in Redis cache write-through, or (d) gRPC server goroutine saturation.",
+    "operator_questions": [
+      "Is the PG connection pool currently exhausted?",
+      "What is the p50/p99 of individual SQL queries under load?",
+      "What fraction of AddItem failures are DB-layer vs cache-layer vs upstream?",
+      "Which exact query (or transaction) is slowest?"
+    ],
+    "required_signal_classes": [
+      "DB connection-pool gauge (active/idle/waiting)",
+      "DB query duration histogram, tagged by query kind",
+      "Span around the DB transaction with attributes for SQL operation",
+      "Cache-write latency histogram, separately from DB",
+      "Structured error log with error class (timeout / pool-exhausted / sql-error) on failure path"
+    ],
+    "_required_signal_classes_comment": "Class-level requirements, not exact site list. A correct LLM answer covers each class; ground_truth.obs_sites lists the specific sites in the upstream code that satisfy each class."
+  },
+
+  "task": {
+    "prompt_level": "p2_otel_explicit",
+    "obs_patch": "TODO_FILL_DIFF_THAT_STRIPS_OBS_FROM_ALL_THREE_FILES",
+    "context_files": [],
+    "available_imports": [
+      "go.opentelemetry.io/otel",
+      "go.opentelemetry.io/otel/metric",
+      "go.opentelemetry.io/otel/sdk/trace",
+      "go.opentelemetry.io/otel/sdk/metric",
+      "go.opentelemetry.io/otel/sdk/resource",
+      "log/slog"
+    ],
+    "_extra_prompt_block": "An on-call engineer is currently paging this service. They need to answer the operator_questions above using ONLY the telemetry you produce. Treat each operator question as an acceptance criterion."
+  },
+
+  "ground_truth": {
+    "init_sites": [
+      {
+        "type": "tracer_provider_init",
+        "function": "main",
+        "keys": ["service.name=cart"]
+      },
+      {
+        "type": "meter_provider_init",
+        "function": "main",
+        "keys": []
+      }
+    ],
+    "obs_sites": [
+      {
+        "type": "metric_observe",
+        "function": "newDB",
+        "keys": ["db.pool.active", "db.pool.idle", "db.pool.waiting"],
+        "library": "go.opentelemetry.io/otel/metric",
+        "neighborhood": "register observable gauges over sql.DB.Stats()",
+        "_satisfies_signal_class": "DB connection-pool gauge (active/idle/waiting)"
+      },
+      {
+        "type": "span_start",
+        "function": "AddItemTx",
+        "keys": ["db.system=postgresql", "db.operation=INSERT", "db.sql.table=cart_items"],
+        "library": "go.opentelemetry.io/otel",
+        "neighborhood": "around the transaction",
+        "_satisfies_signal_class": "Span around the DB transaction with attributes for SQL operation"
+      }
+    ],
+    "_comment": "System-tier ground truth links each obs_site to the operator question / signal class it satisfies. Scoring is done at the class level, not exact-match."
+  },
+
+  "metadata": {
+    "created_by": "yongtao",
+    "created_at": "TODO_FILL_DATE",
+    "notes": "EXAMPLE / TEMPLATE only. System tier is hand-curated (~5 instances total) and modeled on real incident postmortems. The signal_class abstraction makes scoring forgiving of stylistic variation."
+  }
+}

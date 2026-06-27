@@ -1,0 +1,33 @@
+{
+  "instance_id": "otel-demo__java__ad__GarbageCollectionTrigger__GarbageCollectionTrigger_doExecute__L43-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "src/ad/src/main/java/oteldemo/problempattern/GarbageCollectionTrigger.java",
+    "function": "GarbageCollectionTrigger.doExecute"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "ad",
+    "class": "GarbageCollectionTrigger",
+    "symbol": "doExecute",
+    "start_line": 43,
+    "n_lines": 20,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1325,
+      2206
+    ]
+  },
+  "siblings": []
+}

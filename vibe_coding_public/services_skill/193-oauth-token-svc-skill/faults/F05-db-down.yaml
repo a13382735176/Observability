@@ -1,0 +1,20 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: oauth-token-svc-skill-f05-db-down
+  namespace: vibe-coding
+spec:
+  action: partition
+  mode: all
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      app: oauth-token-svc-skill        # only this service's pod — parallel-safe
+  direction: both
+  target:
+    mode: all
+    selector:
+      namespaces: [vibe-coding]
+      labelSelectors:
+        app: postgres      # network-partition to postgres
+  duration: "75s"

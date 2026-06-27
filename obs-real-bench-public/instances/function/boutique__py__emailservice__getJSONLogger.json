@@ -1,0 +1,30 @@
+{
+  "instance_id": "boutique__py__emailservice__getJSONLogger-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/emailservice/logger.py",
+    "function": "getJSONLogger"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "import sys",
+      "from pythonjsonlogger import jsonlogger"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 8,
+    "is_async": false,
+    "class": null,
+    "service": "emailservice"
+  },
+  "siblings": []
+}

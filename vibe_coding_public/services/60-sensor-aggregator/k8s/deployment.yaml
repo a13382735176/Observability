@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sensor-aggregator
+  namespace: vibe-coding
+spec:
+  selector: { app: sensor-aggregator }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensor-aggregator
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: sensor-aggregator } }
+  template:
+    metadata:
+      labels: { app: sensor-aggregator }
+    spec:
+      containers:
+        - name: app
+          image: vibe/60-sensor-aggregator:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: "sensor-aggregator" }
+            - { name: REDIS_CACHE_HOST, value: "redis-cache" }
+            - { name: REDIS_CACHE_PORT, value: "6379" }
+            - { name: REDIS_STREAM_HOST, value: "redis-stream" }
+            - { name: REDIS_STREAM_PORT, value: "6379" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 8
+            periodSeconds: 3
+            failureThreshold: 10
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }

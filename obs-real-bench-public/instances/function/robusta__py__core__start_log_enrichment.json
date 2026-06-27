@@ -1,0 +1,38 @@
+{
+  "instance_id": "robusta__py__core__start_log_enrichment-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/core/playbooks/oom_killer_utils.py",
+    "function": "start_log_enrichment"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "import time",
+      "from typing import Optional",
+      "from robusta.api import EmptyFileBlock, ExecutionBaseEvent, FileBlock, LogEnricherParams, MarkdownBlock, PodEvent, RegexReplacementStyle, RobustaPod",
+      "from robusta.core.playbooks.pod_utils.crashloop_utils import get_crash_report_enrichments",
+      "from robusta.core.reporting.base import EnrichmentType"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 32,
+    "is_async": false,
+    "class": null,
+    "service": "core"
+  },
+  "siblings": [
+    {
+      "function": "logs_enricher",
+      "n_gt": 1
+    }
+  ]
+}

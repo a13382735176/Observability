@@ -1,0 +1,33 @@
+{
+  "instance_id": "nestjs__ts__misc__base_rpc_exception_filter__BaseRpcExceptionFilter_handleUnknownError__L31-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/exceptions/base-rpc-exception-filter.ts",
+    "function": "BaseRpcExceptionFilter.handleUnknownError"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "BaseRpcExceptionFilter",
+    "symbol": "handleUnknownError",
+    "start_line": 31,
+    "n_lines": 10,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      867,
+      1196
+    ]
+  },
+  "siblings": []
+}

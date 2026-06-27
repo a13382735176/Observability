@@ -1,0 +1,38 @@
+{
+  "instance_id": "vector__rs__topology__controller__TopologyController_reload__L64-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/topology/controller.rs",
+    "function": "TopologyController.reload"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "topology",
+    "class": "TopologyController",
+    "symbol": "reload",
+    "start_line": 64,
+    "n_lines": 88,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      1659,
+      5177
+    ]
+  },
+  "siblings": [
+    {
+      "function": "reload",
+      "n_gt": 6
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "instance_id": "vector__rs__sinks__sink__RedisConnection_repair_connection_manager_task__L154-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sinks/redis/sink.rs",
+    "function": "RedisConnection.repair_connection_manager_task"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sinks",
+    "class": "RedisConnection",
+    "symbol": "repair_connection_manager_task",
+    "start_line": 154,
+    "n_lines": 52,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      4088,
+      5935
+    ]
+  },
+  "siblings": [
+    {
+      "function": "repair_connection_manager_task",
+      "n_gt": 3
+    }
+  ]
+}

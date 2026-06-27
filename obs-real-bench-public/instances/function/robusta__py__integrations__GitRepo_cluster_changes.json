@@ -1,0 +1,60 @@
+{
+  "instance_id": "robusta__py__integrations__GitRepo_cluster_changes-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/integrations/git/git_repo.py",
+    "function": "GitRepo.cluster_changes"
+  },
+  "task": {
+    "available_imports": [
+      "import hashlib",
+      "import logging",
+      "import os",
+      "import re",
+      "import shutil",
+      "import subprocess",
+      "import textwrap",
+      "import threading",
+      "from collections import defaultdict, namedtuple",
+      "from typing import Dict, List",
+      "from robusta.core.model.env_vars import CUSTOM_SSH_HOST_KEYS, GIT_MAX_RETRIES",
+      "from robusta.integrations.git.well_known_hosts import WELL_KNOWN_HOST_KEYS"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 19,
+    "is_async": false,
+    "class": "GitRepo",
+    "service": "integrations"
+  },
+  "siblings": [
+    {
+      "function": "GitRepo.__exec_git_cmd",
+      "n_gt": 3
+    },
+    {
+      "function": "GitRepo.init_repo",
+      "n_gt": 2
+    },
+    {
+      "function": "GitRepo.commit",
+      "n_gt": 1
+    },
+    {
+      "function": "GitRepo.delete",
+      "n_gt": 1
+    },
+    {
+      "function": "GitRepo.init",
+      "n_gt": 1
+    }
+  ]
+}

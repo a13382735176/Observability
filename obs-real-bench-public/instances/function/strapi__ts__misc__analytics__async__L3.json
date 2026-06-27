@@ -1,0 +1,34 @@
+{
+  "instance_id": "strapi__ts__misc__analytics__async__L3-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/cli/cloud/src/utils/analytics.ts",
+    "function": "async"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "async",
+    "start_line": 3,
+    "n_lines": 12,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      95,
+      353
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: async"
+}

@@ -1,0 +1,46 @@
+{
+  "instance_id": "vector__rs__sinks__common__ElasticsearchCommon_healthcheck__L328-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sinks/elasticsearch/common.rs",
+    "function": "ElasticsearchCommon.healthcheck"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sinks",
+    "class": "ElasticsearchCommon",
+    "symbol": "healthcheck",
+    "start_line": 328,
+    "n_lines": 24,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      12763,
+      13576
+    ]
+  },
+  "siblings": [
+    {
+      "function": "parse_config",
+      "n_gt": 4
+    },
+    {
+      "function": "healthcheck",
+      "n_gt": 1
+    },
+    {
+      "function": "parse_many",
+      "n_gt": 1
+    }
+  ]
+}

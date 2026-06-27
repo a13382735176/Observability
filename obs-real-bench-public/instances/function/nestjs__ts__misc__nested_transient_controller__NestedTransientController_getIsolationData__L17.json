@@ -1,0 +1,33 @@
+{
+  "instance_id": "nestjs__ts__misc__nested_transient_controller__NestedTransientController_getIsolationData__L17-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "integration/scopes/src/nested-transient/nested-transient.controller.ts",
+    "function": "NestedTransientController.getIsolationData"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "NestedTransientController",
+    "symbol": "getIsolationData",
+    "start_line": 17,
+    "n_lines": 8,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      506,
+      850
+    ]
+  },
+  "siblings": []
+}

@@ -1,0 +1,42 @@
+{
+  "instance_id": "vector__rs__sources__amqp__run_amqp_source__L427-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/amqp.rs",
+    "function": "run_amqp_source"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": null,
+    "symbol": "run_amqp_source",
+    "start_line": 427,
+    "n_lines": 64,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      13457,
+      15562
+    ]
+  },
+  "siblings": [
+    {
+      "function": "source_consume_event",
+      "n_gt": 4
+    },
+    {
+      "function": "send_event",
+      "n_gt": 1
+    }
+  ]
+}

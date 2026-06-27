@@ -1,0 +1,54 @@
+{
+  "instance_id": "deathstar__go__misc__server__newGeoIndexMus__L344-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "hotelReservation/services/attractions/server.go",
+    "function": "newGeoIndexMus"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "newGeoIndexMus",
+    "start_line": 344,
+    "n_lines": 23,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      8499,
+      9085
+    ]
+  },
+  "siblings": [
+    {
+      "function": "newGeoIndex",
+      "n_gt": 2
+    },
+    {
+      "function": "newGeoIndexCinema",
+      "n_gt": 2
+    },
+    {
+      "function": "newGeoIndexRest",
+      "n_gt": 2
+    },
+    {
+      "function": "NearbyCinema",
+      "n_gt": 1
+    },
+    {
+      "function": "NearbyMus",
+      "n_gt": 1
+    }
+  ]
+}

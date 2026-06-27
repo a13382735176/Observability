@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: image-resizer
+  namespace: vibe-coding
+spec:
+  selector: { app: image-resizer }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-resizer
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: image-resizer } }
+  template:
+    metadata:
+      labels: { app: image-resizer }
+    spec:
+      containers:
+        - name: app
+          image: vibe/11-image-resizer:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: image-resizer }
+
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 3
+            periodSeconds: 3
+            failureThreshold: 5
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }

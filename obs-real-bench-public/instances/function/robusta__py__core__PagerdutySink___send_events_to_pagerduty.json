@@ -1,0 +1,42 @@
+{
+  "instance_id": "robusta__py__core__PagerdutySink___send_events_to_pagerduty-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/core/sinks/pagerduty/pagerduty_sink.py",
+    "function": "PagerdutySink.__send_events_to_pagerduty"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "from typing import Dict, Any, Optional, List",
+      "import requests",
+      "from robusta.core.model.k8s_operation_type import K8sOperationType",
+      "from robusta.core.reporting.base import BaseBlock, Finding, FindingSeverity, Enrichment, Link, LinkType",
+      "from robusta.core.reporting.blocks import HeaderBlock, JsonBlock, KubernetesDiffBlock, LinksBlock, ListBlock, MarkdownBlock, TableBlock",
+      "from robusta.core.reporting.consts import FindingAggregationKey",
+      "from robusta.core.reporting.url_helpers import convert_prom_graph_url_to_robusta_metrics_explorer",
+      "from robusta.core.sinks.pagerduty.pagerduty_sink_params import PagerdutyConfigWrapper, PagerdutySinkParams",
+      "from robusta.core.sinks.sink_base import SinkBase"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 43,
+    "is_async": false,
+    "class": "PagerdutySink",
+    "service": "core"
+  },
+  "siblings": [
+    {
+      "function": "PagerdutySink.__send_changes_to_pagerduty",
+      "n_gt": 1
+    }
+  ]
+}

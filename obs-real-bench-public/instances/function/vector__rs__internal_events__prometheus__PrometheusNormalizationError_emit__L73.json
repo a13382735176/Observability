@@ -1,0 +1,47 @@
+{
+  "instance_id": "vector__rs__internal_events__prometheus__PrometheusNormalizationError_emit__L73-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/internal_events/prometheus.rs",
+    "function": "PrometheusNormalizationError.emit"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "internal_events",
+    "class": "PrometheusNormalizationError",
+    "symbol": "emit",
+    "start_line": 73,
+    "n_lines": 18,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2109,
+      2716
+    ]
+  },
+  "siblings": [
+    {
+      "function": "emit",
+      "n_gt": 2
+    },
+    {
+      "function": "emit",
+      "n_gt": 2
+    },
+    {
+      "function": "emit",
+      "n_gt": 2
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: PrometheusNormalizationError.emit"
+}

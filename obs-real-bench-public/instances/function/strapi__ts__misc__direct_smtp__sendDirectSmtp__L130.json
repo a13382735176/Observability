@@ -1,0 +1,33 @@
+{
+  "instance_id": "strapi__ts__misc__direct_smtp__sendDirectSmtp__L130-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/providers/email-sendmail/src/direct-smtp.ts",
+    "function": "sendDirectSmtp"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "sendDirectSmtp",
+    "start_line": 130,
+    "n_lines": 81,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      3580,
+      5933
+    ]
+  },
+  "siblings": []
+}

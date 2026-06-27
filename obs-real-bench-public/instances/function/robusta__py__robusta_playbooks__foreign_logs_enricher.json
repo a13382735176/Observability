@@ -1,0 +1,64 @@
+{
+  "instance_id": "robusta__py__robusta_playbooks__foreign_logs_enricher-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "playbooks/robusta_playbooks/alerts_integration.py",
+    "function": "foreign_logs_enricher"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "from collections import defaultdict",
+      "from datetime import datetime",
+      "from string import Template",
+      "from typing import Any, Dict, Iterable, List, Optional",
+      "from urllib.parse import urlparse",
+      "import requests",
+      "from hikaru.model.rel_1_26 import Node",
+      "from kubernetes import client",
+      "from kubernetes.client import V1Pod, V1PodList, exceptions",
+      "from robusta.api import ActionException, ActionParams, AlertResourceGraphEnricherParams, CallbackBlock, CallbackChoice, ChartValuesFormat, CustomGraphEnricherParams, Emojis, EnrichmentType, ErrorCodes, ExecutionBaseEvent, Finding, FindingSource, FindingSubjectType, GraphBlock, GraphEnricherParams, KubeObjFindingSubject, KubernetesResourceEvent, ListBlock, LogEnricherParams, MarkdownBlock, PodEvent, PrometheusKubernetesAlert, ResourceChartItemType, ResourceChartResourceType, RobustaPod, SlackAnnotations, TableBlock, action, create_chart_from_prometheus_query, create_graph_enrichment, create_resource_enrichment, get_node_internal_ip",
+      "from robusta.core.playbooks.oom_killer_utils import logs_enricher, start_log_enrichment",
+      "from robusta.core.reporting import FindingSubject",
+      "from robusta.core.reporting.base import Link, LinkType",
+      "from robusta.core.reporting.blocks import TableBlockFormat",
+      "from robusta.utils.parsing import format_event_templated_string"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 18,
+    "is_async": false,
+    "class": null,
+    "service": "robusta_playbooks"
+  },
+  "siblings": [
+    {
+      "function": "default_enricher",
+      "n_gt": 1
+    },
+    {
+      "function": "mention_enricher",
+      "n_gt": 1
+    },
+    {
+      "function": "name_silencer",
+      "n_gt": 1
+    },
+    {
+      "function": "node_restart_silencer",
+      "n_gt": 1
+    },
+    {
+      "function": "pod_status_silencer",
+      "n_gt": 1
+    }
+  ]
+}

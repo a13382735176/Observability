@@ -1,0 +1,49 @@
+{
+  "instance_id": "robusta__py__runner__TelemetryService___log_periodic-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/runner/telemetry_service.py",
+    "function": "TelemetryService.__log_periodic"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "import os",
+      "import threading",
+      "from collections import defaultdict",
+      "from enum import Enum",
+      "from time import sleep",
+      "import requests",
+      "import sentry_sdk",
+      "from sentry_sdk.integrations.threading import ThreadingIntegration",
+      "from hikaru.model.rel_1_26 import NodeList",
+      "from robusta.core.model.env_vars import ENABLE_TELEMETRY, PROMETHEUS_ENABLED, ROBUSTA_TELEMETRY_ENDPOINT, RUNNER_VERSION, SEND_ADDITIONAL_TELEMETRY, SENTRY_DSN, SENTRY_ENABLED, TELEMETRY_PERIODIC_SEC",
+      "from robusta.model.config import Registry, Telemetry",
+      "from robusta.runner.telemetry import SinkInfo"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 9,
+    "is_async": false,
+    "class": "TelemetryService",
+    "service": "runner"
+  },
+  "siblings": [
+    {
+      "function": "TelemetryService.__init__",
+      "n_gt": 2
+    },
+    {
+      "function": "TelemetryService.__log",
+      "n_gt": 1
+    }
+  ]
+}

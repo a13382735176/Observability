@@ -1,0 +1,46 @@
+{
+  "instance_id": "trainticket__java__misc__RoutePlanServiceImpl__RoutePlanServiceImpl_getTripFromHighSpeedTravelServive__L306-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-route-plan-service/src/main/java/plan/service/RoutePlanServiceImpl.java",
+    "function": "RoutePlanServiceImpl.getTripFromHighSpeedTravelServive"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "RoutePlanServiceImpl",
+    "symbol": "getTripFromHighSpeedTravelServive",
+    "start_line": 306,
+    "n_lines": 15,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      13718,
+      14627
+    ]
+  },
+  "siblings": [
+    {
+      "function": "RoutePlanServiceImpl.searchMinStopStations",
+      "n_gt": 4
+    },
+    {
+      "function": "RoutePlanServiceImpl.getRouteByRouteId",
+      "n_gt": 2
+    },
+    {
+      "function": "RoutePlanServiceImpl.getTripFromNormalTrainTravelService",
+      "n_gt": 1
+    }
+  ]
+}

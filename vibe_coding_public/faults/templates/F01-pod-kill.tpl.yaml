@@ -1,0 +1,12 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: __FAULT_NAME__
+  namespace: __NAMESPACE__
+spec:
+  action: pod-kill
+  mode: one
+  selector:
+    namespaces: [__NAMESPACE__]
+    labelSelectors:
+      app: __APP__

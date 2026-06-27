@@ -1,0 +1,39 @@
+{
+  "instance_id": "vector__rs__transforms__remap__RemapConfig_build__L261-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/transforms/remap.rs",
+    "function": "RemapConfig.build"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "transforms",
+    "class": "RemapConfig",
+    "symbol": "build",
+    "start_line": 261,
+    "n_lines": 18,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      10172,
+      10917
+    ]
+  },
+  "siblings": [
+    {
+      "function": "build",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: RemapConfig.build"
+}

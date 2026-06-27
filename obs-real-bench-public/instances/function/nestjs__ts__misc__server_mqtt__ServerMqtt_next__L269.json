@@ -1,0 +1,39 @@
+{
+  "instance_id": "nestjs__ts__misc__server_mqtt__ServerMqtt_next__L269-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/server/server-mqtt.ts",
+    "function": "ServerMqtt.next"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ServerMqtt",
+    "symbol": "next",
+    "start_line": 269,
+    "n_lines": 5,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      7898,
+      8034
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ServerMqtt.registerErrorListener",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: ServerMqtt.next"
+}

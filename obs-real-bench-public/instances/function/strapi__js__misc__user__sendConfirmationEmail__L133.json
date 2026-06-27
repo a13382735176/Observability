@@ -1,0 +1,33 @@
+{
+  "instance_id": "strapi__js__misc__user__sendConfirmationEmail__L133-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "javascript",
+    "file": "packages/plugins/users-permissions/server/services/user.js",
+    "function": "sendConfirmationEmail"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "sendConfirmationEmail",
+    "start_line": 133,
+    "n_lines": 63,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      3509,
+      5607
+    ]
+  },
+  "siblings": []
+}

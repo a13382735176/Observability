@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__InsidePaymentServiceImpl__InsidePaymentServiceImpl_initPayment__L360-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-inside-payment-service/src/main/java/inside_payment/service/InsidePaymentServiceImpl.java",
+    "function": "InsidePaymentServiceImpl.initPayment"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "InsidePaymentServiceImpl",
+    "symbol": "initPayment",
+    "start_line": 360,
+    "n_lines": 9,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      15690,
+      16128
+    ]
+  },
+  "siblings": [
+    {
+      "function": "InsidePaymentServiceImpl.pay",
+      "n_gt": 5
+    },
+    {
+      "function": "InsidePaymentServiceImpl.addMoney",
+      "n_gt": 1
+    },
+    {
+      "function": "InsidePaymentServiceImpl.createAccount",
+      "n_gt": 1
+    },
+    {
+      "function": "InsidePaymentServiceImpl.drawBack",
+      "n_gt": 1
+    },
+    {
+      "function": "InsidePaymentServiceImpl.payDifference",
+      "n_gt": 1
+    }
+  ]
+}

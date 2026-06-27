@@ -1,0 +1,39 @@
+{
+  "instance_id": "vector__rs__internal_events__datadog_metrics__DatadogMetricsEncodingError_emit__L14-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/internal_events/datadog_metrics.rs",
+    "function": "DatadogMetricsEncodingError<'_>.emit"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "internal_events",
+    "class": "DatadogMetricsEncodingError<'_>",
+    "symbol": "emit",
+    "start_line": 14,
+    "n_lines": 23,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      417,
+      1127
+    ]
+  },
+  "siblings": [
+    {
+      "function": "emit",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: DatadogMetricsEncodingError<'_>.emit"
+}

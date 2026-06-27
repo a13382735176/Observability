@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: feedback-collector
+  namespace: vibe-coding
+spec:
+  selector: { app: feedback-collector }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedback-collector
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: feedback-collector } }
+  template:
+    metadata:
+      labels: { app: feedback-collector }
+    spec:
+      containers:
+        - name: app
+          image: vibe/148-feedback-collector:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: feedback-collector }
+            - { name: PG_DSN, value: "postgres://vibe:vibe@postgres:5432/vibe" }
+            - { name: REDIS_STREAM_HOST, value: redis-stream }
+            - { name: REDIS_STREAM_PORT, value: "6379" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 8
+            periodSeconds: 3
+            failureThreshold: 10
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }

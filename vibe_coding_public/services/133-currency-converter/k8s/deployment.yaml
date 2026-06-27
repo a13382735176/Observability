@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: currency-converter
+  namespace: vibe-coding
+spec:
+  selector:
+    app: currency-converter
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: currency-converter
+  namespace: vibe-coding
+  labels:
+    app: currency-converter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: currency-converter
+  template:
+    metadata:
+      labels:
+        app: currency-converter
+    spec:
+      containers:
+        - name: app
+          image: vibe/133-currency-converter:dev
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_NAME
+              value: currency-converter
+            - name: REDIS_HOST
+              value: redis-cache
+            - name: REDIS_PORT
+              value: "6379"
+            - name: UPSTREAM_URL
+              value: http://mock-upstream:8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 8
+            periodSeconds: 3
+            failureThreshold: 10
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

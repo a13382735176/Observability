@@ -1,0 +1,49 @@
+{
+  "instance_id": "robusta__py__integrations__JiraSender__markdown_to_jira-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/integrations/jira/sender.py",
+    "function": "JiraSender._markdown_to_jira"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "import re",
+      "from queue import PriorityQueue",
+      "from typing import Dict, List, Tuple, Union",
+      "from robusta.core.reporting import BaseBlock, FileBlock, Finding, FindingSeverity, HeaderBlock, ListBlock, MarkdownBlock, TableBlock, EmptyFileBlock",
+      "from robusta.core.reporting.base import FindingStatus",
+      "from robusta.core.reporting.utils import add_pngs_for_all_svgs",
+      "from robusta.core.sinks.jira.jira_sink_params import JiraSinkParams",
+      "from robusta.integrations.jira.client import JiraClient"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 25,
+    "is_async": false,
+    "class": "JiraSender",
+    "service": "integrations"
+  },
+  "siblings": [
+    {
+      "function": "JiraSender.__init__",
+      "n_gt": 1
+    },
+    {
+      "function": "JiraSender.__to_jira",
+      "n_gt": 1
+    },
+    {
+      "function": "JiraSender.send_finding_to_jira",
+      "n_gt": 1
+    }
+  ]
+}

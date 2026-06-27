@@ -1,0 +1,31 @@
+{
+  "instance_id": "otel-demo__py__recommendation__getJSONLogger-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/recommendation/logger.py",
+    "function": "getJSONLogger"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "import sys",
+      "from pythonjsonlogger import jsonlogger",
+      "from opentelemetry import trace"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 8,
+    "is_async": false,
+    "class": null,
+    "service": "recommendation"
+  },
+  "siblings": []
+}

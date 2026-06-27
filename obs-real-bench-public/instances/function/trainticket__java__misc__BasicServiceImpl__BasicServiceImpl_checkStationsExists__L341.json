@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__BasicServiceImpl__BasicServiceImpl_checkStationsExists__L341-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-basic-service/src/main/java/fdse/microservice/service/BasicServiceImpl.java",
+    "function": "BasicServiceImpl.checkStationsExists"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "BasicServiceImpl",
+    "symbol": "checkStationsExists",
+    "start_line": 341,
+    "n_lines": 16,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      14242,
+      15047
+    ]
+  },
+  "siblings": [
+    {
+      "function": "BasicServiceImpl.queryForTravel",
+      "n_gt": 6
+    },
+    {
+      "function": "BasicServiceImpl.queryPriceConfigByRouteIdsAndTrainTypes",
+      "n_gt": 4
+    },
+    {
+      "function": "BasicServiceImpl.getRouteByRouteId",
+      "n_gt": 3
+    },
+    {
+      "function": "BasicServiceImpl.getRoutesByRouteIds",
+      "n_gt": 3
+    },
+    {
+      "function": "BasicServiceImpl.queryForStationId",
+      "n_gt": 2
+    }
+  ]
+}

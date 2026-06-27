@@ -1,0 +1,34 @@
+{
+  "instance_id": "boutique__js__currencyservice__client__if__L54-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "javascript",
+    "file": "src/currencyservice/client.js",
+    "function": "if"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "currencyservice",
+    "class": null,
+    "symbol": "if",
+    "start_line": 54,
+    "n_lines": 7,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1434,
+      1608
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: if"
+}

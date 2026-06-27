@@ -1,0 +1,33 @@
+{
+  "instance_id": "eshop__cs__Webhooks.API__GrantUrlTesterService__GrantUrlTesterService_TestGrantUrl__L5-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Webhooks.API/Services/GrantUrlTesterService.cs",
+    "function": "GrantUrlTesterService.TestGrantUrl"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Webhooks.API",
+    "class": "GrantUrlTesterService",
+    "symbol": "TestGrantUrl",
+    "start_line": 5,
+    "n_lines": 31,
+    "n_obs_tokens": 3,
+    "span_byte_range": [
+      164,
+      1574
+    ]
+  },
+  "siblings": []
+}

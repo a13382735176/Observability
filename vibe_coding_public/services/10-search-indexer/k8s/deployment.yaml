@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: search-indexer
+  namespace: vibe-coding
+spec:
+  selector: { app: search-indexer }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-indexer
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: search-indexer } }
+  template:
+    metadata:
+      labels: { app: search-indexer }
+    spec:
+      containers:
+        - name: app
+          image: vibe/10-search-indexer:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: search-indexer }
+            - { name: PG_DSN, value: "postgres://vibe:vibe@postgres:5432/vibe" }
+            - { name: REDIS_CACHE_URL, value: "redis://redis-cache:6379/0" }
+            - { name: REDIS_CACHE_HOST, value: "redis-cache" }
+            - { name: REDIS_CACHE_PORT, value: "6379" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 3
+            periodSeconds: 3
+            failureThreshold: 5
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }

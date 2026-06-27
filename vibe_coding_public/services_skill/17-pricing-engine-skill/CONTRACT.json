@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "service": {
+    "service_id": "17-pricing-engine-skill",
+    "app_label": "pricing-engine-skill",
+    "image": "vibe/17-pricing-engine-skill:dev",
+    "target_dir": "services_skill/17-pricing-engine-skill",
+    "port": 8080,
+    "language": "go",
+    "language_stack": "Go"
+  },
+  "responsibility": "17-pricing-engine",
+  "behavior_contract": "",
+  "endpoints": [],
+  "dependencies": [
+    "redis-cache"
+  ],
+  "state_contract": {
+    "postgres_schema_sql": [],
+    "named_state_keys_or_streams": []
+  },
+  "runtime_env": [
+    {
+      "name": "APP_NAME",
+      "value": "pricing-engine-skill"
+    },
+    {
+      "name": "REDIS_CACHE_HOST",
+      "value": "redis-cache"
+    },
+    {
+      "name": "REDIS_CACHE_PORT",
+      "value": "6379"
+    }
+  ],
+  "docker_build_contract": {
+    "build_context_after_import": "services_skill/17-pricing-engine-skill",
+    "image": "vibe/17-pricing-engine-skill:dev",
+    "source_root_visible_to_generator": "src",
+    "generator_may_create_or_modify": [
+      "src/**"
+    ],
+    "generator_must_not_create_or_modify": [
+      "anything outside src/"
+    ],
+    "validation_command_after_import": "docker build -t vibe/17-pricing-engine-skill:dev .",
+    "dockerfile_used_by_private_harness": "FROM golang:1.24-alpine AS build\nWORKDIR /src\nCOPY src/ .\nRUN go mod tidy && CGO_ENABLED=0 go build -o /app ./...\n\nFROM alpine:3.20\nRUN apk add --no-cache ca-certificates\nCOPY --from=build /app /app\nEXPOSE 8080\nCMD [\"/app\"]\n"
+  },
+  "readiness_path": "/healthz",
+  "generation_constraints": [
+    "Generate a fresh implementation from this contract only.",
+    "Keep API paths, request fields, response fields, dependencies, and database schema compatible with the contract.",
+    "Keep the service runnable on port 8080 with the listed environment variables and Docker build contract.",
+    "Do not copy any pre-existing source code or log wording.",
+    "Do not infer or implement hidden evaluation behavior from this contract.",
+    "The observability skill may only affect application-level diagnostic messages inside the described service shape.",
+    "Do not add endpoints, dependencies, persistent state, background workers, or external telemetry infrastructure beyond the contract.",
+    "Do not add OpenTelemetry, Prometheus, Jaeger, Grafana, or external telemetry infrastructure.",
+    "Create or modify only files under src/; all other files are owned by the private runtime environment."
+  ]
+}

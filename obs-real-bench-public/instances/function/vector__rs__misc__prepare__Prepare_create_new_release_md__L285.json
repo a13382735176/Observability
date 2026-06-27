@@ -1,0 +1,54 @@
+{
+  "instance_id": "vector__rs__misc__prepare__Prepare_create_new_release_md__L285-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "vdev/src/commands/release/prepare.rs",
+    "function": "Prepare.create_new_release_md"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "Prepare",
+    "symbol": "create_new_release_md",
+    "start_line": 285,
+    "n_lines": 56,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      10395,
+      12604
+    ]
+  },
+  "siblings": [
+    {
+      "function": "append_vrl_changelog_to_release_cue",
+      "n_gt": 2
+    },
+    {
+      "function": "create_new_release_md",
+      "n_gt": 2
+    },
+    {
+      "function": "generate_release_cue",
+      "n_gt": 2
+    },
+    {
+      "function": "open_release_pr",
+      "n_gt": 2
+    },
+    {
+      "function": "update_dockerfile_base_version",
+      "n_gt": 2
+    }
+  ]
+}

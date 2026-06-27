@@ -1,0 +1,33 @@
+{
+  "instance_id": "eshop__cs__Ordering.API__UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler__UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler_UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler__L8-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs",
+    "function": "UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Ordering.API",
+    "class": "UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler",
+    "symbol": "UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler",
+    "start_line": 8,
+    "n_lines": 7,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      308,
+      701
+    ]
+  },
+  "siblings": []
+}

@@ -1,0 +1,20 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: HTTPChaos
+metadata:
+  name: __FAULT_NAME__
+  namespace: __NAMESPACE__
+spec:
+  mode: all
+  selector:
+    namespaces: [__NAMESPACE__]
+    labelSelectors:
+      # __APP__ here is the UPSTREAM (mock-upstream), not the caller.
+      app: __APP__
+  target: Response
+  port: 8080
+  path: "*"
+  replace:
+    code: 503
+    # base64("upstream injected error\n")
+    body: dXBzdHJlYW0gaW5qZWN0ZWQgZXJyb3IK
+  duration: "__DURATION__"

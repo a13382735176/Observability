@@ -1,0 +1,20 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: achievement-svc-skill-f07-cache-down
+  namespace: vibe-coding
+spec:
+  action: partition
+  mode: all
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      app: achievement-svc-skill        # only this service's pod — parallel-safe
+  direction: both
+  target:
+    mode: all
+    selector:
+      namespaces: [vibe-coding]
+      labelSelectors:
+        app: redis-cache   # network-partition to redis-cache
+  duration: "75s"

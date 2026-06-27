@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mqtt-bridge-skill
+  namespace: vibe-coding
+spec:
+  selector: { app: mqtt-bridge-skill }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mqtt-bridge-skill
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: mqtt-bridge-skill } }
+  template:
+    metadata:
+      labels: { app: mqtt-bridge-skill }
+    spec:
+      containers:
+        - name: app
+          image: vibe/185-mqtt-bridge-skill:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: mqtt-bridge-skill }
+            - { name: REDIS_STREAM_HOST, value: redis-stream }
+            - { name: REDIS_STREAM_PORT, value: "6379" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 8
+            periodSeconds: 3
+            failureThreshold: 10
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }

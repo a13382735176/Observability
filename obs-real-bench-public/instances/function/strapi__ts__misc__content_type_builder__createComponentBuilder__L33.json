@@ -1,0 +1,33 @@
+{
+  "instance_id": "strapi__ts__misc__content_type_builder__createComponentBuilder__L33-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/content-type-builder/server/src/services/schema-builder/content-type-builder.ts",
+    "function": "createComponentBuilder"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "createComponentBuilder",
+    "start_line": 33,
+    "n_lines": 328,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      943,
+      11990
+    ]
+  },
+  "siblings": []
+}

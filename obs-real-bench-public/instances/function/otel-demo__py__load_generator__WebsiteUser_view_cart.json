@@ -1,0 +1,83 @@
+{
+  "instance_id": "otel-demo__py__load_generator__WebsiteUser_view_cart-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/load-generator/locustfile.py",
+    "function": "WebsiteUser.view_cart"
+  },
+  "task": {
+    "available_imports": [
+      "import json",
+      "import os",
+      "import random",
+      "import uuid",
+      "import logging",
+      "from locust import HttpUser, task, between",
+      "from locust_plugins.users.playwright import PlaywrightUser, pw, PageWithRetry, event",
+      "from opentelemetry import context, baggage, trace",
+      "from opentelemetry.context import Context",
+      "from opentelemetry.metrics import set_meter_provider",
+      "from opentelemetry.sdk.metrics import MeterProvider",
+      "from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader",
+      "from opentelemetry.sdk.trace import TracerProvider",
+      "from opentelemetry.sdk.trace.export import BatchSpanProcessor",
+      "from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import OTLPMetricExporter",
+      "from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter",
+      "from opentelemetry.instrumentation.jinja2 import Jinja2Instrumentor",
+      "from opentelemetry.instrumentation.requests import RequestsInstrumentor",
+      "from opentelemetry.instrumentation.system_metrics import SystemMetricsInstrumentor",
+      "from opentelemetry.instrumentation.urllib3 import URLLib3Instrumentor",
+      "from opentelemetry.instrumentation.logging import LoggingInstrumentor",
+      "from opentelemetry._logs import set_logger_provider",
+      "from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter",
+      "from opentelemetry.sdk._logs import LoggerProvider, LoggingHandler",
+      "from opentelemetry.sdk._logs.export import BatchLogRecordProcessor",
+      "from opentelemetry.sdk.resources import Resource",
+      "from openfeature import api",
+      "from openfeature.contrib.provider.ofrep import OFREPProvider",
+      "from openfeature.contrib.hook.opentelemetry import TracingHook",
+      "from playwright.async_api import Route, Request",
+      "tracer_provider  (module-level)",
+      "logger_provider  (module-level)",
+      "log_exporter  (module-level)",
+      "root_logger  (module-level)",
+      "metric_exporter  (module-level)"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 3,
+    "is_async": false,
+    "class": "WebsiteUser",
+    "service": "load_generator"
+  },
+  "siblings": [
+    {
+      "function": "WebsiteUser.add_to_cart",
+      "n_gt": 2
+    },
+    {
+      "function": "WebsiteUser.ask_product_ai_assistant",
+      "n_gt": 2
+    },
+    {
+      "function": "WebsiteUser.browse_product",
+      "n_gt": 2
+    },
+    {
+      "function": "WebsiteUser.checkout",
+      "n_gt": 2
+    },
+    {
+      "function": "WebsiteUser.checkout_multi",
+      "n_gt": 2
+    }
+  ]
+}

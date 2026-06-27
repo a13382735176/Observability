@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__WaitListOrderServiceImpl__WaitListOrderServiceImpl_getAllWaitListOrders__L78-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-wait-order-service/src/main/java/waitorder/service/Impl/WaitListOrderServiceImpl.java",
+    "function": "WaitListOrderServiceImpl.getAllWaitListOrders"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "WaitListOrderServiceImpl",
+    "symbol": "getAllWaitListOrders",
+    "start_line": 78,
+    "n_lines": 18,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2893,
+      3909
+    ]
+  },
+  "siblings": [
+    {
+      "function": "WaitListOrderServiceImpl.modifyWaitListOrderStatus",
+      "n_gt": 3
+    },
+    {
+      "function": "WaitListOrderServiceImpl.updateOrder",
+      "n_gt": 3
+    },
+    {
+      "function": "WaitListOrderServiceImpl.findOrderById",
+      "n_gt": 2
+    },
+    {
+      "function": "WaitListOrderServiceImpl.getAllOrders",
+      "n_gt": 2
+    },
+    {
+      "function": "WaitListOrderServiceImpl.saveNewOrder",
+      "n_gt": 2
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "service": {
+    "service_id": "15-webhook-fanout-skill",
+    "app_label": "webhook-fanout-skill",
+    "image": "vibe/15-webhook-fanout-skill:dev",
+    "target_dir": "services_skill/15-webhook-fanout-skill",
+    "port": 8080,
+    "language": "csharp",
+    "language_stack": "C#/.NET"
+  },
+  "responsibility": "C# / ASP.NET Core 8。POST 进来的 body 并行扇出到 3 个 mock-upstream 路径（/dest-1/2/3）。",
+  "behavior_contract": "",
+  "endpoints": [
+    "GET /healthz",
+    "POST /webhook 把 body 同时转发到三个上游，返回各自的 status"
+  ],
+  "dependencies": [
+    "mock-upstream"
+  ],
+  "state_contract": {
+    "postgres_schema_sql": [],
+    "named_state_keys_or_streams": []
+  },
+  "runtime_env": [
+    {
+      "name": "APP_NAME",
+      "value": "webhook-fanout-skill"
+    },
+    {
+      "name": "UPSTREAM_URL",
+      "value": "http://mock-upstream:8080"
+    }
+  ],
+  "docker_build_contract": {
+    "build_context_after_import": "services_skill/15-webhook-fanout-skill",
+    "image": "vibe/15-webhook-fanout-skill:dev",
+    "source_root_visible_to_generator": "src",
+    "generator_may_create_or_modify": [
+      "src/**"
+    ],
+    "generator_must_not_create_or_modify": [
+      "anything outside src/"
+    ],
+    "validation_command_after_import": "docker build -t vibe/15-webhook-fanout-skill:dev .",
+    "dockerfile_used_by_private_harness": "FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build\nWORKDIR /work\nCOPY src/*.csproj .\nRUN dotnet restore\nCOPY src/ .\nRUN dotnet publish -c Release -o /app /p:UseAppHost=false /p:GenerateDocumentationFile=false\n\nFROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine\nWORKDIR /app\nCOPY --from=build /app .\nEXPOSE 8080\nENV ASPNETCORE_URLS=http://+:8080\nENTRYPOINT [\"dotnet\", \"app.dll\"]\n"
+  },
+  "readiness_path": "/healthz",
+  "generation_constraints": [
+    "Generate a fresh implementation from this contract only.",
+    "Keep API paths, request fields, response fields, dependencies, and database schema compatible with the contract.",
+    "Keep the service runnable on port 8080 with the listed environment variables and Docker build contract.",
+    "Do not copy any pre-existing source code or log wording.",
+    "Do not infer or implement hidden evaluation behavior from this contract.",
+    "The observability skill may only affect application-level diagnostic messages inside the described service shape.",
+    "Do not add endpoints, dependencies, persistent state, background workers, or external telemetry infrastructure beyond the contract.",
+    "Do not add OpenTelemetry, Prometheus, Jaeger, Grafana, or external telemetry infrastructure.",
+    "Create or modify only files under src/; all other files are owned by the private runtime environment."
+  ]
+}

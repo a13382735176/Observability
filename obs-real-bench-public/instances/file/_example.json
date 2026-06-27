@@ -1,0 +1,79 @@
+{
+  "instance_id": "otel-demo__go__cart-main_file-v1",
+  "schema_version": "0.1",
+  "tier": "file",
+
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "url": "https://github.com/open-telemetry/opentelemetry-demo",
+    "base_commit": "TODO_FILL_REAL_SHA_AFTER_PINNING",
+    "local_path": "repos/opentelemetry-demo",
+    "license": "Apache-2.0"
+  },
+
+  "target": {
+    "language": "go",
+    "files": ["src/cart/cmd/cartservice/main.go"],
+    "scope": "entire file — both init code (TracerProvider / MeterProvider / Logger setup) and the business-logic functions"
+  },
+
+  "task": {
+    "prompt_level": "p2_otel_explicit",
+    "obs_patch": "TODO_FILL_UNIFIED_DIFF_THAT_STRIPS_OBS_FROM_WHOLE_FILE",
+    "context_files": [
+      "src/cart/cmd/cartservice/db.go"
+    ],
+    "_context_files_comment": "Read-only context. LLM sees but must not modify.",
+    "available_imports": [
+      "go.opentelemetry.io/otel",
+      "go.opentelemetry.io/otel/sdk/trace",
+      "go.opentelemetry.io/otel/sdk/metric",
+      "go.opentelemetry.io/otel/sdk/resource",
+      "go.opentelemetry.io/otel/semconv/v1.26.0",
+      "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "log/slog"
+    ]
+  },
+
+  "ground_truth": {
+    "init_sites": [
+      {
+        "type": "tracer_provider_init",
+        "library": "go.opentelemetry.io/otel/sdk/trace",
+        "function": "main",
+        "keys": ["service.name=cart", "service.version", "deployment.environment"],
+        "neighborhood": "in main(), before grpc server start"
+      },
+      {
+        "type": "meter_provider_init",
+        "library": "go.opentelemetry.io/otel/sdk/metric",
+        "function": "main",
+        "keys": ["resource attributes mirror tracer"],
+        "neighborhood": "in main(), alongside tracer provider"
+      },
+      {
+        "type": "grpc_interceptor",
+        "library": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+        "function": "main",
+        "keys": ["UnaryServerInterceptor", "StatsHandler"],
+        "neighborhood": "in grpc.NewServer options"
+      }
+    ],
+    "obs_sites": [
+      {
+        "type": "span_start",
+        "library": "go.opentelemetry.io/otel",
+        "function": "AddItem",
+        "keys": ["cart.user.id", "cart.item.id", "cart.item.quantity"],
+        "neighborhood": "at handler entry"
+      }
+    ],
+    "_comment": "init_sites = file/module-level instrumentation setup (NOT visible at function tier). obs_sites = per-call-path instrumentation, same shape as function tier."
+  },
+
+  "metadata": {
+    "created_by": "yongtao",
+    "created_at": "TODO_FILL_DATE",
+    "notes": "EXAMPLE / TEMPLATE only. File-tier instances test whether the LLM correctly wires up tracer/meter providers AND uses them in business code — something function-tier cannot see."
+  }
+}

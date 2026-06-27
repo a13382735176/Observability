@@ -1,0 +1,33 @@
+{
+  "instance_id": "strapi__ts__misc__notification__resetTimeout__L51-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/cli/cloud/src/services/notification.ts",
+    "function": "resetTimeout"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "resetTimeout",
+    "start_line": 51,
+    "n_lines": 23,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1379,
+      2002
+    ]
+  },
+  "siblings": []
+}

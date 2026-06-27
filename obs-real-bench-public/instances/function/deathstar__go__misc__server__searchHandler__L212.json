@@ -1,0 +1,42 @@
+{
+  "instance_id": "deathstar__go__misc__server__searchHandler__L212-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "hotelReservation/services/frontend/server.go",
+    "function": "searchHandler"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "searchHandler",
+    "start_line": 212,
+    "n_lines": 82,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      5986,
+      8388
+    ]
+  },
+  "siblings": [
+    {
+      "function": "Run",
+      "n_gt": 5
+    },
+    {
+      "function": "getGprcConn",
+      "n_gt": 3
+    }
+  ]
+}

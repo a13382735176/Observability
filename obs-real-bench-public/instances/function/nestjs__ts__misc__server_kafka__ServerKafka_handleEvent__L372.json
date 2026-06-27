@@ -1,0 +1,33 @@
+{
+  "instance_id": "nestjs__ts__misc__server_kafka__ServerKafka_handleEvent__L372-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/server/server-kafka.ts",
+    "function": "ServerKafka.handleEvent"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ServerKafka",
+    "symbol": "handleEvent",
+    "start_line": 372,
+    "n_lines": 18,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      10874,
+      11450
+    ]
+  },
+  "siblings": []
+}

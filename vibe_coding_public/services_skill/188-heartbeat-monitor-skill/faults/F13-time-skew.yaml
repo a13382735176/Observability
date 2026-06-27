@@ -1,0 +1,13 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: TimeChaos
+metadata:
+  name: heartbeat-monitor-skill-f13-time-skew
+  namespace: vibe-coding
+spec:
+  mode: all
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      app: heartbeat-monitor-skill
+  timeOffset: "+3600s"  # 1 hour ahead — breaks JWT expiry / cache TTL / rate limits
+  duration: "120s"

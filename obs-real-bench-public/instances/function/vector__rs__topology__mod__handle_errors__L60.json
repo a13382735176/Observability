@@ -1,0 +1,33 @@
+{
+  "instance_id": "vector__rs__topology__mod__handle_errors__L60-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/topology/mod.rs",
+    "function": "handle_errors"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "topology",
+    "class": null,
+    "symbol": "handle_errors",
+    "start_line": 60,
+    "n_lines": 16,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1552,
+      2055
+    ]
+  },
+  "siblings": []
+}

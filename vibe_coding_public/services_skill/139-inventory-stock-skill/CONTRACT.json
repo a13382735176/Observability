@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "service": {
+    "service_id": "139-inventory-stock-skill",
+    "app_label": "inventory-stock-skill",
+    "image": "vibe/139-inventory-stock-skill:dev",
+    "target_dir": "services_skill/139-inventory-stock-skill",
+    "port": 8080,
+    "language": "kotlin",
+    "language_stack": "Kotlin"
+  },
+  "responsibility": "139-inventory-stock",
+  "behavior_contract": "",
+  "endpoints": [
+    "GET /healthz` → `{\"status\":\"ok\",\"service\":\"inventory-stock\"}",
+    "POST /items` — body `{sku, name, quantity, warehouse_id}` — Postgres UPSERT on `sku`, then `SETEX stock:{sku} 600 quantity",
+    "GET /items/:sku` — read-through cache; on miss SELECT and SETEX 600",
+    "POST /items/:sku/adjust` — body `{delta}` — `UPDATE quantity = quantity + delta WHERE sku=$1`, then `DEL stock:{sku}",
+    "GET /items/low-stock` — `WHERE quantity < 10` (LIMIT 200)"
+  ],
+  "dependencies": [
+    "postgres",
+    "redis-cache"
+  ],
+  "state_contract": {
+    "postgres_schema_sql": [
+      "CREATE TABLE inventory_items( id bigserial PRIMARY KEY, sku text UNIQUE, name text, quantity int DEFAULT 0, warehouse_id text, updated_at timestamptz DEFAULT now() );",
+      "CREATE TABLE IF NOT EXISTS inventory_items( id bigserial PRIMARY KEY, sku text UNIQUE, name text, quantity int DEFAULT 0, warehouse_id text, updated_at timestamptz DEFAULT now() )"
+    ],
+    "named_state_keys_or_streams": [
+      "stock:{sku}"
+    ]
+  },
+  "runtime_env": [
+    {
+      "name": "APP_NAME",
+      "value": "inventory-stock-skill"
+    },
+    {
+      "name": "PG_DSN",
+      "value": "postgres://vibe:vibe@postgres:5432/vibe"
+    },
+    {
+      "name": "REDIS_CACHE_HOST",
+      "value": "redis-cache"
+    },
+    {
+      "name": "REDIS_CACHE_PORT",
+      "value": "6379"
+    }
+  ],
+  "docker_build_contract": {
+    "build_context_after_import": "services_skill/139-inventory-stock-skill",
+    "image": "vibe/139-inventory-stock-skill:dev",
+    "source_root_visible_to_generator": "src",
+    "generator_may_create_or_modify": [
+      "src/**"
+    ],
+    "generator_must_not_create_or_modify": [
+      "anything outside src/"
+    ],
+    "validation_command_after_import": "docker build -t vibe/139-inventory-stock-skill:dev .",
+    "dockerfile_used_by_private_harness": "FROM gradle:8.7-jdk21 AS build\nWORKDIR /app\nCOPY src/ .\nRUN gradle jar --no-daemon -q\nFROM eclipse-temurin:21-jre-jammy\nWORKDIR /app\nCOPY --from=build /app/build/libs/*.jar app.jar\nEXPOSE 8080\nCMD [\"java\", \"-jar\", \"app.jar\"]\n"
+  },
+  "readiness_path": "/healthz",
+  "generation_constraints": [
+    "Generate a fresh implementation from this contract only.",
+    "Keep API paths, request fields, response fields, dependencies, and database schema compatible with the contract.",
+    "Keep the service runnable on port 8080 with the listed environment variables and Docker build contract.",
+    "Do not copy any pre-existing source code or log wording.",
+    "Do not infer or implement hidden evaluation behavior from this contract.",
+    "The observability skill may only affect application-level diagnostic messages inside the described service shape.",
+    "Do not add endpoints, dependencies, persistent state, background workers, or external telemetry infrastructure beyond the contract.",
+    "Do not add OpenTelemetry, Prometheus, Jaeger, Grafana, or external telemetry infrastructure.",
+    "Create or modify only files under src/; all other files are owned by the private runtime environment."
+  ]
+}

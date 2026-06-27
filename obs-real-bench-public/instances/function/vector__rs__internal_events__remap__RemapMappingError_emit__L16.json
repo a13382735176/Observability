@@ -1,0 +1,43 @@
+{
+  "instance_id": "vector__rs__internal_events__remap__RemapMappingError_emit__L16-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/internal_events/remap.rs",
+    "function": "RemapMappingError.emit"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "internal_events",
+    "class": "RemapMappingError",
+    "symbol": "emit",
+    "start_line": 16,
+    "n_lines": 20,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      518,
+      1155
+    ]
+  },
+  "siblings": [
+    {
+      "function": "emit",
+      "n_gt": 1
+    },
+    {
+      "function": "emit",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: RemapMappingError.emit"
+}

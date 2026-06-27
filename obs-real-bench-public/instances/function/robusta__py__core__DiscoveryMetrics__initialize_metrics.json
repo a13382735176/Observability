@@ -1,0 +1,28 @@
+{
+  "instance_id": "robusta__py__core__DiscoveryMetrics__initialize_metrics-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/core/sinks/robusta/discovery_metrics.py",
+    "function": "DiscoveryMetrics._initialize_metrics"
+  },
+  "task": {
+    "available_imports": [
+      "import prometheus_client"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 10,
+    "is_async": false,
+    "class": "DiscoveryMetrics",
+    "service": "core"
+  },
+  "siblings": []
+}

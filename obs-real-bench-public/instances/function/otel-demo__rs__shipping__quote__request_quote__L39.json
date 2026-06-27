@@ -1,0 +1,38 @@
+{
+  "instance_id": "otel-demo__rs__shipping__quote__request_quote__L39-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/shipping/src/shipping_service/quote.rs",
+    "function": "request_quote"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "shipping",
+    "class": null,
+    "symbol": "request_quote",
+    "start_line": 39,
+    "n_lines": 42,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1159,
+      2351
+    ]
+  },
+  "siblings": [
+    {
+      "function": "create_quote_from_count",
+      "n_gt": 3
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "instance_id": "deathstar__go__misc__main__saveHandler__L74-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "daprApps_v1/socialNetwork/proxy/main.go",
+    "function": "saveHandler"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "saveHandler",
+    "start_line": 74,
+    "n_lines": 45,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1933,
+      3310
+    ]
+  },
+  "siblings": [
+    {
+      "function": "main",
+      "n_gt": 9
+    },
+    {
+      "function": "commentHandler",
+      "n_gt": 4
+    },
+    {
+      "function": "delHandler",
+      "n_gt": 4
+    },
+    {
+      "function": "imageHandler",
+      "n_gt": 4
+    },
+    {
+      "function": "recmdHandler",
+      "n_gt": 4
+    }
+  ]
+}

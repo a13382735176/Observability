@@ -1,0 +1,46 @@
+{
+  "instance_id": "vector__rs__gcp.rs__gcp__GcpAuthenticator_token_regenerator__L201-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/gcp.rs",
+    "function": "GcpAuthenticator.token_regenerator"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "gcp.rs",
+    "class": "GcpAuthenticator",
+    "symbol": "token_regenerator",
+    "start_line": 201,
+    "n_lines": 43,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      8072,
+      10224
+    ]
+  },
+  "siblings": [
+    {
+      "function": "token_regenerator",
+      "n_gt": 3
+    },
+    {
+      "function": "fetch_token",
+      "n_gt": 1
+    },
+    {
+      "function": "get_token_implicit",
+      "n_gt": 1
+    }
+  ]
+}

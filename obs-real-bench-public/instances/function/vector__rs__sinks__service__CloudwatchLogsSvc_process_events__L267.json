@@ -1,0 +1,38 @@
+{
+  "instance_id": "vector__rs__sinks__service__CloudwatchLogsSvc_process_events__L267-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sinks/aws_cloudwatch_logs/service.rs",
+    "function": "CloudwatchLogsSvc.process_events"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sinks",
+    "class": "CloudwatchLogsSvc",
+    "symbol": "process_events",
+    "start_line": 267,
+    "n_lines": 39,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      8165,
+      9716
+    ]
+  },
+  "siblings": [
+    {
+      "function": "process_events",
+      "n_gt": 1
+    }
+  ]
+}

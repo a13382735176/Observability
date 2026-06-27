@@ -1,0 +1,42 @@
+{
+  "instance_id": "otel-demo__cs__accounting__Consumer__Consumer_ProcessMessage__L86-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/accounting/Consumer.cs",
+    "function": "Consumer.ProcessMessage"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "accounting",
+    "class": "Consumer",
+    "symbol": "ProcessMessage",
+    "start_line": 86,
+    "n_lines": 54,
+    "n_obs_tokens": 3,
+    "span_byte_range": [
+      2527,
+      4429
+    ]
+  },
+  "siblings": [
+    {
+      "function": "Consumer.StartListening",
+      "n_gt": 2
+    },
+    {
+      "function": "Consumer.Consumer",
+      "n_gt": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "instance_id": "vector__rs__sources__internal_metrics__InternalMetricsConfig_build__L93-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/internal_metrics.rs",
+    "function": "InternalMetricsConfig.build"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": "InternalMetricsConfig",
+    "symbol": "build",
+    "start_line": 93,
+    "n_lines": 36,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2927,
+      4036
+    ]
+  },
+  "siblings": [
+    {
+      "function": "captures_internal_metrics",
+      "n_gt": 4
+    },
+    {
+      "function": "build",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: InternalMetricsConfig.build"
+}

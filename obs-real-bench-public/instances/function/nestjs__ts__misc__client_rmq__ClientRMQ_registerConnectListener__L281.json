@@ -1,0 +1,46 @@
+{
+  "instance_id": "nestjs__ts__misc__client_rmq__ClientRMQ_registerConnectListener__L281-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/client/client-rmq.ts",
+    "function": "ClientRMQ.registerConnectListener"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ClientRMQ",
+    "symbol": "registerConnectListener",
+    "start_line": 281,
+    "n_lines": 16,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      8997,
+      9489
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ClientRMQ.registerDisconnectListener",
+      "n_gt": 2
+    },
+    {
+      "function": "ClientRMQ.registerBlockedListener",
+      "n_gt": 1
+    },
+    {
+      "function": "ClientRMQ.registerErrorListener",
+      "n_gt": 1
+    }
+  ]
+}

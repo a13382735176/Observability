@@ -1,0 +1,38 @@
+{
+  "instance_id": "boutique__js__paymentservice__server__HipsterShopServer_ChargeServiceHandler__L41-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "javascript",
+    "file": "src/paymentservice/server.js",
+    "function": "HipsterShopServer.ChargeServiceHandler"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "paymentservice",
+    "class": "HipsterShopServer",
+    "symbol": "ChargeServiceHandler",
+    "start_line": 41,
+    "n_lines": 10,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1294,
+      1599
+    ]
+  },
+  "siblings": [
+    {
+      "function": "HipsterShopServer.listen",
+      "n_gt": 1
+    }
+  ]
+}

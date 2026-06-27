@@ -1,0 +1,65 @@
+{
+  "instance_id": "robusta__py__integrations__get_pod_logs-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/integrations/kubernetes/api_client_utils.py",
+    "function": "get_pod_logs"
+  },
+  "task": {
+    "available_imports": [
+      "import datetime",
+      "import io",
+      "import logging",
+      "import os",
+      "import re",
+      "import tarfile",
+      "import tempfile",
+      "import time",
+      "import traceback",
+      "from typing import Dict, List, Optional",
+      "from cachetools import TTLCache, cached",
+      "from hikaru.model.rel_1_26 import Job",
+      "from kubernetes import config",
+      "from kubernetes.client.api import core_v1_api",
+      "from kubernetes.client.rest import ApiException",
+      "from kubernetes.stream import stream",
+      "from robusta.core.model.env_vars import NAMESPACE_DATA_TTL"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 9,
+    "is_async": false,
+    "class": null,
+    "service": "integrations"
+  },
+  "siblings": [
+    {
+      "function": "wait_for_pod_status",
+      "n_gt": 4
+    },
+    {
+      "function": "exec_commands",
+      "n_gt": 3
+    },
+    {
+      "function": "get_all_namespace_data",
+      "n_gt": 2
+    },
+    {
+      "function": "list_available_services",
+      "n_gt": 2
+    },
+    {
+      "function": "prepare_pod_command",
+      "n_gt": 1
+    }
+  ]
+}

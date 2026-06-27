@@ -1,0 +1,46 @@
+{
+  "instance_id": "otel-demo__java__ad__AdService__AdServiceImpl_getAds__L149-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "src/ad/src/main/java/oteldemo/AdService.java",
+    "function": "AdServiceImpl.getAds"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "ad",
+    "class": "AdServiceImpl",
+    "symbol": "getAds",
+    "start_line": 149,
+    "n_lines": 77,
+    "n_obs_tokens": 4,
+    "span_byte_range": [
+      5149,
+      8629
+    ]
+  },
+  "siblings": [
+    {
+      "function": "AdService.getRandomAds",
+      "n_gt": 3
+    },
+    {
+      "function": "AdService.main",
+      "n_gt": 1
+    },
+    {
+      "function": "AdService.start",
+      "n_gt": 1
+    }
+  ]
+}

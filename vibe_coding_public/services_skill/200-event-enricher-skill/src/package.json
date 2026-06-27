@@ -1,0 +1,21 @@
+{
+  "name": "200-event-enricher-skill",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Event enricher skill service",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "tsc --noEmit"
+  },
+  "dependencies": {
+    "pg": "^8.13.1",
+    "redis": "^4.7.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.6",
+    "@types/pg": "^8.11.10"
+  }
+}

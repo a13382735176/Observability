@@ -1,0 +1,33 @@
+{
+  "instance_id": "eshop__cs__Catalog.API__CatalogContextSeed__CatalogContextSeed_SeedAsync__L13-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Catalog.API/Infrastructure/CatalogContextSeed.cs",
+    "function": "CatalogContextSeed.SeedAsync"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Catalog.API",
+    "class": "CatalogContextSeed",
+    "symbol": "SeedAsync",
+    "start_line": 13,
+    "n_lines": 63,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      329,
+      3470
+    ]
+  },
+  "siblings": []
+}

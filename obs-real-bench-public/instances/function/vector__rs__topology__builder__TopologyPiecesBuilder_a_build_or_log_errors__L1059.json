@@ -1,0 +1,55 @@
+{
+  "instance_id": "vector__rs__topology__builder__TopologyPiecesBuilder_a_build_or_log_errors__L1059-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/topology/builder.rs",
+    "function": "TopologyPiecesBuilder<'a>.build_or_log_errors"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "topology",
+    "class": "TopologyPiecesBuilder<'a>",
+    "symbol": "build_or_log_errors",
+    "start_line": 1059,
+    "n_lines": 11,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      41581,
+      41969
+    ]
+  },
+  "siblings": [
+    {
+      "function": "build_sinks",
+      "n_gt": 10
+    },
+    {
+      "function": "build_sources",
+      "n_gt": 8
+    },
+    {
+      "function": "build_sync_transform",
+      "n_gt": 3
+    },
+    {
+      "function": "build_task_transform",
+      "n_gt": 3
+    },
+    {
+      "function": "build_transforms",
+      "n_gt": 2
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: TopologyPiecesBuilder<'a>.build_or_log_errors"
+}

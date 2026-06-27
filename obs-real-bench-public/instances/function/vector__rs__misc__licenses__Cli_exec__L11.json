@@ -1,0 +1,38 @@
+{
+  "instance_id": "vector__rs__misc__licenses__Cli_exec__L11-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "vdev/src/commands/check/licenses.rs",
+    "function": "Cli.exec"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "Cli",
+    "symbol": "exec",
+    "start_line": 11,
+    "n_lines": 5,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      170,
+      374
+    ]
+  },
+  "siblings": [
+    {
+      "function": "exec",
+      "n_gt": 1
+    }
+  ]
+}

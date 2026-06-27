@@ -1,0 +1,12 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: patient-record-skill-f01-pod-kill
+  namespace: vibe-coding
+spec:
+  action: pod-kill
+  mode: one
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      app: patient-record-skill

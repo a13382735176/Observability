@@ -1,0 +1,33 @@
+{
+  "instance_id": "eshop__cs__Identity.API__ConsentController__ConsentController_BuildViewModelAsync__L150-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Identity.API/Quickstart/Consent/ConsentController.cs",
+    "function": "ConsentController.BuildViewModelAsync"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Identity.API",
+    "class": "ConsentController",
+    "symbol": "BuildViewModelAsync",
+    "start_line": 150,
+    "n_lines": 14,
+    "n_obs_tokens": 3,
+    "span_byte_range": [
+      5025,
+      5484
+    ]
+  },
+  "siblings": []
+}

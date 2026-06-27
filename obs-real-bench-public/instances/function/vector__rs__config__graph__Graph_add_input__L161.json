@@ -1,0 +1,38 @@
+{
+  "instance_id": "vector__rs__config__graph__Graph_add_input__L161-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/config/graph.rs",
+    "function": "Graph.add_input"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "config",
+    "class": "Graph",
+    "symbol": "add_input",
+    "start_line": 161,
+    "n_lines": 46,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      4777,
+      6692
+    ]
+  },
+  "siblings": [
+    {
+      "function": "add_input",
+      "n_gt": 2
+    }
+  ]
+}

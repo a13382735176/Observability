@@ -1,0 +1,17 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: feature-store-skill-f02-network-delay
+  namespace: vibe-coding
+spec:
+  action: delay
+  mode: all
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      app: feature-store-skill
+  delay:
+    latency: "3000ms"
+    correlation: "0"
+    jitter: "0ms"
+  duration: "150s"

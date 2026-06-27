@@ -1,0 +1,33 @@
+{
+  "instance_id": "eshop__cs__Ordering.API__ShipOrderCommandValidator__ShipOrderCommandValidator_ShipOrderCommandValidator__L5-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Ordering.API/Application/Validations/ShipOrderCommandValidator.cs",
+    "function": "ShipOrderCommandValidator.ShipOrderCommandValidator"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Ordering.API",
+    "class": "ShipOrderCommandValidator",
+    "symbol": "ShipOrderCommandValidator",
+    "start_line": 5,
+    "n_lines": 9,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      141,
+      462
+    ]
+  },
+  "siblings": []
+}

@@ -1,0 +1,54 @@
+{
+  "instance_id": "otel-demo__go__checkout__main__prepareOrderItemsAndShippingQuoteFromCart__L405-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "src/checkout/main.go",
+    "function": "prepareOrderItemsAndShippingQuoteFromCart"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "checkout",
+    "class": null,
+    "symbol": "prepareOrderItemsAndShippingQuoteFromCart",
+    "start_line": 405,
+    "n_lines": 40,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      12145,
+      13544
+    ]
+  },
+  "siblings": [
+    {
+      "function": "sendToPostProcessor",
+      "n_gt": 14
+    },
+    {
+      "function": "PlaceOrder",
+      "n_gt": 12
+    },
+    {
+      "function": "main",
+      "n_gt": 12
+    },
+    {
+      "function": "createProducerSpan",
+      "n_gt": 1
+    },
+    {
+      "function": "initMeterProvider",
+      "n_gt": 1
+    }
+  ]
+}

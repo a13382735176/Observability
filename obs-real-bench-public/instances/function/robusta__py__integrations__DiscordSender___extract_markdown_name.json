@@ -1,0 +1,47 @@
+{
+  "instance_id": "robusta__py__integrations__DiscordSender___extract_markdown_name-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/integrations/discord/sender.py",
+    "function": "DiscordSender.__extract_markdown_name"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "import re",
+      "from itertools import chain",
+      "from typing import Dict, List, Optional, Tuple, Union",
+      "import requests",
+      "from robusta.core.model.env_vars import DISCORD_TABLE_COLUMNS_LIMIT, ROBUSTA_LOGO_URL",
+      "from robusta.core.reporting import BaseBlock, FileBlock, Finding, FindingSeverity, HeaderBlock, KubernetesDiffBlock, ListBlock, MarkdownBlock, TableBlock, EmptyFileBlock",
+      "from robusta.core.reporting.utils import add_pngs_for_all_svgs",
+      "from robusta.core.sinks.discord.discord_sink_params import DiscordSinkParams",
+      "from robusta.core.sinks.transformer import Transformer",
+      "from robusta.core.reporting.base import FindingStatus"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 8,
+    "is_async": false,
+    "class": "DiscordSender",
+    "service": "integrations"
+  },
+  "siblings": [
+    {
+      "function": "DiscordSender.__send_blocks_to_discord",
+      "n_gt": 3
+    },
+    {
+      "function": "DiscordSender.__to_discord",
+      "n_gt": 1
+    }
+  ]
+}

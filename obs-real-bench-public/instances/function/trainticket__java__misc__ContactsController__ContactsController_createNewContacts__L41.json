@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__ContactsController__ContactsController_createNewContacts__L41-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-contacts-service/src/main/java/contacts/controller/ContactsController.java",
+    "function": "ContactsController.createNewContacts"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ContactsController",
+    "symbol": "createNewContacts",
+    "start_line": 41,
+    "n_lines": 7,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1118,
+      1540
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ContactsController.findContactsByAccountId",
+      "n_gt": 2
+    },
+    {
+      "function": "ContactsController.getContactsByContactsId",
+      "n_gt": 2
+    },
+    {
+      "function": "ContactsController.createNewContactsAdmin",
+      "n_gt": 1
+    },
+    {
+      "function": "ContactsController.getAllContacts",
+      "n_gt": 1
+    },
+    {
+      "function": "ContactsController.modifyContacts",
+      "n_gt": 1
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "instance_id": "eshop__cs__Identity.API__UsersSeed__UsersSeed_SeedAsync__L6-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Identity.API/UsersSeed.cs",
+    "function": "UsersSeed.SeedAsync"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Identity.API",
+    "class": "UsersSeed",
+    "symbol": "SeedAsync",
+    "start_line": 6,
+    "n_lines": 92,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      167,
+      2925
+    ]
+  },
+  "siblings": []
+}

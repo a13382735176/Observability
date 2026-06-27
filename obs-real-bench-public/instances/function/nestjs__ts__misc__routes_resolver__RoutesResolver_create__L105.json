@@ -1,0 +1,34 @@
+{
+  "instance_id": "nestjs__ts__misc__routes_resolver__RoutesResolver_create__L105-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/router/routes-resolver.ts",
+    "function": "RoutesResolver.create"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "RoutesResolver",
+    "symbol": "create",
+    "start_line": 105,
+    "n_lines": 38,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      3346,
+      4442
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: RoutesResolver.create"
+}

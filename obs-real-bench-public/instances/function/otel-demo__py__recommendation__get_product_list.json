@@ -1,0 +1,32 @@
+{
+  "instance_id": "otel-demo__py__recommendation__get_product_list-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction",
+    "_note": "Set repo.local_path to a local checkout of repo.name before running experiments."
+  },
+  "target": {
+    "language": "python",
+    "file": "src/recommendation/recommendation_server.py",
+    "function": "get_product_list"
+  },
+  "task": {
+    "available_imports": [
+      "from opentelemetry import trace, metrics",
+      "import logging",
+      "tracer           (module-level tracer)",
+      "logger           (module-level structured logger)",
+      "check_feature_flag(name)  -> bool"
+    ]
+  },
+  "ground_truth_notes": "Rich function: 1 span_start ('get_product_list'), ~7 span_attributes (cache_enabled, cache_hit×2, products.count, filtered_products.count, filtered_products.list), 2 log_info (cache miss / cache hit). The 'with tracer.start_as_current_span(...) as span:' block is the structural signal.",
+  "siblings": [
+    {
+      "function": "RecommendationService.ListRecommendations",
+      "n_gt": 3
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "instance_id": "vector__rs__sinks__client__SqsMessagePublisher_send_message__L21-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sinks/aws_s_s/sqs/client.rs",
+    "function": "SqsMessagePublisher.send_message"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sinks",
+    "class": "SqsMessagePublisher",
+    "symbol": "send_message",
+    "start_line": 21,
+    "n_lines": 22,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      598,
+      1402
+    ]
+  },
+  "siblings": [
+    {
+      "function": "send_message",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: SqsMessagePublisher.send_message"
+}

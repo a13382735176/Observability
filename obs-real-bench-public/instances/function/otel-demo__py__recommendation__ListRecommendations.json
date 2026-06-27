@@ -1,0 +1,31 @@
+{
+  "instance_id": "otel-demo__py__recommendation__ListRecommendations-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction",
+    "_note": "Set repo.local_path to a local checkout of repo.name before running experiments."
+  },
+  "target": {
+    "language": "python",
+    "file": "src/recommendation/recommendation_server.py",
+    "function": "RecommendationService.ListRecommendations"
+  },
+  "task": {
+    "available_imports": [
+      "from opentelemetry import trace, metrics",
+      "import logging",
+      "rec_svc_metrics  (module-level dict of counters)",
+      "logger           (module-level structured logger)"
+    ]
+  },
+  "ground_truth_notes": "Three obs sites expected: 1 span_attribute (app.products_recommended.count), 1 log_info, 1 metric_add (app_recommendations_counter).",
+  "siblings": [
+    {
+      "function": "get_product_list",
+      "n_gt": 10
+    }
+  ]
+}

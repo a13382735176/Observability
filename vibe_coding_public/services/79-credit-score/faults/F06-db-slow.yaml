@@ -1,0 +1,24 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: credit-score-f06-db-slow
+  namespace: vibe-coding
+spec:
+  action: delay
+  mode: all
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      app: credit-score        # only this service's pod — parallel-safe
+  direction: both
+  target:
+    mode: all
+    selector:
+      namespaces: [vibe-coding]
+      labelSelectors:
+        app: postgres      # delay traffic to/from postgres
+  delay:
+    latency: "3000ms"
+    correlation: "0"
+    jitter: "0ms"
+  duration: "150s"

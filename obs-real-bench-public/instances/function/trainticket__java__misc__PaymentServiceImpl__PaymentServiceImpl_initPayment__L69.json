@@ -1,0 +1,42 @@
+{
+  "instance_id": "trainticket__java__misc__PaymentServiceImpl__PaymentServiceImpl_initPayment__L69-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-payment-service/src/main/java/com/trainticket/service/PaymentServiceImpl.java",
+    "function": "PaymentServiceImpl.initPayment"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "PaymentServiceImpl",
+    "symbol": "initPayment",
+    "start_line": 69,
+    "n_lines": 10,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2448,
+      2977
+    ]
+  },
+  "siblings": [
+    {
+      "function": "PaymentServiceImpl.query",
+      "n_gt": 2
+    },
+    {
+      "function": "PaymentServiceImpl.pay",
+      "n_gt": 1
+    }
+  ]
+}

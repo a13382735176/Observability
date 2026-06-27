@@ -1,0 +1,54 @@
+{
+  "instance_id": "nestjs__ts__misc__nest_microservice__NestMicroservice_listen__L273-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/nest-microservice.ts",
+    "function": "NestMicroservice.listen"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "NestMicroservice",
+    "symbol": "listen",
+    "start_line": 273,
+    "n_lines": 12,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      7756,
+      8089
+    ]
+  },
+  "siblings": [
+    {
+      "function": "NestMicroservice.createServer",
+      "n_gt": 1
+    },
+    {
+      "function": "NestMicroservice.useGlobalFilters",
+      "n_gt": 1
+    },
+    {
+      "function": "NestMicroservice.useGlobalGuards",
+      "n_gt": 1
+    },
+    {
+      "function": "NestMicroservice.useGlobalInterceptors",
+      "n_gt": 1
+    },
+    {
+      "function": "NestMicroservice.useGlobalPipes",
+      "n_gt": 1
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "services": [
+    "src/load-generator",
+    "src/product-reviews",
+    "src/llm",
+    "src/recommendation"
+  ],
+  "n_discovered": 29,
+  "n_written": 28,
+  "n_skipped": 1,
+  "n_duplicates": 0,
+  "rows": [
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_index",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.index",
+      "n_stmts": 3
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_browse_product",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.browse_product",
+      "n_stmts": 4
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_get_recommendations",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.get_recommendations",
+      "n_stmts": 5
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_get_product_reviews",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.get_product_reviews",
+      "n_stmts": 4
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_ask_product_ai_assistant",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.ask_product_ai_assistant",
+      "n_stmts": 6
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_get_ads",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.get_ads",
+      "n_stmts": 5
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_view_cart",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.view_cart",
+      "n_stmts": 3
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_add_to_cart",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.add_to_cart",
+      "n_stmts": 9
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_checkout",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.checkout",
+      "n_stmts": 7
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_checkout_multi",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.checkout_multi",
+      "n_stmts": 9
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_flood_home",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.flood_home",
+      "n_stmts": 6
+    },
+    {
+      "id": "otel-demo__py__load_generator__WebsiteUser_on_start",
+      "status": "written",
+      "file": "src/load-generator/locustfile.py",
+      "func": "WebsiteUser.on_start",
+      "n_stmts": 7
+    },
+    {
+      "id": "otel-demo__py__product_reviews__init_metrics",
+      "status": "written",
+      "file": "src/product-reviews/metrics.py",
+      "func": "init_metrics",
+      "n_stmts": 4
+    },
+    {
+      "id": "otel-demo__py__product_reviews__ProductReviewService_GetProductReviews",
+      "status": "written",
+      "file": "src/product-reviews/product_reviews_server.py",
+      "func": "ProductReviewService.GetProductReviews",
+      "n_stmts": 3
+    },
+    {
+      "id": "otel-demo__py__product_reviews__ProductReviewService_GetAverageProductReviewScore",
+      "status": "written",
+      "file": "src/product-reviews/product_reviews_server.py",
+      "func": "ProductReviewService.GetAverageProductReviewScore",
+      "n_stmts": 3
+    },
+    {
+      "id": "otel-demo__py__product_reviews__ProductReviewService_AskProductAIAssistant",
+      "status": "written",
+      "file": "src/product-reviews/product_reviews_server.py",
+      "func": "ProductReviewService.AskProductAIAssistant",
+      "n_stmts": 3
+    },
+    {
+      "id": "otel-demo__py__product_reviews__get_product_reviews",
+      "status": "written",
+      "file": "src/product-reviews/product_reviews_server.py",
+      "func": "get_product_reviews",
+      "n_stmts": 10
+    },
+    {
+      "id": "otel-demo__py__product_reviews__get_average_product_review_score",
+      "status": "written",
+      "file": "src/product-reviews/product_reviews_server.py",
+      "func": "get_average_product_review_score",
+      "n_stmts": 7
+    },
+    {
+      "id": "otel-demo__py__product_reviews__get_ai_assistant_response",
+      "status": "written",
+      "file": "src/product-reviews/product_reviews_server.py",
+      "func": "get_ai_assistant_response",
+      "n_stmts": 58
+    },
+    {
+      "id": "otel-demo__py__product_reviews__fetch_product_info",
+      "status": "written",
+      "file": "src/product-reviews/product_reviews_server.py",
+      "func": "fetch_product_info",
+      "n_stmts": 6
+    },
+    {
+      "id": "otel-demo__py__llm__load_product_review_summaries",
+      "status": "written",
+      "file": "src/llm/app.py",
+      "func": "load_product_review_summaries",
+      "n_stmts": 16
+    },
+    {
+      "id": "otel-demo__py__llm__generate_response",
+      "status": "written",
+      "file": "src/llm/app.py",
+      "func": "generate_response",
+      "n_stmts": 9
+    },
+    {
+      "id": "otel-demo__py__llm__chat_completions",
+      "status": "written",
+      "file": "src/llm/app.py",
+      "func": "chat_completions",
+      "n_stmts": 30
+    },
+    {
+      "id": "otel-demo__py__llm__build_response",
+      "status": "written",
+      "file": "src/llm/app.py",
+      "func": "build_response",
+      "n_stmts": 3
+    },
+    {
+      "id": "otel-demo__py__recommendation__CustomJsonFormatter_add_fields",
+      "status": "written",
+      "file": "src/recommendation/logger.py",
+      "func": "CustomJsonFormatter.add_fields",
+      "n_stmts": 5
+    },
+    {
+      "id": "otel-demo__py__recommendation__getJSONLogger",
+      "status": "written",
+      "file": "src/recommendation/logger.py",
+      "func": "getJSONLogger",
+      "n_stmts": 8
+    },
+    {
+      "id": "otel-demo__py__recommendation__init_metrics",
+      "status": "written",
+      "file": "src/recommendation/metrics.py",
+      "func": "init_metrics",
+      "n_stmts": 3
+    },
+    {
+      "id": "otel-demo__py__recommendation__RecommendationService_ListRecommendations",
+      "status": "written",
+      "file": "src/recommendation/recommendation_server.py",
+      "func": "RecommendationService.ListRecommendations",
+      "n_stmts": 8
+    },
+    {
+      "id": "otel-demo__py__recommendation__get_product_list",
+      "status": "skipped-exists",
+      "file": "src/recommendation/recommendation_server.py",
+      "func": "get_product_list",
+      "n_stmts": 32
+    }
+  ]
+}

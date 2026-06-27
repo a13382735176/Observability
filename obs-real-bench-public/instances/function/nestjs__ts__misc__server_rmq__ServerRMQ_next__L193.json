@@ -1,0 +1,55 @@
+{
+  "instance_id": "nestjs__ts__misc__server_rmq__ServerRMQ_next__L193-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/server/server-rmq.ts",
+    "function": "ServerRMQ.next"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ServerRMQ",
+    "symbol": "next",
+    "start_line": 193,
+    "n_lines": 4,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      6134,
+      6275
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ServerRMQ.registerDisconnectListener",
+      "n_gt": 2
+    },
+    {
+      "function": "ServerRMQ.start",
+      "n_gt": 2
+    },
+    {
+      "function": "ServerRMQ.handleEvent",
+      "n_gt": 1
+    },
+    {
+      "function": "ServerRMQ.handleMessage",
+      "n_gt": 1
+    },
+    {
+      "function": "ServerRMQ.registerBlockedListener",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: ServerRMQ.next"
+}

@@ -1,0 +1,18 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: __FAULT_NAME__
+  namespace: __NAMESPACE__
+spec:
+  action: delay
+  mode: all
+  selector:
+    namespaces: [__NAMESPACE__]
+    labelSelectors:
+      app: __APP__
+  delay:
+    latency: "500ms"
+    correlation: "0"
+    jitter: "100ms"
+  duration: "__DURATION__"
+  # NOTE: deliberately no `target.selector` — see faults/README.md gotcha #1

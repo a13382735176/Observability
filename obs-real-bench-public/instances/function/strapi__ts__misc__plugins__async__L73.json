@@ -1,0 +1,34 @@
+{
+  "instance_id": "strapi__ts__misc__plugins__async__L73-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/strapi/src/node/core/plugins.ts",
+    "function": "async"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "async",
+    "start_line": 73,
+    "n_lines": 66,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1936,
+      3841
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: async"
+}

@@ -1,0 +1,71 @@
+{
+  "instance_id": "otel-demo__py__product_reviews__fetch_product_info-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/product-reviews/product_reviews_server.py",
+    "function": "fetch_product_info"
+  },
+  "task": {
+    "available_imports": [
+      "import os",
+      "import json",
+      "from concurrent import futures",
+      "import random",
+      "import grpc",
+      "from opentelemetry import trace, metrics",
+      "from opentelemetry._logs import set_logger_provider",
+      "from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter",
+      "from opentelemetry.sdk._logs import LoggerProvider, LoggingHandler",
+      "from opentelemetry.sdk._logs.export import BatchLogRecordProcessor",
+      "from opentelemetry.sdk.resources import Resource",
+      "from opentelemetry.trace import Status, StatusCode",
+      "import logging",
+      "import demo_pb2",
+      "import demo_pb2_grpc",
+      "from grpc_health.v1 import health_pb2",
+      "from grpc_health.v1 import health_pb2_grpc",
+      "from database import fetch_product_reviews, fetch_product_reviews_from_db, fetch_avg_product_review_score_from_db",
+      "from openfeature import api",
+      "from openfeature.contrib.provider.flagd import FlagdProvider",
+      "from metrics import init_metrics",
+      "from openai import OpenAI",
+      "from google.protobuf.json_format import MessageToJson, MessageToDict"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 6,
+    "is_async": false,
+    "class": null,
+    "service": "product_reviews"
+  },
+  "siblings": [
+    {
+      "function": "get_ai_assistant_response",
+      "n_gt": 20
+    },
+    {
+      "function": "get_product_reviews",
+      "n_gt": 5
+    },
+    {
+      "function": "get_average_product_review_score",
+      "n_gt": 3
+    },
+    {
+      "function": "ProductReviewService.AskProductAIAssistant",
+      "n_gt": 1
+    },
+    {
+      "function": "ProductReviewService.GetAverageProductReviewScore",
+      "n_gt": 1
+    }
+  ]
+}

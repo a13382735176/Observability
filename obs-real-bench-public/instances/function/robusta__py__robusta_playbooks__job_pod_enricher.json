@@ -1,0 +1,51 @@
+{
+  "instance_id": "robusta__py__robusta_playbooks__job_pod_enricher-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "playbooks/robusta_playbooks/job_actions.py",
+    "function": "job_pod_enricher"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "from typing import List, Optional, Tuple",
+      "import hikaru",
+      "from hikaru.model.rel_1_26 import Container, EnvVar, Job, JobSpec, JobStatus, ObjectMeta, PodSpec, PodTemplateSpec",
+      "from robusta.api import ActionParams, EventEnricherParams, FileBlock, JobEvent, LogEnricherParams, MarkdownBlock, PodContainer, PrometheusKubernetesAlert, RegexReplacementStyle, RobustaJob, SlackAnnotations, TableBlock, action, get_job_latest_pod, get_resource_events_table, to_kubernetes_name",
+      "from robusta.core.reporting.base import EnrichmentType",
+      "from robusta.integrations.kubernetes.api_client_utils import wait_until_job_complete"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 17,
+    "is_async": false,
+    "class": null,
+    "service": "robusta_playbooks"
+  },
+  "siblings": [
+    {
+      "function": "alert_handling_job",
+      "n_gt": 4
+    },
+    {
+      "function": "delete_job",
+      "n_gt": 1
+    },
+    {
+      "function": "job_events_enricher",
+      "n_gt": 1
+    },
+    {
+      "function": "job_info_enricher",
+      "n_gt": 1
+    }
+  ]
+}

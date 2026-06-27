@@ -1,0 +1,31 @@
+{
+  "instance_id": "robusta__py__runner__init_logging-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/runner/log_init.py",
+    "function": "init_logging"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "import os",
+      "import os.path",
+      "import colorlog"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 10,
+    "is_async": false,
+    "class": null,
+    "service": "runner"
+  },
+  "siblings": []
+}

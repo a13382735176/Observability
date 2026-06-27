@@ -1,0 +1,42 @@
+{
+  "instance_id": "otel-demo__cs__accounting__Consumer__Consumer_Consumer__L37-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/accounting/Consumer.cs",
+    "function": "Consumer.Consumer"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "accounting",
+    "class": "Consumer",
+    "symbol": "Consumer",
+    "start_line": 37,
+    "n_lines": 17,
+    "n_obs_tokens": 4,
+    "span_byte_range": [
+      1061,
+      1640
+    ]
+  },
+  "siblings": [
+    {
+      "function": "Consumer.StartListening",
+      "n_gt": 2
+    },
+    {
+      "function": "Consumer.ProcessMessage",
+      "n_gt": 1
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "instance_id": "vector__rs__sources__internal_logs__repeated_logs_are_not_rate_limited__L351-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/internal_logs.rs",
+    "function": "repeated_logs_are_not_rate_limited"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": null,
+    "symbol": "repeated_logs_are_not_rate_limited",
+    "start_line": 351,
+    "n_lines": 32,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      11844,
+      12880
+    ]
+  },
+  "siblings": [
+    {
+      "function": "run_test",
+      "n_gt": 6
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "instance_id": "eshop__cs__Ordering.API__ValidatorBehavior__ValidatorBehavior_ValidatorBehavior__L8-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Ordering.API/Application/Behaviors/ValidatorBehavior.cs",
+    "function": "ValidatorBehavior.ValidatorBehavior"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Ordering.API",
+    "class": "ValidatorBehavior",
+    "symbol": "ValidatorBehavior",
+    "start_line": 8,
+    "n_lines": 5,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      339,
+      537
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ValidatorBehavior.Handle",
+      "n_gt": 2
+    }
+  ]
+}

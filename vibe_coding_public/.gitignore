@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Local experiment outputs
+runs/
+experiments/
+results/
+logs/
+outputs/
+artifacts/
+*.log
+*.trace
+*.jsonl
+
+# Dependency and build outputs
+node_modules/
+bin/
+obj/
+target/
+dist/
+build/
+.gradle/

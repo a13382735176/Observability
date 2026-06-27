@@ -1,0 +1,38 @@
+{
+  "instance_id": "otel-demo__cs__cart__HealthCheckService__HealthServiceImpl_Check__L62-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/cart/src/services/HealthCheckService.cs",
+    "function": "HealthServiceImpl.Check"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "cart",
+    "class": "HealthServiceImpl",
+    "symbol": "Check",
+    "start_line": 62,
+    "n_lines": 25,
+    "n_obs_tokens": 3,
+    "span_byte_range": [
+      1796,
+      3012
+    ]
+  },
+  "siblings": [
+    {
+      "function": "HealthServiceImpl.Watch",
+      "n_gt": 1
+    }
+  ]
+}

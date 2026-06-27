@@ -1,0 +1,50 @@
+{
+  "instance_id": "boutique__java__adservice__AdService__AdService_main__L223-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "src/adservice/src/main/java/hipstershop/AdService.java",
+    "function": "AdService.main"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "adservice",
+    "class": "AdService",
+    "symbol": "main",
+    "start_line": 223,
+    "n_lines": 15,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      7445,
+      7888
+    ]
+  },
+  "siblings": [
+    {
+      "function": "AdService.initTracing",
+      "n_gt": 4
+    },
+    {
+      "function": "AdService.initStats",
+      "n_gt": 2
+    },
+    {
+      "function": "AdService.start",
+      "n_gt": 1
+    },
+    {
+      "function": "AdServiceImpl.getAds",
+      "n_gt": 1
+    }
+  ]
+}

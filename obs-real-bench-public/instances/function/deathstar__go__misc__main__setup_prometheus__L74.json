@@ -1,0 +1,46 @@
+{
+  "instance_id": "deathstar__go__misc__main__setup_prometheus__L74-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "daprApps_v1/video-sharing/dates/main.go",
+    "function": "setup_prometheus"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "setup_prometheus",
+    "start_line": 74,
+    "n_lines": 13,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2019,
+      2530
+    ]
+  },
+  "siblings": [
+    {
+      "function": "getHandler",
+      "n_gt": 6
+    },
+    {
+      "function": "main",
+      "n_gt": 4
+    },
+    {
+      "function": "uploadHandler",
+      "n_gt": 2
+    }
+  ]
+}

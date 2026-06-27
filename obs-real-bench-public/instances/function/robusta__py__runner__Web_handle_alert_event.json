@@ -1,0 +1,67 @@
+{
+  "instance_id": "robusta__py__runner__Web_handle_alert_event-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/runner/web.py",
+    "function": "Web.handle_alert_event"
+  },
+  "task": {
+    "available_imports": [
+      "import hashlib",
+      "import logging",
+      "import threading",
+      "from datetime import datetime",
+      "from typing import List",
+      "from cachetools import TTLCache",
+      "from flask import Flask, abort, jsonify, request",
+      "from prometheus_client import make_wsgi_app",
+      "from werkzeug.middleware.dispatcher import DispatcherMiddleware",
+      "from robusta.clients.robusta_client import fetch_runner_info",
+      "from robusta.core.model.env_vars import NUM_EVENT_THREADS, PORT, TRACE_INCOMING_ALERTS, TRACE_INCOMING_REQUESTS, PROCESSED_ALERTS_CACHE_TTL, PROCESSED_ALERTS_CACHE_MAX_SIZE, RUNNER_VERSION, RUNNER_BIND_ADDR, ENABLE_TELEMETRY",
+      "from robusta.core.playbooks.playbooks_event_handler import PlaybooksEventHandler",
+      "from robusta.core.triggers.helm_releases_triggers import HelmReleasesTriggerEvent, IncomingHelmReleasesEventPayload",
+      "from robusta.integrations.kubernetes.base_triggers import IncomingK8sEventPayload, K8sTriggerEvent",
+      "from robusta.integrations.prometheus.models import AlertManagerEvent, PrometheusAlert",
+      "from robusta.integrations.prometheus.trigger import PrometheusTriggerEvent",
+      "from robusta.model.alert_relabel_config import AlertRelabelOp",
+      "from robusta.runner.config_loader import ConfigLoader",
+      "from robusta.utils.task_queue import QueueMetrics, TaskQueue"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 13,
+    "is_async": false,
+    "class": "Web",
+    "service": "runner"
+  },
+  "siblings": [
+    {
+      "function": "Web._check_version",
+      "n_gt": 1
+    },
+    {
+      "function": "Web._trace_incoming",
+      "n_gt": 1
+    },
+    {
+      "function": "Web._trace_incoming_alerts",
+      "n_gt": 1
+    },
+    {
+      "function": "Web.handle_helm_releases",
+      "n_gt": 1
+    },
+    {
+      "function": "Web.handle_manual_trigger",
+      "n_gt": 1
+    }
+  ]
+}

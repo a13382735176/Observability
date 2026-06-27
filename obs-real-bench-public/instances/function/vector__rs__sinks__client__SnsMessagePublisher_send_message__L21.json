@@ -1,0 +1,39 @@
+{
+  "instance_id": "vector__rs__sinks__client__SnsMessagePublisher_send_message__L21-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sinks/aws_s_s/sns/client.rs",
+    "function": "SnsMessagePublisher.send_message"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sinks",
+    "class": "SnsMessagePublisher",
+    "symbol": "send_message",
+    "start_line": 21,
+    "n_lines": 22,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      585,
+      1375
+    ]
+  },
+  "siblings": [
+    {
+      "function": "send_message",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: SnsMessagePublisher.send_message"
+}

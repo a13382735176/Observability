@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: heartbeat-monitor-skill
+  namespace: vibe-coding
+spec:
+  selector: { app: heartbeat-monitor-skill }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heartbeat-monitor-skill
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: heartbeat-monitor-skill } }
+  template:
+    metadata:
+      labels: { app: heartbeat-monitor-skill }
+    spec:
+      containers:
+        - name: app
+          image: vibe/188-heartbeat-monitor-skill:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: heartbeat-monitor-skill }
+            - { name: REDIS_CACHE_URL, value: "redis://redis-cache:6379" }
+            - { name: REDIS_STREAM_URL, value: "redis://redis-stream:6379" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 8
+            periodSeconds: 3
+            failureThreshold: 10
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }

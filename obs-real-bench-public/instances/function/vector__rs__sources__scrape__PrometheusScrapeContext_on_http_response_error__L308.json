@@ -1,0 +1,47 @@
+{
+  "instance_id": "vector__rs__sources__scrape__PrometheusScrapeContext_on_http_response_error__L308-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/prometheus/scrape.rs",
+    "function": "PrometheusScrapeContext.on_http_response_error"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": "PrometheusScrapeContext",
+    "symbol": "on_http_response_error",
+    "start_line": 308,
+    "n_lines": 9,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      11090,
+      11446
+    ]
+  },
+  "siblings": [
+    {
+      "function": "on_http_response_error",
+      "n_gt": 1
+    },
+    {
+      "function": "on_response",
+      "n_gt": 1
+    },
+    {
+      "function": "test_prometheus_routing",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: PrometheusScrapeContext.on_http_response_error"
+}

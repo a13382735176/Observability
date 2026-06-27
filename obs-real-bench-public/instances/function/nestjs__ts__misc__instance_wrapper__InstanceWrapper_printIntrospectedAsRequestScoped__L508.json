@@ -1,0 +1,33 @@
+{
+  "instance_id": "nestjs__ts__misc__instance_wrapper__InstanceWrapper_printIntrospectedAsRequestScoped__L508-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/injector/instance-wrapper.ts",
+    "function": "InstanceWrapper.printIntrospectedAsRequestScoped"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "InstanceWrapper",
+    "symbol": "printIntrospectedAsRequestScoped",
+    "start_line": 508,
+    "n_lines": 12,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      14954,
+      15292
+    ]
+  },
+  "siblings": []
+}

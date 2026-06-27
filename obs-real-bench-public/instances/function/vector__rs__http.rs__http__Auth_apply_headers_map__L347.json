@@ -1,0 +1,46 @@
+{
+  "instance_id": "vector__rs__http.rs__http__Auth_apply_headers_map__L347-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/http.rs",
+    "function": "Auth.apply_headers_map"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "http.rs",
+    "class": "Auth",
+    "symbol": "apply_headers_map",
+    "start_line": 347,
+    "n_lines": 26,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      11360,
+      12529
+    ]
+  },
+  "siblings": [
+    {
+      "function": "apply_headers_map",
+      "n_gt": 2
+    },
+    {
+      "function": "build_http_trace_layer",
+      "n_gt": 1
+    },
+    {
+      "function": "send",
+      "n_gt": 1
+    }
+  ]
+}

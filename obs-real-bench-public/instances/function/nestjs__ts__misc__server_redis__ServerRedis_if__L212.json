@@ -1,0 +1,47 @@
+{
+  "instance_id": "nestjs__ts__misc__server_redis__ServerRedis_if__L212-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/server/server-redis.ts",
+    "function": "ServerRedis.if"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ServerRedis",
+    "symbol": "if",
+    "start_line": 212,
+    "n_lines": 10,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      6080,
+      6315
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ServerRedis.createRetryStrategy",
+      "n_gt": 2
+    },
+    {
+      "function": "ServerRedis.registerEndListener",
+      "n_gt": 1
+    },
+    {
+      "function": "ServerRedis.registerErrorListener",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: ServerRedis.if"
+}

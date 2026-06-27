@@ -1,0 +1,33 @@
+{
+  "instance_id": "vector__rs__misc__spans__ResourceSpans_into_event_iter__L28-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "lib/opentelemetry-proto/src/spans.rs",
+    "function": "ResourceSpans.into_event_iter"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ResourceSpans",
+    "symbol": "into_event_iter",
+    "start_line": 28,
+    "n_lines": 15,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      699,
+      1178
+    ]
+  },
+  "siblings": []
+}

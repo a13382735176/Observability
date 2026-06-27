@@ -1,0 +1,45 @@
+{
+  "instance_id": "boutique__py__recommendationservice__RecommendationService_ListRecommendations-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/recommendationservice/recommendation_server.py",
+    "function": "RecommendationService.ListRecommendations"
+  },
+  "task": {
+    "available_imports": [
+      "import os",
+      "import random",
+      "import time",
+      "import traceback",
+      "from concurrent import futures",
+      "from google.auth.exceptions import DefaultCredentialsError",
+      "import grpc",
+      "import demo_pb2",
+      "import demo_pb2_grpc",
+      "from grpc_health.v1 import health_pb2",
+      "from grpc_health.v1 import health_pb2_grpc",
+      "from opentelemetry import trace",
+      "from opentelemetry.instrumentation.grpc import GrpcInstrumentorClient, GrpcInstrumentorServer",
+      "from opentelemetry.sdk.trace import TracerProvider",
+      "from opentelemetry.sdk.trace.export import BatchSpanProcessor",
+      "from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter",
+      "from logger import getJSONLogger",
+      "logger  (module-level)"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 12,
+    "is_async": false,
+    "class": "RecommendationService",
+    "service": "recommendationservice"
+  },
+  "siblings": []
+}

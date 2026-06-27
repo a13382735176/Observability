@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__FoodDeliveryServiceImpl__FoodDeliveryServiceImpl_getFoodDeliveryOrderByStoreId__L113-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-food-delivery-service/src/main/java/food_delivery/service/FoodDeliveryServiceImpl.java",
+    "function": "FoodDeliveryServiceImpl.getFoodDeliveryOrderByStoreId"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "FoodDeliveryServiceImpl",
+    "symbol": "getFoodDeliveryOrderByStoreId",
+    "start_line": 113,
+    "n_lines": 11,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      4956,
+      5601
+    ]
+  },
+  "siblings": [
+    {
+      "function": "FoodDeliveryServiceImpl.deleteFoodDeliveryOrder",
+      "n_gt": 2
+    },
+    {
+      "function": "FoodDeliveryServiceImpl.getAllFoodDeliveryOrders",
+      "n_gt": 2
+    },
+    {
+      "function": "FoodDeliveryServiceImpl.getFoodDeliveryOrderById",
+      "n_gt": 2
+    },
+    {
+      "function": "FoodDeliveryServiceImpl.updateDeliveryTime",
+      "n_gt": 2
+    },
+    {
+      "function": "FoodDeliveryServiceImpl.updateSeatNo",
+      "n_gt": 2
+    }
+  ]
+}

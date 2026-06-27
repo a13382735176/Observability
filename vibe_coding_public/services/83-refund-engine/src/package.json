@@ -1,0 +1,17 @@
+{
+  "name": "refund-engine",
+  "version": "1.0.0",
+  "scripts": { "start": "npx ts-node index.ts" },
+  "dependencies": {
+    "fastify": "^4.28.0",
+    "@fastify/formbody": "^7.4.0",
+    "redis": "^4.6.13",
+    "pg": "^8.11.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.6",
+    "@types/node": "^20.0.0"
+  }
+}

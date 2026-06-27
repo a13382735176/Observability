@@ -1,0 +1,51 @@
+# Single Postgres instance shared by all DB-using services.
+# Each service creates its own schema on startup.
+# Credentials are hardcoded (this is a local bench cluster, not production).
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: vibe-coding
+spec:
+  selector:
+    app: postgres
+  ports:
+    - name: pg
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: postgres }
+  template:
+    metadata:
+      labels: { app: postgres }
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports: [ { containerPort: 5432 } ]
+          env:
+            - { name: POSTGRES_USER,     value: vibe }
+            - { name: POSTGRES_PASSWORD, value: vibe }
+            - { name: POSTGRES_DB,       value: vibe }
+            - { name: PGDATA,            value: /var/lib/postgresql/data/pgdata }
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "vibe", "-d", "vibe"]
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests: { cpu: 50m, memory: 128Mi }
+            limits:   { cpu: 500m, memory: 512Mi }
+          volumeMounts:
+            - { name: data, mountPath: /var/lib/postgresql/data }
+      volumes:
+        - name: data
+          emptyDir: {}

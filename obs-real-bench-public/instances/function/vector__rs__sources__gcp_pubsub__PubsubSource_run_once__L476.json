@@ -1,0 +1,54 @@
+{
+  "instance_id": "vector__rs__sources__gcp_pubsub__PubsubSource_run_once__L476-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/gcp_pubsub.rs",
+    "function": "PubsubSource.run_once"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": "PubsubSource",
+    "symbol": "run_once",
+    "start_line": 476,
+    "n_lines": 106,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      16680,
+      21419
+    ]
+  },
+  "siblings": [
+    {
+      "function": "build",
+      "n_gt": 3
+    },
+    {
+      "function": "run",
+      "n_gt": 2
+    },
+    {
+      "function": "run_once",
+      "n_gt": 1
+    },
+    {
+      "function": "start_one",
+      "n_gt": 1
+    },
+    {
+      "function": "translate_error",
+      "n_gt": 1
+    }
+  ]
+}

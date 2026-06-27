@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "service": {
+    "service_id": "175-funnel-analyzer-skill",
+    "app_label": "funnel-analyzer-skill",
+    "image": "vibe/175-funnel-analyzer-skill:dev",
+    "target_dir": "services_skill/175-funnel-analyzer-skill",
+    "port": 8080,
+    "language": "kotlin",
+    "language_stack": "Kotlin"
+  },
+  "responsibility": "175-funnel-analyzer",
+  "behavior_contract": "",
+  "endpoints": [],
+  "dependencies": [
+    "redis-cache"
+  ],
+  "state_contract": {
+    "postgres_schema_sql": [
+      "CREATE TABLE IF NOT EXISTS funnels( id bigserial PRIMARY KEY, name text, steps jsonb, created_at timestamptz DEFAULT now() )",
+      "CREATE TABLE IF NOT EXISTS funnel_events( id bigserial PRIMARY KEY, funnel_id bigint, user_id text, event_type text, ts timestamptz DEFAULT now() )"
+    ],
+    "named_state_keys_or_streams": []
+  },
+  "runtime_env": [
+    {
+      "name": "APP_NAME",
+      "value": "funnel-analyzer-skill"
+    },
+    {
+      "name": "PGHOST",
+      "value": "postgres"
+    },
+    {
+      "name": "PGPORT",
+      "value": "5432"
+    },
+    {
+      "name": "REDIS_CACHE_HOST",
+      "value": "redis-cache"
+    },
+    {
+      "name": "REDIS_CACHE_PORT",
+      "value": "6379"
+    }
+  ],
+  "docker_build_contract": {
+    "build_context_after_import": "services_skill/175-funnel-analyzer-skill",
+    "image": "vibe/175-funnel-analyzer-skill:dev",
+    "source_root_visible_to_generator": "src",
+    "generator_may_create_or_modify": [
+      "src/**"
+    ],
+    "generator_must_not_create_or_modify": [
+      "anything outside src/"
+    ],
+    "validation_command_after_import": "docker build -t vibe/175-funnel-analyzer-skill:dev .",
+    "dockerfile_used_by_private_harness": "FROM gradle:8.7-jdk21 AS build\nWORKDIR /app\nCOPY src/ .\nRUN gradle installDist --no-daemon -q\nFROM eclipse-temurin:21-jre-jammy\nWORKDIR /app\nCOPY --from=build /app/build/install/funnel-analyzer-skill/ .\nEXPOSE 8080\nCMD [\"bin/funnel-analyzer-skill\"]\n"
+  },
+  "readiness_path": "/healthz",
+  "generation_constraints": [
+    "Generate a fresh implementation from this contract only.",
+    "Keep API paths, request fields, response fields, dependencies, and database schema compatible with the contract.",
+    "Keep the service runnable on port 8080 with the listed environment variables and Docker build contract.",
+    "Do not copy any pre-existing source code or log wording.",
+    "Do not infer or implement hidden evaluation behavior from this contract.",
+    "The observability skill may only affect application-level diagnostic messages inside the described service shape.",
+    "Do not add endpoints, dependencies, persistent state, background workers, or external telemetry infrastructure beyond the contract.",
+    "Do not add OpenTelemetry, Prometheus, Jaeger, Grafana, or external telemetry infrastructure.",
+    "Create or modify only files under src/; all other files are owned by the private runtime environment."
+  ]
+}

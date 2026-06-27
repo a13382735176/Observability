@@ -1,0 +1,33 @@
+{
+  "instance_id": "vector__rs__sources__mod__test_aws_ecs_metrics_source__L273-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/aws_ecs_metrics/mod.rs",
+    "function": "test_aws_ecs_metrics_source"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": null,
+    "symbol": "test_aws_ecs_metrics_source",
+    "start_line": 273,
+    "n_lines": 341,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      9130,
+      25759
+    ]
+  },
+  "siblings": []
+}

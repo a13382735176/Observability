@@ -1,0 +1,54 @@
+{
+  "instance_id": "boutique__go__frontend__handlers__homeHandler__L59-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "src/frontend/handlers.go",
+    "function": "homeHandler"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "frontend",
+    "class": null,
+    "symbol": "homeHandler",
+    "start_line": 59,
+    "n_lines": 62,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1648,
+      3920
+    ]
+  },
+  "siblings": [
+    {
+      "function": "placeOrderHandler",
+      "n_gt": 3
+    },
+    {
+      "function": "productHandler",
+      "n_gt": 3
+    },
+    {
+      "function": "viewCartHandler",
+      "n_gt": 3
+    },
+    {
+      "function": "renderHTTPError",
+      "n_gt": 2
+    },
+    {
+      "function": "addToCartHandler",
+      "n_gt": 1
+    }
+  ]
+}

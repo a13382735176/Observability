@@ -1,0 +1,49 @@
+{
+  "instance_id": "otel-demo__py__llm__build_response-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/llm/app.py",
+    "function": "build_response"
+  },
+  "task": {
+    "available_imports": [
+      "from flask import Flask, request, jsonify, Response",
+      "import json",
+      "import time",
+      "import random",
+      "import re",
+      "import os",
+      "import logging",
+      "from openfeature import api",
+      "from openfeature.contrib.provider.flagd import FlagdProvider"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 3,
+    "is_async": false,
+    "class": null,
+    "service": "llm"
+  },
+  "siblings": [
+    {
+      "function": "chat_completions",
+      "n_gt": 5
+    },
+    {
+      "function": "generate_response",
+      "n_gt": 3
+    },
+    {
+      "function": "load_product_review_summaries",
+      "n_gt": 3
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__OrderOtherServiceImpl__OrderOtherServiceImpl_initOrder__L105-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-order-other-service/src/main/java/other/service/OrderOtherServiceImpl.java",
+    "function": "OrderOtherServiceImpl.initOrder"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "OrderOtherServiceImpl",
+    "symbol": "initOrder",
+    "start_line": 105,
+    "n_lines": 11,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      4150,
+      4686
+    ]
+  },
+  "siblings": [
+    {
+      "function": "OrderOtherServiceImpl.queryOrders",
+      "n_gt": 7
+    },
+    {
+      "function": "OrderOtherServiceImpl.addNewOrder",
+      "n_gt": 3
+    },
+    {
+      "function": "OrderOtherServiceImpl.alterOrder",
+      "n_gt": 3
+    },
+    {
+      "function": "OrderOtherServiceImpl.create",
+      "n_gt": 3
+    },
+    {
+      "function": "OrderOtherServiceImpl.updateOrder",
+      "n_gt": 3
+    }
+  ]
+}

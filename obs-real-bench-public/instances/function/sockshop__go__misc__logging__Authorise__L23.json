@@ -1,0 +1,38 @@
+{
+  "instance_id": "sockshop__go__misc__logging__Authorise__L23-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "microservices-demo/sock-shop",
+    "local_path": "../source_repos/microservices-demo__sock-shop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "payment/logging.go",
+    "function": "Authorise"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "Authorise",
+    "start_line": 23,
+    "n_lines": 10,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      381,
+      657
+    ]
+  },
+  "siblings": [
+    {
+      "function": "Health",
+      "n_gt": 1
+    }
+  ]
+}

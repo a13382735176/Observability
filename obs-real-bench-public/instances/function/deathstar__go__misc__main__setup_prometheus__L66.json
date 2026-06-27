@@ -1,0 +1,42 @@
+{
+  "instance_id": "deathstar__go__misc__main__setup_prometheus__L66-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "daprApps_v1/socialNetwork/recommend/main.go",
+    "function": "setup_prometheus"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "setup_prometheus",
+    "start_line": 66,
+    "n_lines": 10,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1671,
+      2046
+    ]
+  },
+  "siblings": [
+    {
+      "function": "recmdHandler",
+      "n_gt": 10
+    },
+    {
+      "function": "main",
+      "n_gt": 3
+    }
+  ]
+}

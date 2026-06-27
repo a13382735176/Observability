@@ -1,0 +1,42 @@
+{
+  "instance_id": "vector__rs__sources__mod__run_command__L455-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/exec/mod.rs",
+    "function": "run_command"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": null,
+    "symbol": "run_command",
+    "start_line": 455,
+    "n_lines": 103,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      13870,
+      17103
+    ]
+  },
+  "siblings": [
+    {
+      "function": "run_scheduled",
+      "n_gt": 2
+    },
+    {
+      "function": "spawn_reader_thread",
+      "n_gt": 2
+    }
+  ]
+}

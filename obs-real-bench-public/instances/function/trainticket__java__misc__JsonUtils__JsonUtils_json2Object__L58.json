@@ -1,0 +1,38 @@
+{
+  "instance_id": "trainticket__java__misc__JsonUtils__JsonUtils_json2Object__L58-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-common/src/main/java/edu/fudan/common/util/JsonUtils.java",
+    "function": "JsonUtils.json2Object"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "JsonUtils",
+    "symbol": "json2Object",
+    "start_line": 58,
+    "n_lines": 13,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1298,
+      1857
+    ]
+  },
+  "siblings": [
+    {
+      "function": "JsonUtils.object2Json",
+      "n_gt": 1
+    }
+  ]
+}

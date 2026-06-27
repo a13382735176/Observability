@@ -1,0 +1,34 @@
+{
+  "instance_id": "strapi__ts__misc__builder__anon_d50862__L138-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/database/src/schema/builder.ts",
+    "function": "anon_d50862"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "anon_d50862",
+    "start_line": 138,
+    "n_lines": 454,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      4595,
+      19631
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: anon_d50862"
+}

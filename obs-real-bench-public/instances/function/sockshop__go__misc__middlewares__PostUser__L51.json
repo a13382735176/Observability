@@ -1,0 +1,54 @@
+{
+  "instance_id": "sockshop__go__misc__middlewares__PostUser__L51-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "microservices-demo/sock-shop",
+    "local_path": "../source_repos/microservices-demo__sock-shop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "user/api/middlewares.go",
+    "function": "PostUser"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "PostUser",
+    "start_line": 51,
+    "n_lines": 12,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1121,
+      1425
+    ]
+  },
+  "siblings": [
+    {
+      "function": "Delete",
+      "n_gt": 1
+    },
+    {
+      "function": "Delete",
+      "n_gt": 1
+    },
+    {
+      "function": "GetAddresses",
+      "n_gt": 1
+    },
+    {
+      "function": "GetAddresses",
+      "n_gt": 1
+    },
+    {
+      "function": "GetCards",
+      "n_gt": 1
+    }
+  ]
+}

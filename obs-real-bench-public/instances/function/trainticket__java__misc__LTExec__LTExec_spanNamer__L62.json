@@ -1,0 +1,38 @@
+{
+  "instance_id": "trainticket__java__misc__LTExec__LTExec_spanNamer__L62-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "old-docs/Lib/ms-monitoring-core/src/main/java/org/myproject/ms/monitoring/instrument/async/LTExec.java",
+    "function": "LTExec.spanNamer"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "LTExec",
+    "symbol": "spanNamer",
+    "start_line": 62,
+    "n_lines": 12,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1774,
+      2117
+    ]
+  },
+  "siblings": [
+    {
+      "function": "LTExec.traceKeys",
+      "n_gt": 1
+    }
+  ]
+}

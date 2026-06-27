@@ -1,0 +1,38 @@
+{
+  "instance_id": "eshop__cs__Identity.API__ExternalController__ExternalController_ExternalController__L14-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Identity.API/Quickstart/Account/ExternalController.cs",
+    "function": "ExternalController.ExternalController"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Identity.API",
+    "class": "ExternalController",
+    "symbol": "ExternalController",
+    "start_line": 14,
+    "n_lines": 15,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      483,
+      988
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ExternalController.Callback",
+      "n_gt": 1
+    }
+  ]
+}

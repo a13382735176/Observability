@@ -1,0 +1,24 @@
+# cloned source repos (not part of this benchmark, fetched on demand)
+repos/
+
+# per-model run outputs (large, regenerable)
+# Ignore everything under results/ except selected aggregate artifacts.
+results/*
+!results/agent-gpt5.5-6.6/
+results/agent-gpt5.5-6.6/*
+!results/agent-gpt5.5-6.6/aggregate_repo_lang.md
+!results/agent-gpt5.5-6.6/summary.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

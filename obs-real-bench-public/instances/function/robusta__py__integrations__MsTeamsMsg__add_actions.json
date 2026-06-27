@@ -1,0 +1,46 @@
+{
+  "instance_id": "robusta__py__integrations__MsTeamsMsg__add_actions-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/integrations/msteams/msteams_msg.py",
+    "function": "MsTeamsMsg._add_actions"
+  },
+  "task": {
+    "available_imports": [
+      "import json",
+      "import logging",
+      "from typing import List",
+      "import requests",
+      "from robusta.core.reporting import FileBlock, Finding, FindingSeverity, HeaderBlock, KubernetesDiffBlock, ListBlock, MarkdownBlock, TableBlock",
+      "from robusta.core.reporting.base import FindingStatus, LinkType",
+      "from robusta.core.reporting.url_helpers import convert_prom_graph_url_to_robusta_metrics_explorer",
+      "from robusta.integrations.msteams.msteams_adaptive_card_files import MsTeamsAdaptiveCardFiles",
+      "from robusta.integrations.msteams.msteams_elements.msteams_base import MsTeamsBase",
+      "from robusta.integrations.msteams.msteams_elements.msteams_card import MsTeamsCard",
+      "from robusta.integrations.msteams.msteams_elements.msteams_column import MsTeamsColumn",
+      "from robusta.integrations.msteams.msteams_elements.msteams_images import MsTeamsImages",
+      "from robusta.integrations.msteams.msteams_elements.msteams_table import MsTeamsTable",
+      "from robusta.integrations.msteams.msteams_elements.msteams_text_block import MsTeamsTextBlock"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 14,
+    "is_async": false,
+    "class": "MsTeamsMsg",
+    "service": "integrations"
+  },
+  "siblings": [
+    {
+      "function": "MsTeamsMsg.send",
+      "n_gt": 3
+    }
+  ]
+}

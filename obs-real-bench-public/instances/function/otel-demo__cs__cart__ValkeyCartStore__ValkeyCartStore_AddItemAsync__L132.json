@@ -1,0 +1,46 @@
+{
+  "instance_id": "otel-demo__cs__cart__ValkeyCartStore__ValkeyCartStore_AddItemAsync__L132-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/cart/src/cartstore/ValkeyCartStore.cs",
+    "function": "ValkeyCartStore.AddItemAsync"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "cart",
+    "class": "ValkeyCartStore",
+    "symbol": "AddItemAsync",
+    "start_line": 132,
+    "n_lines": 53,
+    "n_obs_tokens": 3,
+    "span_byte_range": [
+      4487,
+      6326
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ValkeyCartStore.EnsureRedisConnected",
+      "n_gt": 7
+    },
+    {
+      "function": "ValkeyCartStore.GetCartAsync",
+      "n_gt": 2
+    },
+    {
+      "function": "ValkeyCartStore.EmptyCartAsync",
+      "n_gt": 1
+    }
+  ]
+}

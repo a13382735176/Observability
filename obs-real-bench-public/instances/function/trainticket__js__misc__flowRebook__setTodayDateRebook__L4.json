@@ -1,0 +1,33 @@
+{
+  "instance_id": "trainticket__js__misc__flowRebook__setTodayDateRebook__L4-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "javascript",
+    "file": "ts-ui-dashboard/static/js/flowRebook.js",
+    "function": "setTodayDateRebook"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "setTodayDateRebook",
+    "start_line": 4,
+    "n_lines": 14,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      139,
+      513
+    ]
+  },
+  "siblings": []
+}

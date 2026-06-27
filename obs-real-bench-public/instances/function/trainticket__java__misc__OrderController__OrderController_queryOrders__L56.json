@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__OrderController__OrderController_queryOrders__L56-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-order-service/src/main/java/order/controller/OrderController.java",
+    "function": "OrderController.queryOrders"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "OrderController",
+    "symbol": "queryOrders",
+    "start_line": 56,
+    "n_lines": 7,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1984,
+      2367
+    ]
+  },
+  "siblings": [
+    {
+      "function": "OrderController.calculateSoldTicket",
+      "n_gt": 1
+    },
+    {
+      "function": "OrderController.createNewOrder",
+      "n_gt": 1
+    },
+    {
+      "function": "OrderController.deleteOrder",
+      "n_gt": 1
+    },
+    {
+      "function": "OrderController.findAllOrder",
+      "n_gt": 1
+    },
+    {
+      "function": "OrderController.getOrderById",
+      "n_gt": 1
+    }
+  ]
+}

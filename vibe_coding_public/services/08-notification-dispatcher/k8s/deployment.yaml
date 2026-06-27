@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-dispatcher
+  namespace: vibe-coding
+spec:
+  selector: { app: notification-dispatcher }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-dispatcher
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: notification-dispatcher } }
+  template:
+    metadata:
+      labels: { app: notification-dispatcher }
+    spec:
+      containers:
+        - name: app
+          image: vibe/08-notification-dispatcher:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: notification-dispatcher }
+            - { name: REDIS_STREAM_URL, value: "redis://redis-stream:6379/0" }
+            - { name: REDIS_STREAM_HOST, value: "redis-stream" }
+            - { name: REDIS_STREAM_PORT, value: "6379" }
+            - { name: UPSTREAM_URL, value: "http://mock-upstream:8080" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 3
+            periodSeconds: 3
+            failureThreshold: 5
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }

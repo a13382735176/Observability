@@ -1,0 +1,81 @@
+<svg width="1000" height="420" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.box { fill:#ffffff; stroke:#222; stroke-width:1.2; }
+.smallbox { fill:#ffffff; stroke:#444; stroke-width:1; }
+.text { font-family:Helvetica, Arial; font-size:16px; fill:#222; }
+.code { font-family:Courier New, monospace; font-size:14px; fill:#333; }
+.arrow { stroke:#333; stroke-width:1.2; marker-end:url(#arrow); }
+.label { font-family:Helvetica; font-size:13px; fill:#555; }
+</style>
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+  <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+</marker>
+</defs>
+
+<!-- Title -->
+<text x="500" y="35" text-anchor="middle" class="text" style="font-size:20px;">
+Observability Reconstruction Task (RQ1)
+</text>
+
+<!-- Code boxes -->
+<rect x="60" y="90" width="260" height="130" class="box"/>
+<rect x="370" y="90" width="260" height="130" class="box"/>
+<rect x="680" y="90" width="260" height="130" class="box"/>
+
+<!-- Labels -->
+<text x="190" y="80" text-anchor="middle" class="text">f (original)</text>
+<text x="500" y="80" text-anchor="middle" class="text">f⁻ (stripped)</text>
+<text x="810" y="80" text-anchor="middle" class="text">f̂ (reconstructed)</text>
+
+<!-- Code content -->
+<text x="75" y="120" class="code">user = load_user(...)</text>
+<text x="75" y="140" class="code" fill="#1f77b4">span.set_attribute(...)</text>
+<text x="75" y="160" class="code">payment = charge_card(...)</text>
+<text x="75" y="180" class="code" fill="#1f77b4">logger.info(...)</text>
+
+<text x="385" y="120" class="code">user = load_user(...)</text>
+<text x="385" y="140" class="code" fill="#aaa">[removed]</text>
+<text x="385" y="160" class="code">payment = charge_card(...)</text>
+<text x="385" y="180" class="code" fill="#aaa">[removed]</text>
+
+<text x="695" y="120" class="code">user = load_user(...)</text>
+<text x="695" y="140" class="code" fill="#2ca02c">span.set_attribute(...)</text>
+<text x="695" y="160" class="code">payment = charge_card(...)</text>
+<text x="695" y="180" class="code" fill="#2ca02c">logger.info(...)</text>
+
+<!-- Arrows -->
+<line x1="320" y1="155" x2="370" y2="155" class="arrow"/>
+<line x1="630" y1="155" x2="680" y2="155" class="arrow"/>
+
+<!-- Labels on arrows -->
+<text x="345" y="140" class="label">strip</text>
+<text x="655" y="140" class="label">A(f⁻, c)</text>
+
+<!-- Evaluation box -->
+<rect x="360" y="260" width="280" height="45" class="box"/>
+<text x="500" y="290" text-anchor="middle" class="text">Alignment-based evaluation</text>
+
+<!-- Lines down -->
+<line x1="500" y1="220" x2="500" y2="260" class="arrow"/>
+
+<!-- Metric boxes -->
+<rect x="280" y="330" width="200" height="50" class="smallbox"/>
+<rect x="540" y="330" width="200" height="50" class="smallbox"/>
+
+<text x="380" y="360" text-anchor="middle" class="text">
+Position F1
+</text>
+<text x="380" y="375" text-anchor="middle" class="label">(placement)</text>
+
+<text x="640" y="360" text-anchor="middle" class="text">
+KeyBag F1
+</text>
+<text x="640" y="375" text-anchor="middle" class="label">(semantics)</text>
+
+<line x1="460" y1="305" x2="380" y2="330" class="arrow"/>
+<line x1="540" y1="305" x2="640" y2="330" class="arrow"/>
+
+</svg>

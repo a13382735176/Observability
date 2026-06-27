@@ -1,0 +1,54 @@
+{
+  "instance_id": "otel-demo__go__product_catalog__main__mustMapEnv__L326-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "src/product-catalog/main.go",
+    "function": "mustMapEnv"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "product_catalog",
+    "class": null,
+    "symbol": "mustMapEnv",
+    "start_line": 326,
+    "n_lines": 7,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      9005,
+      9193
+    ]
+  },
+  "siblings": [
+    {
+      "function": "main",
+      "n_gt": 15
+    },
+    {
+      "function": "GetProduct",
+      "n_gt": 8
+    },
+    {
+      "function": "ListProducts",
+      "n_gt": 2
+    },
+    {
+      "function": "SearchProducts",
+      "n_gt": 2
+    },
+    {
+      "function": "getProductsFromRows",
+      "n_gt": 1
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "instance_id": "otel-demo__php__quote__routes__calculateQuote__L15-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "php",
+    "file": "src/quote/app/routes.php",
+    "function": "calculateQuote"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "quote",
+    "class": null,
+    "symbol": "calculateQuote",
+    "start_line": 15,
+    "n_lines": 35,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      342,
+      1606
+    ]
+  },
+  "siblings": []
+}

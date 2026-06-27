@@ -1,0 +1,38 @@
+{
+  "instance_id": "deathstar__go__misc__options__init__L80-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "hotelReservation/tls/options.go",
+    "function": "init"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "init",
+    "start_line": 80,
+    "n_lines": 46,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      3150,
+      4548
+    ]
+  },
+  "siblings": [
+    {
+      "function": "checkTLS",
+      "n_gt": 2
+    }
+  ]
+}

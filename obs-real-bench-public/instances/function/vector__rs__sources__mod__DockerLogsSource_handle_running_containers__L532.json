@@ -1,0 +1,54 @@
+{
+  "instance_id": "vector__rs__sources__mod__DockerLogsSource_handle_running_containers__L532-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/docker_logs/mod.rs",
+    "function": "DockerLogsSource.handle_running_containers"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": "DockerLogsSource",
+    "symbol": "handle_running_containers",
+    "start_line": 532,
+    "n_lines": 56,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      19665,
+      21674
+    ]
+  },
+  "siblings": [
+    {
+      "function": "handle_running_containers",
+      "n_gt": 3
+    },
+    {
+      "function": "new_event",
+      "n_gt": 2
+    },
+    {
+      "function": "retry_events_stream_with_backoff",
+      "n_gt": 2
+    },
+    {
+      "function": "build",
+      "n_gt": 1
+    },
+    {
+      "function": "new",
+      "n_gt": 1
+    }
+  ]
+}

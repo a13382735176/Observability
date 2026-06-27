@@ -1,0 +1,79 @@
+{
+  "instance_id": "robusta__py__runner__ConfigLoader___reload_playbook_packages-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/robusta/runner/config_loader.py",
+    "function": "ConfigLoader.__reload_playbook_packages"
+  },
+  "task": {
+    "available_imports": [
+      "import hashlib",
+      "import importlib.util",
+      "import logging",
+      "import os",
+      "import pkgutil",
+      "import signal",
+      "import subprocess",
+      "import sys",
+      "import tarfile",
+      "import tempfile",
+      "import threading",
+      "from inspect import getmembers",
+      "from typing import Dict, Optional",
+      "import dpath.util",
+      "import requests",
+      "import toml",
+      "import yaml",
+      "from robusta.core.model.env_vars import CUSTOM_PLAYBOOKS_ROOT, DEFAULT_PLAYBOOKS_PIP_INSTALL, DEFAULT_PLAYBOOKS_ROOT, INTERNAL_PLAYBOOKS_ROOT, PLAYBOOKS_CONFIG_FILE_PATH, PLAYBOOKS_ROOT",
+      "from robusta.core.model.runner_config import PlaybookRepo, RunnerConfig",
+      "from robusta.core.playbooks.actions_registry import Action, ActionsRegistry",
+      "from robusta.core.playbooks.playbooks_event_handler import PlaybooksEventHandler",
+      "from robusta.integrations.git.git_repo import GIT_HTTPS_PREFIX, GIT_SSH_PREFIX, LOCAL_PATH_URL_PREFIX, GitRepo, GitRepoManager",
+      "from robusta.integrations.prometheus.models import update_severity_map",
+      "from robusta.integrations.receiver import ActionRequestReceiver",
+      "from robusta.integrations.scheduled.playbook_scheduler_manager_impl import PlaybooksSchedulerManagerImpl",
+      "from robusta.integrations.scheduled.trigger import ScheduledTriggerEvent",
+      "from robusta.model.config import PlaybooksRegistry, PlaybooksRegistryImpl, Registry, SinksRegistry",
+      "from robusta.model.playbook_definition import PlaybookDefinition",
+      "from robusta.utils.cluster_provider_discovery import cluster_provider",
+      "from robusta.utils.file_system_watcher import FileSystemWatcher",
+      "from robusta.core.exceptions import SupabaseDnsException"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 40,
+    "is_async": false,
+    "class": "ConfigLoader",
+    "service": "runner"
+  },
+  "siblings": [
+    {
+      "function": "ConfigLoader.__import_playbooks_package",
+      "n_gt": 3
+    },
+    {
+      "function": "ConfigLoader.__load_playbooks_repos",
+      "n_gt": 2
+    },
+    {
+      "function": "ConfigLoader.__load_runner_config",
+      "n_gt": 2
+    },
+    {
+      "function": "ConfigLoader.install_package",
+      "n_gt": 2
+    },
+    {
+      "function": "ConfigLoader.__prepare_runtime_config",
+      "n_gt": 1
+    }
+  ]
+}

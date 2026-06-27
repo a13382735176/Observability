@@ -1,0 +1,27 @@
+# kind cluster config for vibe_coding bench.
+# One control-plane plus seven workers for parallel capture campaigns.
+# This raises the default pod scheduling capacity from ~110 pods to ~880 pods.
+# extraPortMappings expose:
+#   - 30080 (services NodePort range bottom) for ad-hoc curl
+# All other access is via `kubectl port-forward`.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: vibe
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 30080
+        hostPort: 30080
+        protocol: TCP
+  - role: worker
+  - role: worker
+  - role: worker
+  - role: worker
+  - role: worker
+  - role: worker
+  - role: worker
+networking:
+  apiServerAddress: "127.0.0.1"
+  apiServerPort: 16446       # avoid local port clashes on Windows/VS Code
+  podSubnet: "10.245.0.0/16"
+  serviceSubnet: "10.97.0.0/16"

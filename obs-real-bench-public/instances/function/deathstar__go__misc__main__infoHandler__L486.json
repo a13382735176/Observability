@@ -1,0 +1,54 @@
+{
+  "instance_id": "deathstar__go__misc__main__infoHandler__L486-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "daprApps_v1/video-sharing/video-info/main.go",
+    "function": "infoHandler"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "infoHandler",
+    "start_line": 486,
+    "n_lines": 134,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      14744,
+      18654
+    ]
+  },
+  "siblings": [
+    {
+      "function": "rateHandler",
+      "n_gt": 8
+    },
+    {
+      "function": "viewHandler",
+      "n_gt": 7
+    },
+    {
+      "function": "main",
+      "n_gt": 6
+    },
+    {
+      "function": "uploadHandler",
+      "n_gt": 5
+    },
+    {
+      "function": "setup_prometheus",
+      "n_gt": 1
+    }
+  ]
+}

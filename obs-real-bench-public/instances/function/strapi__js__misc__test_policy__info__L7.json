@@ -1,0 +1,34 @@
+{
+  "instance_id": "strapi__js__misc__test_policy__info__L7-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "javascript",
+    "file": "examples/getstarted/src/policies/test-policy.js",
+    "function": "info"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "info",
+    "start_line": 7,
+    "n_lines": 12,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      65,
+      273
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: info"
+}

@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: edge-proxy-skill
+  namespace: vibe-coding
+spec:
+  selector:
+    app: edge-proxy-skill
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edge-proxy-skill
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: edge-proxy-skill
+  template:
+    metadata:
+      labels:
+        app: edge-proxy-skill
+    spec:
+      containers:
+        - name: app
+          image: vibe/63-edge-proxy-skill:dev
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_NAME
+              value: edge-proxy-skill
+            - name: REDIS_CACHE_HOST
+              value: redis-cache
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 8
+            periodSeconds: 3
+            failureThreshold: 10
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

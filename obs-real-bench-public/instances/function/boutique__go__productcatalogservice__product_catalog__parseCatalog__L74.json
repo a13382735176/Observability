@@ -1,0 +1,33 @@
+{
+  "instance_id": "boutique__go__productcatalogservice__product_catalog__parseCatalog__L74-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "src/productcatalogservice/product_catalog.go",
+    "function": "parseCatalog"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "productcatalogservice",
+    "class": null,
+    "symbol": "parseCatalog",
+    "start_line": 74,
+    "n_lines": 10,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2402,
+      2623
+    ]
+  },
+  "siblings": []
+}

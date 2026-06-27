@@ -1,0 +1,38 @@
+{
+  "instance_id": "deathstar__go__misc__options__checkTLS__L56-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "hotelReservation/tls/options.go",
+    "function": "checkTLS"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "checkTLS",
+    "start_line": 56,
+    "n_lines": 23,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2467,
+      3148
+    ]
+  },
+  "siblings": [
+    {
+      "function": "init",
+      "n_gt": 6
+    }
+  ]
+}

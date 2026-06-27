@@ -1,0 +1,33 @@
+{
+  "instance_id": "nestjs__ts__misc__deep_hashed_module_opaque_key_factory__DeepHashedModuleOpaqueKeyFactory_createForDynamic__L34-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/injector/opaque-key-factory/deep-hashed-module-opaque-key-factory.ts",
+    "function": "DeepHashedModuleOpaqueKeyFactory.createForDynamic"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "DeepHashedModuleOpaqueKeyFactory",
+    "symbol": "createForDynamic",
+    "start_line": 34,
+    "n_lines": 24,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1361,
+      2309
+    ]
+  },
+  "siblings": []
+}

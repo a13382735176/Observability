@@ -1,0 +1,33 @@
+{
+  "instance_id": "deathstar__go__misc__src__UpdateStoreSlice__L91-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "daprApps_v1/video-sharing/common/util/src.go",
+    "function": "UpdateStoreSlice"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "UpdateStoreSlice",
+    "start_line": 91,
+    "n_lines": 120,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      2131,
+      5612
+    ]
+  },
+  "siblings": []
+}

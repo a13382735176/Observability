@@ -1,0 +1,60 @@
+# Two Redis instances so cache vs. queue faults can be targeted independently:
+#   redis-cache   used as a KV cache by cart/session/etc.
+#   redis-stream  used as a stream broker by order-api/notification/etc.
+apiVersion: v1
+kind: Service
+metadata: { name: redis-cache, namespace: vibe-coding }
+spec:
+  selector: { app: redis-cache }
+  ports: [ { name: redis, port: 6379, targetPort: 6379 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: redis-cache, namespace: vibe-coding }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: redis-cache } }
+  template:
+    metadata: { labels: { app: redis-cache } }
+    spec:
+      containers:
+        - name: redis
+          image: redis:7-alpine
+          args: ["--appendonly", "no", "--save", ""]
+          ports: [ { containerPort: 6379 } ]
+          readinessProbe:
+            exec: { command: ["redis-cli", "ping"] }
+            initialDelaySeconds: 2
+            periodSeconds: 3
+          resources:
+            requests: { cpu: 25m, memory: 32Mi }
+            limits:   { cpu: 200m, memory: 128Mi }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: redis-stream, namespace: vibe-coding }
+spec:
+  selector: { app: redis-stream }
+  ports: [ { name: redis, port: 6379, targetPort: 6379 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: redis-stream, namespace: vibe-coding }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: redis-stream } }
+  template:
+    metadata: { labels: { app: redis-stream } }
+    spec:
+      containers:
+        - name: redis
+          image: redis:7-alpine
+          args: ["--appendonly", "no", "--save", ""]
+          ports: [ { containerPort: 6379 } ]
+          readinessProbe:
+            exec: { command: ["redis-cli", "ping"] }
+            initialDelaySeconds: 2
+            periodSeconds: 3
+          resources:
+            requests: { cpu: 25m, memory: 32Mi }
+            limits:   { cpu: 200m, memory: 128Mi }

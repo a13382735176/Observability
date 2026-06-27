@@ -1,0 +1,33 @@
+{
+  "instance_id": "nestjs__ts__misc__samples__executeNPMScriptInDirectory__L75-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "tools/gulp/tasks/samples.ts",
+    "function": "executeNPMScriptInDirectory"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "executeNPMScriptInDirectory",
+    "start_line": 75,
+    "n_lines": 38,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2586,
+      3705
+    ]
+  },
+  "siblings": []
+}

@@ -1,0 +1,34 @@
+{
+  "instance_id": "deathstar__js__misc__contact__getItem__L1-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "javascript",
+    "file": "socialNetwork/nginx-web-server/pages/javascript/contact.js",
+    "function": "getItem"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "getItem",
+    "start_line": 1,
+    "n_lines": 6,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      21,
+      218
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: getItem"
+}

@@ -1,0 +1,38 @@
+{
+  "instance_id": "nestjs__ts__misc__server_grpc__ServerGrpc_loadProto__L631-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/server/server-grpc.ts",
+    "function": "ServerGrpc.loadProto"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ServerGrpc",
+    "symbol": "loadProto",
+    "start_line": 631,
+    "n_lines": 24,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      20305,
+      20993
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ServerGrpc.createServices",
+      "n_gt": 1
+    }
+  ]
+}

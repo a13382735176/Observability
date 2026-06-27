@@ -1,0 +1,38 @@
+{
+  "instance_id": "eshop__cs__Basket.API__BasketService__BasketService_UpdateBasket__L36-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Basket.API/Grpc/BasketService.cs",
+    "function": "BasketService.UpdateBasket"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Basket.API",
+    "class": "BasketService",
+    "symbol": "UpdateBasket",
+    "start_line": 36,
+    "n_lines": 22,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      967,
+      1725
+    ]
+  },
+  "siblings": [
+    {
+      "function": "BasketService.GetBasket",
+      "n_gt": 1
+    }
+  ]
+}

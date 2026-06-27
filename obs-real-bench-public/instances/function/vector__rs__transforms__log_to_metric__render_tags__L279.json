@@ -1,0 +1,33 @@
+{
+  "instance_id": "vector__rs__transforms__log_to_metric__render_tags__L279-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/transforms/log_to_metric.rs",
+    "function": "render_tags"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "transforms",
+    "class": null,
+    "symbol": "render_tags",
+    "start_line": 279,
+    "n_lines": 49,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      8293,
+      10096
+    ]
+  },
+  "siblings": []
+}

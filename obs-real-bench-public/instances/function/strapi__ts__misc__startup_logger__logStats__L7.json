@@ -1,0 +1,33 @@
+{
+  "instance_id": "strapi__ts__misc__startup_logger__logStats__L7-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/core/src/utils/startup-logger.ts",
+    "function": "logStats"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "logStats",
+    "start_line": 7,
+    "n_lines": 91,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      169,
+      3015
+    ]
+  },
+  "siblings": []
+}

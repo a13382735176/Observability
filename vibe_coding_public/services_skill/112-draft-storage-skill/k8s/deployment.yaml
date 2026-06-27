@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: draft-storage-skill
+  namespace: vibe-coding
+spec:
+  selector: { app: draft-storage-skill }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: draft-storage-skill
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: draft-storage-skill } }
+  template:
+    metadata:
+      labels: { app: draft-storage-skill }
+    spec:
+      containers:
+        - name: app
+          image: vibe/112-draft-storage-skill:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: draft-storage-skill }
+            - { name: PG_DSN, value: "postgres://vibe:vibe@postgres:5432/vibe" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 8
+            periodSeconds: 3
+            failureThreshold: 10
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }

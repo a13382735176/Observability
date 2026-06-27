@@ -1,0 +1,30 @@
+{
+  "instance_id": "boutique__py__recommendationservice__CustomJsonFormatter_add_fields-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/recommendationservice/logger.py",
+    "function": "CustomJsonFormatter.add_fields"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "import sys",
+      "from pythonjsonlogger import jsonlogger"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 6,
+    "is_async": false,
+    "class": "CustomJsonFormatter",
+    "service": "recommendationservice"
+  },
+  "siblings": []
+}

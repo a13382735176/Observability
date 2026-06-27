@@ -1,0 +1,38 @@
+{
+  "instance_id": "vector__rs__config__builder__ConfigBuilder_build__L139-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/config/builder.rs",
+    "function": "ConfigBuilder.build"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "config",
+    "class": "ConfigBuilder",
+    "symbol": "build",
+    "start_line": 139,
+    "n_lines": 9,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      4442,
+      4660
+    ]
+  },
+  "siblings": [
+    {
+      "function": "build",
+      "n_gt": 1
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "instance_id": "robusta__py__robusta_playbooks__hpa_mismatch_enricher-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "robusta-dev/robusta",
+    "local_path": "../source_repos/robusta-dev__robusta",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "playbooks/robusta_playbooks/autoscaler.py",
+    "function": "hpa_mismatch_enricher"
+  },
+  "task": {
+    "available_imports": [
+      "import logging",
+      "from math import ceil",
+      "from typing import Optional",
+      "from kubernetes import client",
+      "from kubernetes.client import ApiregistrationV1Api, V1DeploymentList",
+      "from robusta.api import ActionParams, CallbackBlock, CallbackChoice, EventEnricherParams, Finding, FindingSeverity, FindingSource, HorizontalPodAutoscalerChangeEvent, HorizontalPodAutoscalerEvent, MarkdownBlock, PrometheusKubernetesAlert, SlackAnnotations, action, get_resource_events_table",
+      "from robusta.core.reporting.base import EnrichmentType"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 11,
+    "is_async": false,
+    "class": null,
+    "service": "robusta_playbooks"
+  },
+  "siblings": [
+    {
+      "function": "alert_on_hpa_reached_limit",
+      "n_gt": 1
+    },
+    {
+      "function": "hpa_events_enricher",
+      "n_gt": 1
+    },
+    {
+      "function": "scale_hpa_callback",
+      "n_gt": 1
+    }
+  ]
+}

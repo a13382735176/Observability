@@ -1,0 +1,39 @@
+{
+  "instance_id": "vector__rs__sinks__record__KinesisStreamClient_send__L60-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sinks/aws_kinesis/streams/record.rs",
+    "function": "KinesisStreamClient.send"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sinks",
+    "class": "KinesisStreamClient",
+    "symbol": "send",
+    "start_line": 60,
+    "n_lines": 23,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      1535,
+      2406
+    ]
+  },
+  "siblings": [
+    {
+      "function": "send",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: KinesisStreamClient.send"
+}

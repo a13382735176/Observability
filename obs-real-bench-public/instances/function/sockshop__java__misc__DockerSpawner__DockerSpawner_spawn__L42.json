@@ -1,0 +1,38 @@
+{
+  "instance_id": "sockshop__java__misc__DockerSpawner__DockerSpawner_spawn__L42-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "microservices-demo/sock-shop",
+    "local_path": "../source_repos/microservices-demo__sock-shop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "queue-master/src/main/java/works/weave/socks/queuemaster/DockerSpawner.java",
+    "function": "DockerSpawner.spawn"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "DockerSpawner",
+    "symbol": "spawn",
+    "start_line": 42,
+    "n_lines": 25,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1422,
+      2440
+    ]
+  },
+  "siblings": [
+    {
+      "function": "DockerSpawner.run",
+      "n_gt": 5
+    }
+  ]
+}

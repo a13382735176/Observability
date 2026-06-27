@@ -1,0 +1,61 @@
+{
+  "instance_id": "boutique__py__emailservice__EmailService_SendOrderConfirmation-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "python",
+    "file": "src/emailservice/email_server.py",
+    "function": "EmailService.SendOrderConfirmation"
+  },
+  "task": {
+    "available_imports": [
+      "from concurrent import futures",
+      "import argparse",
+      "import os",
+      "import sys",
+      "import time",
+      "import grpc",
+      "import traceback",
+      "from jinja2 import Environment, FileSystemLoader, select_autoescape, TemplateError",
+      "from google.api_core.exceptions import GoogleAPICallError",
+      "from google.auth.exceptions import DefaultCredentialsError",
+      "import demo_pb2",
+      "import demo_pb2_grpc",
+      "from grpc_health.v1 import health_pb2",
+      "from grpc_health.v1 import health_pb2_grpc",
+      "from opentelemetry import trace",
+      "from opentelemetry.instrumentation.grpc import GrpcInstrumentorServer",
+      "from opentelemetry.sdk.trace import TracerProvider",
+      "from opentelemetry.sdk.trace.export import BatchSpanProcessor",
+      "from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter",
+      "from logger import getJSONLogger",
+      "logger  (module-level)"
+    ]
+  },
+  "_meta": {
+    "n_stmts": 15,
+    "is_async": false,
+    "class": "EmailService",
+    "service": "emailservice"
+  },
+  "siblings": [
+    {
+      "function": "DummyEmailService.SendOrderConfirmation",
+      "n_gt": 1
+    },
+    {
+      "function": "EmailService.send_email",
+      "n_gt": 1
+    },
+    {
+      "function": "start",
+      "n_gt": 1
+    }
+  ]
+}

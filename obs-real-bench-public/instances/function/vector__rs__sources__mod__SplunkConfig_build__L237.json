@@ -1,0 +1,39 @@
+{
+  "instance_id": "vector__rs__sources__mod__SplunkConfig_build__L237-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/splunk_hec/mod.rs",
+    "function": "SplunkConfig.build"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": "SplunkConfig",
+    "symbol": "build",
+    "start_line": 237,
+    "n_lines": 65,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      8332,
+      10892
+    ]
+  },
+  "siblings": [
+    {
+      "function": "build",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: SplunkConfig.build"
+}

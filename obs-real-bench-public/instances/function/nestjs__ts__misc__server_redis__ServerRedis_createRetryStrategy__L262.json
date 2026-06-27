@@ -1,0 +1,42 @@
+{
+  "instance_id": "nestjs__ts__misc__server_redis__ServerRedis_createRetryStrategy__L262-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/server/server-redis.ts",
+    "function": "ServerRedis.createRetryStrategy"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ServerRedis",
+    "symbol": "createRetryStrategy",
+    "start_line": 262,
+    "n_lines": 16,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      7299,
+      7829
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ServerRedis.registerEndListener",
+      "n_gt": 1
+    },
+    {
+      "function": "ServerRedis.registerErrorListener",
+      "n_gt": 1
+    }
+  ]
+}

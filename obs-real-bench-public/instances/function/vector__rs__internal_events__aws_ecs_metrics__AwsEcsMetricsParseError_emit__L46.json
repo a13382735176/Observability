@@ -1,0 +1,43 @@
+{
+  "instance_id": "vector__rs__internal_events__aws_ecs_metrics__AwsEcsMetricsParseError_emit__L46-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/internal_events/aws_ecs_metrics.rs",
+    "function": "AwsEcsMetricsParseError<'_>.emit"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "internal_events",
+    "class": "AwsEcsMetricsParseError<'_>",
+    "symbol": "emit",
+    "start_line": 46,
+    "n_lines": 22,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1231,
+      1961
+    ]
+  },
+  "siblings": [
+    {
+      "function": "emit",
+      "n_gt": 1
+    },
+    {
+      "function": "emit",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: AwsEcsMetricsParseError<'_>.emit"
+}

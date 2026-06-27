@@ -1,0 +1,33 @@
+{
+  "instance_id": "nestjs__ts__misc__instance_wrapper__InstanceWrapper_printIntrospectedAsDurable__L521-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/injector/instance-wrapper.ts",
+    "function": "InstanceWrapper.printIntrospectedAsDurable"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "InstanceWrapper",
+    "symbol": "printIntrospectedAsDurable",
+    "start_line": 521,
+    "n_lines": 12,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      15296,
+      15594
+    ]
+  },
+  "siblings": []
+}

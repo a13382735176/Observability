@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dm-service
+  namespace: vibe-coding
+spec:
+  selector: { app: dm-service }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dm-service
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: dm-service } }
+  template:
+    metadata:
+      labels: { app: dm-service }
+    spec:
+      containers:
+        - name: app
+          image: vibe/48-dm-service:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: "dm-service" }
+            - { name: PG_DSN, value: "jdbc:postgresql://postgres:5432/vibe" }
+            - { name: REDIS_STREAM_HOST, value: "redis-stream" }
+            - { name: REDIS_STREAM_PORT, value: "6379" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 8
+            periodSeconds: 3
+            failureThreshold: 10
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }

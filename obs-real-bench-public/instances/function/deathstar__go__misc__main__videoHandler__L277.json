@@ -1,0 +1,54 @@
+{
+  "instance_id": "deathstar__go__misc__main__videoHandler__L277-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "daprApps_v1/video-sharing/proxy/main.go",
+    "function": "videoHandler"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "videoHandler",
+    "start_line": 277,
+    "n_lines": 51,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      7596,
+      9262
+    ]
+  },
+  "siblings": [
+    {
+      "function": "main",
+      "n_gt": 8
+    },
+    {
+      "function": "getRateHandler",
+      "n_gt": 4
+    },
+    {
+      "function": "infoHandler",
+      "n_gt": 4
+    },
+    {
+      "function": "rateHandler",
+      "n_gt": 4
+    },
+    {
+      "function": "trendngHandler",
+      "n_gt": 4
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "instance_id": "otel-demo__go__checkout__producer__CreateKafkaProducer__L31-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "src/checkout/kafka/producer.go",
+    "function": "CreateKafkaProducer"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "checkout",
+    "class": null,
+    "symbol": "CreateKafkaProducer",
+    "start_line": 31,
+    "n_lines": 31,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      553,
+      1569
+    ]
+  },
+  "siblings": [
+    {
+      "function": "Print",
+      "n_gt": 1
+    },
+    {
+      "function": "Printf",
+      "n_gt": 1
+    },
+    {
+      "function": "Println",
+      "n_gt": 1
+    }
+  ]
+}

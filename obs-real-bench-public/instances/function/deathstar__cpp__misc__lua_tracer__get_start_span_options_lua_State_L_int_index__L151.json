@@ -1,0 +1,34 @@
+{
+  "instance_id": "deathstar__cpp__misc__lua_tracer__get_start_span_options_lua_State_L_int_index__L151-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "cpp",
+    "file": "mediaMicroservices/docker/openresty-thrift/lua-bridge-tracer/src/lua_tracer.cpp",
+    "function": "get_start_span_options(lua_State* L,\n                                                            int index)"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "get_start_span_options(lua_State* L,\n                                                            int index)",
+    "start_line": 151,
+    "n_lines": 18,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      4833,
+      5337
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: get_start_span_options(lua_State* L,\n                                                            ..."
+}

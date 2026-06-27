@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__RouteController__RouteController_queryByIds__L51-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-route-service/src/main/java/route/controller/RouteController.java",
+    "function": "RouteController.queryByIds"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "RouteController",
+    "symbol": "queryByIds",
+    "start_line": 51,
+    "n_lines": 5,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1967,
+      2279
+    ]
+  },
+  "siblings": [
+    {
+      "function": "RouteController.createAndModifyRoute",
+      "n_gt": 1
+    },
+    {
+      "function": "RouteController.deleteRoute",
+      "n_gt": 1
+    },
+    {
+      "function": "RouteController.queryAll",
+      "n_gt": 1
+    },
+    {
+      "function": "RouteController.queryById",
+      "n_gt": 1
+    },
+    {
+      "function": "RouteController.queryByStartAndTerminal",
+      "n_gt": 1
+    }
+  ]
+}

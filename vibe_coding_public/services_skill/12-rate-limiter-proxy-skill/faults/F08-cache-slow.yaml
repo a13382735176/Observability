@@ -1,0 +1,24 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: rate-limiter-proxy-skill-f08-cache-slow
+  namespace: vibe-coding
+spec:
+  action: delay
+  mode: all
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      app: rate-limiter-proxy-skill        # only this service's pod — parallel-safe
+  direction: both
+  target:
+    mode: all
+    selector:
+      namespaces: [vibe-coding]
+      labelSelectors:
+        app: redis-cache      # delay traffic to/from redis-cache
+  delay:
+    latency: "3000ms"
+    correlation: "0"
+    jitter: "0ms"
+  duration: "150s"

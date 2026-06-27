@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "service": {
+    "service_id": "134-visa-application-skill",
+    "app_label": "visa-application-skill",
+    "image": "vibe/134-visa-application-skill:dev",
+    "target_dir": "services_skill/134-visa-application-skill",
+    "port": 8080,
+    "language": "java",
+    "language_stack": "Java"
+  },
+  "responsibility": "134-visa-application",
+  "behavior_contract": "",
+  "endpoints": [
+    "GET /healthz` → `{\"status\":\"ok\",\"service\":\"visa-application\"}",
+    "POST /applications` body `{user_id, destination_country, travel_date, purpose}",
+    "GET /applications/{user_id}` → list ordered by id desc",
+    "PUT /applications/{id}/status` body `{status:\"pending\"|\"approved\"|\"rejected\"}",
+    "GET /applications` → all applications"
+  ],
+  "dependencies": [],
+  "state_contract": {
+    "postgres_schema_sql": [],
+    "named_state_keys_or_streams": []
+  },
+  "runtime_env": [],
+  "docker_build_contract": {
+    "build_context_after_import": "services_skill/134-visa-application-skill",
+    "image": "vibe/134-visa-application-skill:dev",
+    "source_root_visible_to_generator": "src",
+    "generator_may_create_or_modify": [
+      "src/**"
+    ],
+    "generator_must_not_create_or_modify": [
+      "anything outside src/"
+    ],
+    "validation_command_after_import": "docker build -t vibe/134-visa-application-skill:dev .",
+    "dockerfile_used_by_private_harness": "FROM maven:3.9-eclipse-temurin-21 AS build\nWORKDIR /work\nCOPY src/pom.xml .\nRUN mvn -B dependency:go-offline\nCOPY src/src/ src/\nRUN mvn -B -DskipTests package\n\nFROM eclipse-temurin:21-jre-jammy\nWORKDIR /app\nCOPY --from=build /work/target/visa-application-skill.jar /app/app.jar\nEXPOSE 8080\nENTRYPOINT [\"java\", \"-jar\", \"/app/app.jar\"]\n"
+  },
+  "readiness_path": "/healthz",
+  "generation_constraints": [
+    "Generate a fresh implementation from this contract only.",
+    "Keep API paths, request fields, response fields, dependencies, and database schema compatible with the contract.",
+    "Keep the service runnable on port 8080 with the listed environment variables and Docker build contract.",
+    "Do not copy any pre-existing source code or log wording.",
+    "Do not infer or implement hidden evaluation behavior from this contract.",
+    "The observability skill may only affect application-level diagnostic messages inside the described service shape.",
+    "Do not add endpoints, dependencies, persistent state, background workers, or external telemetry infrastructure beyond the contract.",
+    "Do not add OpenTelemetry, Prometheus, Jaeger, Grafana, or external telemetry infrastructure.",
+    "Create or modify only files under src/; all other files are owned by the private runtime environment."
+  ]
+}

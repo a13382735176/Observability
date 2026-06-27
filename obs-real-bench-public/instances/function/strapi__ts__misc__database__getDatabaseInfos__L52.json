@@ -1,0 +1,33 @@
+{
+  "instance_id": "strapi__ts__misc__database__getDatabaseInfos__L52-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/cli/create-strapi-app/src/utils/database.ts",
+    "function": "getDatabaseInfos"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "getDatabaseInfos",
+    "start_line": 52,
+    "n_lines": 54,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1228,
+      2609
+    ]
+  },
+  "siblings": []
+}

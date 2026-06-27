@@ -1,0 +1,38 @@
+{
+  "instance_id": "trainticket__java__misc__VerifyCodeServiceImpl__VerifyCodeServiceImpl_getImageCode__L49-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-verification-code-service/src/main/java/verifycode/service/impl/VerifyCodeServiceImpl.java",
+    "function": "VerifyCodeServiceImpl.getImageCode"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "VerifyCodeServiceImpl",
+    "symbol": "getImageCode",
+    "start_line": 49,
+    "n_lines": 62,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1510,
+      3918
+    ]
+  },
+  "siblings": [
+    {
+      "function": "VerifyCodeServiceImpl.verifyCode",
+      "n_gt": 3
+    }
+  ]
+}

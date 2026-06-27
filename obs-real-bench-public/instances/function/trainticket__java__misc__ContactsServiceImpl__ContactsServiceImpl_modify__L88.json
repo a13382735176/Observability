@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__ContactsServiceImpl__ContactsServiceImpl_modify__L88-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-contacts-service/src/main/java/contacts/service/ContactsServiceImpl.java",
+    "function": "ContactsServiceImpl.modify"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ContactsServiceImpl",
+    "symbol": "modify",
+    "start_line": 88,
+    "n_lines": 19,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      3720,
+      4805
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ContactsServiceImpl.create",
+      "n_gt": 2
+    },
+    {
+      "function": "ContactsServiceImpl.delete",
+      "n_gt": 2
+    },
+    {
+      "function": "ContactsServiceImpl.findContactsById",
+      "n_gt": 2
+    },
+    {
+      "function": "ContactsServiceImpl.createContacts",
+      "n_gt": 1
+    },
+    {
+      "function": "ContactsServiceImpl.findContactsByAccountId",
+      "n_gt": 1
+    }
+  ]
+}

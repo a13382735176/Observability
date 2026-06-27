@@ -1,0 +1,20 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: HTTPChaos
+metadata:
+  name: payment-gateway-f03-upstream-fail
+  namespace: vibe-coding
+spec:
+  mode: all
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      # mock-upstream here is the UPSTREAM (mock-upstream), not the caller.
+      app: mock-upstream
+  target: Response
+  port: 8080
+  path: "*"
+  replace:
+    code: 503
+    # base64("upstream injected error\n")
+    body: dXBzdHJlYW0gaW5qZWN0ZWQgZXJyb3IK
+  duration: "150s"

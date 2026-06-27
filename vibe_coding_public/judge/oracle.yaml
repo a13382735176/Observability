@@ -1,0 +1,193 @@
+# Oracle for vibe_coding log-window judge.
+#
+# Three layers:
+#   framework_noise:  log lines that originate from frameworks/libraries — EXCLUDED
+#                     before any matching so that caught=True reflects only
+#                     APPLICATION-LEVEL observability, not automatic library output.
+#   generic:          patterns applied to every fault after framework lines are removed
+#   faults:           patterns applied only when judging a specific fault
+#
+# A fault is "caught" if ANY generic or per-fault pattern matches at least once
+# in the filtered (framework-removed) log window, OR (for F01) the pod restartCount
+# increased.
+#
+# Language coverage: Python/FastAPI, Go/net/http, Java/Javalin, C#/.NET 8, C++/cpp-httplib
+# Design principles:
+#   - framework_noise removes library logger names so that psycopg pool logs,
+#     uvicorn access/error logs, HikariCP pool events, etc. do NOT trigger caught=True.
+#   - generic patterns must be meaningful across ALL languages and ALL faults.
+#   - Use case-SENSITIVE patterns for log-level words (ERROR vs error).
+#   - Per-fault patterns target specific dependency client libraries.
+
+framework_noise:
+  # Lines matching any of these regexes are STRIPPED from the log window before
+  # any pattern matching. They identify output that the framework/library emits
+  # automatically — the application developer wrote nothing to produce them.
+  # Consequence: a Python service with no try/except around psycopg calls will
+  # show caught=False even when psycopg itself logs connection errors.
+
+  # Python — logger name appears as "LEVEL  LOGGER_NAME ::" in the log format
+  # "%(asctime)s %(levelname)-5s %(name)s :: %(message)s"
+  # Pattern matches any psycopg sub-logger (psycopg.pool, psycopg.connection, etc.)
+  # but NOT app-level lines like "ERROR catalog-api :: psycopg failed" (psycopg there
+  # is in the message, not followed by ::).
+  - '\buvicorn\.(error|access)\b'   # uvicorn web-server error handler & access log
+  - '\bpsycopg[\w.]*\s+::'          # psycopg driver + pool (psycopg.pool ::, psycopg ::)
+  - '\bstarlette\b'                 # Starlette (FastAPI base) framework events
+  - '\basyncio\b\s+::'              # Python asyncio event loop errors
+
+  # Python traceback continuation lines — printed by the framework exception handler
+  # (uvicorn/FastAPI) when the app has no try/except. They have no logger prefix.
+  # Excluding them means an unhandled exception scores as "no app observability".
+  - '/site-packages/'               # traceback frame: File ".../site-packages/..."
+  - '\bTraceback \(most recent call last\)'  # traceback header line
+  # psycopg bare exception class lines: psycopg.OperationalError: ...
+  # psycopg.errors.UndefinedTable: ... etc.
+  # Pattern: "psycopg" + dotted path + CamelCase class name + ":"
+  # Deliberately does NOT match "psycopg.pool :: ..." (space before ::, not :)
+  - '\bpsycopg[\w.]*[A-Z]\w*:'
+
+  # Java — class/package logger name embedded after severity in log lines
+  - '\bcom\.zaxxer\.hikari\b'       # HikariCP connection pool lifecycle
+  - '\bio\.javalin\b'               # Javalin web framework startup/request logs
+  - '\borg\.eclipse\.jetty\b'       # Jetty embedded HTTP server
+  - '\bio\.lettuce\.core\b'         # Lettuce async Redis client
+  - '\bredis\.clients\b'            # Jedis Redis client
+  - '\borg\.postgresql\b'           # PostgreSQL JDBC driver
+
+  # C# — category name in "level: Category[EventId] message" console format
+  - '\bMicrosoft\.AspNetCore\.Hosting\.Diagnostics\b'   # request/response lifecycle
+  - '\bMicrosoft\.Hosting\.Lifetime\b'                   # application start/stop
+  - '\bMicrosoft\.AspNetCore\.Server\.Kestrel\b'         # HTTP server TCP events
+  - '\bMicrosoft\.Extensions\.Hosting\b'                 # generic host management
+
+generic:
+  # HTTP 5xx in access logs — requires code preceded by quote or space to avoid
+  # matching timestamps such as "11:42:20,501 INFO".
+  - name: generic-http-5xx
+    regex: '(?i)(?<=[" ])(50[0-9])(?=[\s"\]]|$)'
+
+  # Transport-level connection failures (all languages / all dependency types).
+  - name: generic-connection
+    regex: '(?i)(connection refused|connection reset by peer|connection timed.?out|no route to host|network unreachable|broken pipe|EOF on.*connection|ECONNREFUSED|ECONNRESET|ETIMEDOUT|dial tcp.*: i/o timeout|dial tcp.*: connect: connection refused|unable to connect to|cannot connect to)'
+
+  # Log-level indicator — case-SENSITIVE uppercase words that appear as the log
+  # severity field in Python/Java/C#/Go loggers.  Does NOT match the string
+  # "uvicorn.error" (lowercase) or "spring.error" that appear inside logger names.
+  # Go structured logs use "level=error" (lowercase) or JSON "level":"error".
+  - name: generic-error-level
+    regex: '(\bERROR\b|\bFATAL\b|\bCRITICAL\b|level=error|"level":"error")'
+
+  # Unhandled exception / crash evidence — specific enough to avoid false positives.
+  # Python Tracebacks are intentionally EXCLUDED: they appear as continuation lines
+  # printed by the uvicorn/framework exception handler (no app logger prefix) and
+  # fire even when the app has zero error handling — they are framework output, not
+  # app-level observability. Only non-Python runtime crash signals are kept here.
+  # Go: panic dump; C#: .NET Unhandled exception; C++: OS signal
+  - name: generic-exception
+    regex: '(?i)(panic: |goroutine [0-9]+ \[running\]|Unhandled exception\.|terminate called after|SIGSEGV|SIGABRT|core dumped)'
+
+faults:
+  F01-pod-kill:
+    # Pod-kill is also caught via new-pod / restartCount evidence (judge.py).
+    # These matchers detect the startup banner of the freshly-spawned replacement pod.
+    - name: f01-startup-banner
+      regex: '(?i)(uvicorn running on|listening on .*:[0-9]+|started server process|application startup complete|now listening on|server.*started.*port|Listening for HTTP|Application started\.|Content root path)'
+
+  F02-network-delay:
+    # Delay on the pod's own network interface (ingress + egress) →
+    # outgoing calls to dependencies can exceed their configured timeout.
+    - name: f02-timeout
+      regex: '(?i)(context.*deadline exceeded|deadline exceeded|i/o timeout|socket.*timeout|read.*timeout|write.*timeout|operation timed.?out|request.*timeout|net/http: request canceled|ETIMEDOUT)'
+
+  F03-upstream-fail:
+    # Mock-upstream returns 5xx or drops the connection.
+    - name: f03-upstream-err
+      regex: '(?i)(\b502\b|\b503\b|bad gateway|service unavailable|upstream.*(error|fail|unavailable|5xx)|external.*(service|http).*(fail|error|unavailable)|http.*client.*50[0-9])'
+
+  F04-upstream-slow:
+    # Mock-upstream responds slowly → service times out waiting for it.
+    - name: f04-upstream-timeout
+      regex: '(?i)(upstream.*(timeout|deadline|slow)|context.*deadline exceeded|read.*timeout|http.*client.*timeout|external.*service.*timeout|response.*timeout|waiting for upstream|mock-upstream.*(timeout|slow|deadline)|downstream.*timed.?out)'
+
+  F05-db-down:
+    # Postgres pod killed → reconnect attempts fail across all DB client libraries.
+    # Python: psycopg; Go: pgx / pq; Java: JDBC + HikariCP; C#: Npgsql
+    - name: f05-postgres-client
+      regex: '(?i)(psycopg|pgx\b|Npgsql|HikariCP|HikariPool|jdbc:postgresql|org\.postgresql|pq: |5432.*refused|5432.*timeout|FATAL: connection|pg_hba\.conf|postgres.*connection.*fail)'
+    - name: f05-db-conn
+      regex: '(?i)(database.*(refused|unreachable|down|closed|reset|timeout)|discarding closed connection|consuming input failed|terminating connection due to|cannot acquire.*connection|connection.*pool.*exhaust|pool.*unavailable|sql: database is closed)'
+
+  F06-db-slow:
+    # Network delay to postgres pod → queries / connection handshakes exceed timeout.
+    - name: f06-db-slow
+      regex: '(?i)(slow.*quer|quer.*slow|statement.*timeout|lock.*timeout|canceling statement due to|query.*took|execution.*timeout|command.*timeout|connection timeout expired|hikari.*timeout|pool.*checkout.*timeout|psycopg.*timeout|pgx.*timeout|postgres.*(deadline|timeout|slow|unavailable|error|503)|database.*(timeout|slow|unavailable|503)|db.*(timeout|slow|unavailable)|health.*postgres.*(error|unavailable|503)|server terminated abnormally|idle.*transaction.*timeout)'
+
+  F07-cache-down:
+    # Redis pod killed → cache client fails to connect.
+    # Python: redis-py; Go: go-redis; Java: Jedis / Lettuce; C#: StackExchange.Redis
+    - name: f07-redis-client
+      regex: '(?i)(redis.*refused|redis.*timeout|redis.*connection.*(fail|error|lost)|ECONNREFUSED.*6379|6379.*refused|dial.*6379|RedisConnectionException|JedisConnectionException|LettuceConnectionException|StackExchange.*Redis|go-redis.*dial|Cannot connect.*redis|redis.*unavailable)'
+    - name: f07-cache-generic
+      regex: '(?i)(cache.*(refused|down|unavailable|fail|timeout)|session.*(refused|unavailable|lost|fail))'
+
+  F08-cache-slow:
+    # Network delay to redis → cache operations time out.
+    - name: f08-cache-timeout
+      regex: '(?i)(redis.*(timeout|deadline)|cache.*(timeout|deadline)|6379.*timeout|context.*deadline.*redis|RedisTimeoutException|redis.*operation.*timeout|WAIT.*timeout.*redis)'
+
+  F09-queue-down:
+    # Redis stream pod killed → stream read/write/consumer-group operations fail.
+    - name: f09-stream-client
+      regex: '(?i)(XREAD|XADD|XREADGROUP|XACK|XCLAIM|stream.*(refused|fail|unavailable|down|error|timeout)|consumer.*(fail|refused|lost|down|error|timeout)|queue.*(refused|fail|down|unavailable|timeout)|orders? stream.*(fail|timeout|unavailable|error)|redis.*stream.*(fail|timeout|unavailable|error))'
+    - name: f09-queue-conn
+      regex: '(?i)(cannot.*(publish|consume|read from stream|write to stream)|message.*queue.*(fail|unavailable|timeout)|event.*stream.*(fail|refused|down|timeout)|could not (append|read|acknowledge).*?(order|event|message|stream)|publish.*(order|event|message).*(fail|timeout|timed.?out|read timed out)|dial tcp .*6379.*(i/o timeout|connect: connection refused))'
+
+  F10-queue-slow:
+    # Network delay to redis stream → slow reads / delivery timeouts.
+    - name: f10-queue-slow
+      regex: '(?i)(XREAD.*timeout|stream.*(timeout|deadline|slow)|queue.*(timeout|deadline|slow)|consumer.*(timeout|deadline|slow)|message.*delivery.*timeout|context.*deadline.*stream|SocketTimeoutException: Read timed out|read timed out|could not (append|read|acknowledge).*?(order|event|message|stream)|publish.*(order|event|message).*(timeout|timed.?out|slow|read timed out)|redis.*stream.*(timeout|deadline|slow)|strconv\.ParseInt: parsing "OK")'
+
+  F11-cpu-stress:
+    # StressChaos: 2 CPU stressors at 80% load → latency spikes, timeout cascades.
+    # Hard to detect: service responds, just slowly. Only explicit SLA logs fire.
+    - name: f11-latency
+      regex: '(?i)(request took [0-9]+\.[0-9]+s|response time.*[0-9]+ms|latency.*spike|slow request|processing.*took|cpu.*throttl|cpu.*pressure|took [0-9]+\s*ms|elapsed.*[0-9]+s|high latency|performance.*degrad)'
+    - name: f11-timeout
+      regex: '(?i)(context.*deadline exceeded|deadline exceeded|request.*timeout|operation.*timeout|execution.*timeout)'
+
+  F12-net-corrupt:
+    # NetworkChaos corrupt 30%: bitflip packets → TCP checksum errors → garbled
+    # protocol frames. Hardest fault to detect — may surface as random 5xx or
+    # mysterious parse errors with no obvious cause.
+    - name: f12-corrupt
+      regex: '(?i)(unexpected EOF|unexpected end of JSON|invalid.*response body|malformed.*response|unexpected.*byte|checksum.*mismatch|bad.*frame|corrupt|garbled|protocol.*error|invalid.*header value|bad gateway|i/o.*error|read.*error|BrokenPipeError|broken pipe|connection reset by peer)'
+    - name: f12-parse
+      regex: '(?i)(json.*decode.*error|unmarshal.*error|parse.*error|deserialization.*error|failed to decode|invalid character|unexpected token)'
+
+  F13-time-skew:
+    # TimeChaos +3600s: system clock 1 hour ahead → JWT tokens appear expired
+    # immediately after issue; cache TTLs expire at creation; rate-limit windows wrong.
+    # Extremely subtle — service appears healthy but auth/caching silently breaks.
+    - name: f13-token-expiry
+      regex: '(?i)(token.*expir|expired.*token|jwt.*expir|auth.*expir|signature.*expir|credential.*expir|session.*expir|token.*invalid|unauthorized.*token)'
+    - name: f13-time-mismatch
+      regex: '(?i)(time.*skew|clock.*skew|timestamp.*invalid|stale.*cache|ttl.*expired|ttl.*mismatch|cache.*expired|rate.*window.*(invalid|reset|expired)|time.*diff|invalid.*timestamp|not yet valid|nbf.*claim|issued.*future|created.*future|future.*timestamp)'
+    # Some services print both k8s timestamp and app timestamp on one line.
+    # Under time skew, minute/second stay aligned but the second timestamp's hour shifts.
+    - name: f13-dual-ts-mismatch
+      regex: '(?i)(\]\s+\d{4}-\d{2}-\d{2}T\d{2}:(\d{2}):(\d{2})(?:\.\d+)?Z\s+\d{4}-\d{2}-\d{2}\s+(?!\d{2}:\2:\3,)\d{2}:\2:\3,)'
+
+  F14-mem-stress:
+    # StressChaos: allocate 200Mi → 40% of pod limit → GC pressure / OOM risk.
+    # JVM / CLR / Go runtime signals vary; Python may just slow down silently.
+    - name: f14-oom
+      regex: '(?i)(OutOfMemoryError|out of memory\b|OOMKilled|memory.*exhausted|allocation.*fail|cannot allocate|GC overhead limit|java\.lang\.OutOfMemoryError|System\.OutOfMemoryException|fatal error: runtime: out of memory)'
+    - name: f14-gc
+      regex: '(?i)(GC.*pause|garbage collect|memory.*pressure|heap.*exhausted|heap.*limit|stop-the-world|full GC|major GC|high.*heap|heap usage)'
+
+  F15-dns-fail:
+    # DNSChaos: NXDOMAIN for all DNS queries → any hostname-based connection fails.
+    # Subtle because k8s service IPs often bypass DNS, but explicit hostnames break.
+    - name: f15-dns
+      regex: '(?i)(no such host|name.*resolution.*fail|dns.*fail|dns.*error|lookup.*fail|NXDOMAIN|SERVFAIL|resolve.*host|host.*not found|could not resolve|getaddrinfo.*ENOTFOUND|dial.*no such host|temporary failure in name resolution)'

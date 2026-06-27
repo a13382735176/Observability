@@ -1,0 +1,38 @@
+{
+  "instance_id": "trainticket__java__misc__TrainFoodServiceImpl__TrainFoodServiceImpl_createTrainFood__L25-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-train-food-service/src/main/java/trainFood/service/TrainFoodServiceImpl.java",
+    "function": "TrainFoodServiceImpl.createTrainFood"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "TrainFoodServiceImpl",
+    "symbol": "createTrainFood",
+    "start_line": 25,
+    "n_lines": 15,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      683,
+      1280
+    ]
+  },
+  "siblings": [
+    {
+      "function": "TrainFoodServiceImpl.listTrainFood",
+      "n_gt": 1
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "instance_id": "vector__rs__misc__internal_events__DnstapParseWarning_E_emit__L13-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "lib/vector-vrl/dnstap-parser/src/internal_events.rs",
+    "function": "DnstapParseWarning<E>.emit"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "DnstapParseWarning<E>",
+    "symbol": "emit",
+    "start_line": 13,
+    "n_lines": 8,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      303,
+      559
+    ]
+  },
+  "siblings": [
+    {
+      "function": "emit",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: DnstapParseWarning<E>.emit"
+}

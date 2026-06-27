@@ -1,0 +1,46 @@
+{
+  "instance_id": "trainticket__java__misc__TravelPlanController__TravelPlanController_getByQuickest__L44-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-travel-plan-service/src/main/java/travelplan/controller/TravelPlanController.java",
+    "function": "TravelPlanController.getByQuickest"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "TravelPlanController",
+    "symbol": "getByQuickest",
+    "start_line": 44,
+    "n_lines": 5,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1689,
+      2097
+    ]
+  },
+  "siblings": [
+    {
+      "function": "TravelPlanController.getByCheapest",
+      "n_gt": 1
+    },
+    {
+      "function": "TravelPlanController.getByMinStation",
+      "n_gt": 1
+    },
+    {
+      "function": "TravelPlanController.getTransferResult",
+      "n_gt": 1
+    }
+  ]
+}

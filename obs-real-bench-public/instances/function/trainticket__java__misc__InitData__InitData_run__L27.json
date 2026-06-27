@@ -1,0 +1,38 @@
+{
+  "instance_id": "trainticket__java__misc__InitData__InitData_run__L27-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-station-food-service/src/main/java/food/init/InitData.java",
+    "function": "InitData.run"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "InitData",
+    "symbol": "run",
+    "start_line": 27,
+    "n_lines": 61,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      695,
+      3179
+    ]
+  },
+  "siblings": [
+    {
+      "function": "InitData.toFoodList",
+      "n_gt": 1
+    }
+  ]
+}

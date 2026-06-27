@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__FoodServiceImpl__FoodServiceImpl_getAllFood__L212-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-food-service/src/main/java/foodsearch/service/FoodServiceImpl.java",
+    "function": "FoodServiceImpl.getAllFood"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "FoodServiceImpl",
+    "symbol": "getAllFood",
+    "start_line": 212,
+    "n_lines": 100,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      8935,
+      14567
+    ]
+  },
+  "siblings": [
+    {
+      "function": "FoodServiceImpl.createFoodOrder",
+      "n_gt": 4
+    },
+    {
+      "function": "FoodServiceImpl.createFoodOrdersInBatch",
+      "n_gt": 4
+    },
+    {
+      "function": "FoodServiceImpl.deleteFoodOrder",
+      "n_gt": 2
+    },
+    {
+      "function": "FoodServiceImpl.findByOrderId",
+      "n_gt": 2
+    },
+    {
+      "function": "FoodServiceImpl.updateFoodOrder",
+      "n_gt": 2
+    }
+  ]
+}

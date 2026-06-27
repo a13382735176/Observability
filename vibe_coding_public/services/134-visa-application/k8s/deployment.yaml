@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: visa-application
+  namespace: vibe-coding
+spec:
+  selector:
+    app: visa-application
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visa-application
+  namespace: vibe-coding
+  labels:
+    app: visa-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: visa-application
+  template:
+    metadata:
+      labels:
+        app: visa-application
+    spec:
+      containers:
+        - name: app
+          image: vibe/134-visa-application:dev
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_NAME
+              value: visa-application
+            - name: POSTGRES_HOST
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 8
+            periodSeconds: 3
+            failureThreshold: 30
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

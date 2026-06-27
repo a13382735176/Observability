@@ -1,0 +1,38 @@
+{
+  "instance_id": "nestjs__ts__misc__client_grpc__ClientGrpcProxy_loadProto__L321-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/microservices/client/client-grpc.ts",
+    "function": "ClientGrpcProxy.loadProto"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "ClientGrpcProxy",
+    "symbol": "loadProto",
+    "start_line": 321,
+    "n_lines": 16,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      10411,
+      10926
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ClientGrpcProxy.createClients",
+      "n_gt": 1
+    }
+  ]
+}

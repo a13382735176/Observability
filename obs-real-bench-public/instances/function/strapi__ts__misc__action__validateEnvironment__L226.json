@@ -1,0 +1,50 @@
+{
+  "instance_id": "strapi__ts__misc__action__validateEnvironment__L226-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/cli/cloud/src/deploy-project/action.ts",
+    "function": "validateEnvironment"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "validateEnvironment",
+    "start_line": 226,
+    "n_lines": 6,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      6654,
+      6892
+    ]
+  },
+  "siblings": [
+    {
+      "function": "upload",
+      "n_gt": 6
+    },
+    {
+      "function": "handleUploadError",
+      "n_gt": 3
+    },
+    {
+      "function": "getProject",
+      "n_gt": 2
+    },
+    {
+      "function": "getConfig",
+      "n_gt": 1
+    }
+  ]
+}

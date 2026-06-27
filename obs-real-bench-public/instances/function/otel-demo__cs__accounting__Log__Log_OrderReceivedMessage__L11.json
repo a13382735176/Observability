@@ -1,0 +1,33 @@
+{
+  "instance_id": "otel-demo__cs__accounting__Log__Log_OrderReceivedMessage__L11-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/accounting/Log.cs",
+    "function": "Log.OrderReceivedMessage"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "accounting",
+    "class": "Log",
+    "symbol": "OrderReceivedMessage",
+    "start_line": 11,
+    "n_lines": 4,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      207,
+      419
+    ]
+  },
+  "siblings": []
+}

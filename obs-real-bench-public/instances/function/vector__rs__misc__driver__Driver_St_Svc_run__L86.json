@@ -1,0 +1,39 @@
+{
+  "instance_id": "vector__rs__misc__driver__Driver_St_Svc_run__L86-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "lib/vector-stream/src/driver.rs",
+    "function": "Driver<St, Svc>.run"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "Driver<St, Svc>",
+    "symbol": "run",
+    "start_line": 86,
+    "n_lines": 112,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      2943,
+      8356
+    ]
+  },
+  "siblings": [
+    {
+      "function": "handle_response",
+      "n_gt": 1
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: Driver<St, Svc>.run"
+}

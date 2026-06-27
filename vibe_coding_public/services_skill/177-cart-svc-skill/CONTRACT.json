@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "service": {
+    "service_id": "177-cart-svc-skill",
+    "app_label": "cart-svc-skill",
+    "image": "vibe/177-cart-svc-skill:dev",
+    "target_dir": "services_skill/177-cart-svc-skill",
+    "port": 8080,
+    "language": "python",
+    "language_stack": "Python"
+  },
+  "responsibility": "177-cart-svc",
+  "behavior_contract": "",
+  "endpoints": [
+    "GET /healthz` → `{\"status\":\"ok\",\"service\":\"cart-svc\"}",
+    "POST /cart/{user_id}/items` body `{sku, quantity, price_cents}` — HSET into `cart:{user_id}`, EXPIRE 86400.",
+    "GET /cart/{user_id}` — HGETALL items, sum totals.",
+    "DELETE /cart/{user_id}/items/{sku}` — HDEL.",
+    "DELETE /cart/{user_id}` — DEL key.",
+    "POST /cart/{user_id}/checkout` — read cart from Redis, insert into `orders` + `order_lines` in Postgres, DEL Redis key."
+  ],
+  "dependencies": [],
+  "state_contract": {
+    "postgres_schema_sql": [
+      "CREATE TABLE IF NOT EXISTS orders ( id BIGSERIAL PRIMARY KEY, user_id TEXT NOT NULL, total_cents BIGINT NOT NULL, created_at TIMESTAMPTZ DEFAULT now() )",
+      "CREATE TABLE IF NOT EXISTS order_lines ( id BIGSERIAL PRIMARY KEY, order_id BIGINT NOT NULL, sku TEXT NOT NULL, quantity INT NOT NULL, price_cents INT NOT NULL )"
+    ],
+    "named_state_keys_or_streams": [
+      "cart:{user_id}"
+    ]
+  },
+  "runtime_env": [],
+  "docker_build_contract": {
+    "build_context_after_import": "services_skill/177-cart-svc-skill",
+    "image": "vibe/177-cart-svc-skill:dev",
+    "source_root_visible_to_generator": "src",
+    "generator_may_create_or_modify": [
+      "src/**"
+    ],
+    "generator_must_not_create_or_modify": [
+      "anything outside src/"
+    ],
+    "validation_command_after_import": "docker build -t vibe/177-cart-svc-skill:dev .",
+    "dockerfile_used_by_private_harness": "FROM python:3.12-slim\nWORKDIR /app\nCOPY src/requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\nCOPY src/ .\nEXPOSE 8080\nCMD [\"python\", \"-u\", \"main.py\"]\n"
+  },
+  "readiness_path": "/healthz",
+  "generation_constraints": [
+    "Generate a fresh implementation from this contract only.",
+    "Keep API paths, request fields, response fields, dependencies, and database schema compatible with the contract.",
+    "Keep the service runnable on port 8080 with the listed environment variables and Docker build contract.",
+    "Do not copy any pre-existing source code or log wording.",
+    "Do not infer or implement hidden evaluation behavior from this contract.",
+    "The observability skill may only affect application-level diagnostic messages inside the described service shape.",
+    "Do not add endpoints, dependencies, persistent state, background workers, or external telemetry infrastructure beyond the contract.",
+    "Do not add OpenTelemetry, Prometheus, Jaeger, Grafana, or external telemetry infrastructure.",
+    "Create or modify only files under src/; all other files are owned by the private runtime environment."
+  ]
+}

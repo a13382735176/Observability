@@ -1,0 +1,34 @@
+{
+  "instance_id": "strapi__ts__misc__previewScript__if__L924-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/content-manager/admin/src/preview/utils/previewScript.ts",
+    "function": "if"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "if",
+    "start_line": 924,
+    "n_lines": 8,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      34948,
+      35293
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: if"
+}

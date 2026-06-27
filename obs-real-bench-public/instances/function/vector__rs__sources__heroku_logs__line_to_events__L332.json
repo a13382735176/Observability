@@ -1,0 +1,33 @@
+{
+  "instance_id": "vector__rs__sources__heroku_logs__line_to_events__L332-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/sources/heroku_logs.rs",
+    "function": "line_to_events"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "sources",
+    "class": null,
+    "symbol": "line_to_events",
+    "start_line": 332,
+    "n_lines": 92,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      10566,
+      13838
+    ]
+  },
+  "siblings": []
+}

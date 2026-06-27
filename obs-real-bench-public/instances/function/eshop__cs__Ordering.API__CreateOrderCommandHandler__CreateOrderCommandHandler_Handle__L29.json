@@ -1,0 +1,33 @@
+{
+  "instance_id": "eshop__cs__Ordering.API__CreateOrderCommandHandler__CreateOrderCommandHandler_Handle__L29-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Ordering.API/Application/Commands/CreateOrderCommandHandler.cs",
+    "function": "CreateOrderCommandHandler.Handle"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Ordering.API",
+    "class": "CreateOrderCommandHandler",
+    "symbol": "Handle",
+    "start_line": 29,
+    "n_lines": 24,
+    "n_obs_tokens": 3,
+    "span_byte_range": [
+      1408,
+      2772
+    ]
+  },
+  "siblings": []
+}

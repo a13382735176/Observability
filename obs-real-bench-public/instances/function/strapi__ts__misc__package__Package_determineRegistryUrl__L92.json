@@ -1,0 +1,38 @@
+{
+  "instance_id": "strapi__ts__misc__package__Package_determineRegistryUrl__L92-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/utils/upgrade/src/modules/npm/package.ts",
+    "function": "Package.determineRegistryUrl"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "Package",
+    "symbol": "determineRegistryUrl",
+    "start_line": 92,
+    "n_lines": 15,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2709,
+      3361
+    ]
+  },
+  "siblings": [
+    {
+      "function": "Package.getRegistryFromPackageManager",
+      "n_gt": 2
+    }
+  ]
+}

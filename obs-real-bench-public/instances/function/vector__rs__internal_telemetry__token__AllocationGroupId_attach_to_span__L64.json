@@ -1,0 +1,33 @@
+{
+  "instance_id": "vector__rs__internal_telemetry__token__AllocationGroupId_attach_to_span__L64-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "src/internal_telemetry/allocations/allocator/token.rs",
+    "function": "AllocationGroupId.attach_to_span"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "internal_telemetry",
+    "class": "AllocationGroupId",
+    "symbol": "attach_to_span",
+    "start_line": 64,
+    "n_lines": 9,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2366,
+      2729
+    ]
+  },
+  "siblings": []
+}

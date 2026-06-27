@@ -1,0 +1,46 @@
+{
+  "instance_id": "strapi__js__misc__auth__callback__L40-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "strapi/strapi",
+    "local_path": "../source_repos/strapi__strapi",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "javascript",
+    "file": "packages/plugins/users-permissions/server/controllers/auth.js",
+    "function": "callback"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "callback",
+    "start_line": 40,
+    "n_lines": 651,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1104,
+      23012
+    ]
+  },
+  "siblings": [
+    {
+      "function": "connect",
+      "n_gt": 1
+    },
+    {
+      "function": "logout",
+      "n_gt": 1
+    },
+    {
+      "function": "register",
+      "n_gt": 1
+    }
+  ]
+}

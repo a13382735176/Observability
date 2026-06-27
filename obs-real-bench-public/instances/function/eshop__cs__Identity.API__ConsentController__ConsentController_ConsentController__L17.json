@@ -1,0 +1,38 @@
+{
+  "instance_id": "eshop__cs__Identity.API__ConsentController__ConsentController_ConsentController__L17-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/Identity.API/Quickstart/Consent/ConsentController.cs",
+    "function": "ConsentController.ConsentController"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "Identity.API",
+    "class": "ConsentController",
+    "symbol": "ConsentController",
+    "start_line": 17,
+    "n_lines": 9,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      547,
+      800
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ConsentController.BuildViewModelAsync",
+      "n_gt": 1
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "instance_id": "deathstar__go__misc__server__getGprcConn__L194-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "hotelReservation/services/frontend/server.go",
+    "function": "getGprcConn"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "getGprcConn",
+    "start_line": 194,
+    "n_lines": 17,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      5468,
+      5984
+    ]
+  },
+  "siblings": [
+    {
+      "function": "Run",
+      "n_gt": 5
+    },
+    {
+      "function": "searchHandler",
+      "n_gt": 2
+    }
+  ]
+}

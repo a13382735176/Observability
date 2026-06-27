@@ -1,0 +1,42 @@
+{
+  "instance_id": "eshop__cs__WebApp__ChatState__ChatState_AddUserMessageAsync__L69-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/WebApp/Components/Chatbot/ChatState.cs",
+    "function": "ChatState.AddUserMessageAsync"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "WebApp",
+    "class": "ChatState",
+    "symbol": "AddUserMessageAsync",
+    "start_line": 69,
+    "n_lines": 25,
+    "n_obs_tokens": 3,
+    "span_byte_range": [
+      2587,
+      3453
+    ]
+  },
+  "siblings": [
+    {
+      "function": "ChatState.ChatState",
+      "n_gt": 1
+    },
+    {
+      "function": "ChatState.Error",
+      "n_gt": 1
+    }
+  ]
+}

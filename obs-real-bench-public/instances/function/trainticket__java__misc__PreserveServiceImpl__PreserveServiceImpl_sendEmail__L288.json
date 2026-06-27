@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__PreserveServiceImpl__PreserveServiceImpl_sendEmail__L288-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-preserve-service/src/main/java/preserve/service/PreserveServiceImpl.java",
+    "function": "PreserveServiceImpl.sendEmail"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "PreserveServiceImpl",
+    "symbol": "sendEmail",
+    "start_line": 288,
+    "n_lines": 12,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      14197,
+      14675
+    ]
+  },
+  "siblings": [
+    {
+      "function": "PreserveServiceImpl.preserve",
+      "n_gt": 24
+    },
+    {
+      "function": "PreserveServiceImpl.addAssuranceForOrder",
+      "n_gt": 1
+    },
+    {
+      "function": "PreserveServiceImpl.checkSecurity",
+      "n_gt": 1
+    },
+    {
+      "function": "PreserveServiceImpl.createConsign",
+      "n_gt": 1
+    },
+    {
+      "function": "PreserveServiceImpl.createFoodOrder",
+      "n_gt": 1
+    }
+  ]
+}

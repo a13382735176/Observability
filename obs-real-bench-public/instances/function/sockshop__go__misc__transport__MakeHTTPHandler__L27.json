@@ -1,0 +1,33 @@
+{
+  "instance_id": "sockshop__go__misc__transport__MakeHTTPHandler__L27-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "microservices-demo/sock-shop",
+    "local_path": "../source_repos/microservices-demo__sock-shop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "user/api/transport.go",
+    "function": "MakeHTTPHandler"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "MakeHTTPHandler",
+    "start_line": 27,
+    "n_lines": 74,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      658,
+      3564
+    ]
+  },
+  "siblings": []
+}

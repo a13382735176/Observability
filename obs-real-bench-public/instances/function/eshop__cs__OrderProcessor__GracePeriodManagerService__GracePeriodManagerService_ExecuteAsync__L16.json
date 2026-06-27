@@ -1,0 +1,42 @@
+{
+  "instance_id": "eshop__cs__OrderProcessor__GracePeriodManagerService__GracePeriodManagerService_ExecuteAsync__L16-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "dotnet/eShop",
+    "local_path": "../source_repos/dotnet__eShop",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "csharp",
+    "file": "src/OrderProcessor/Services/GracePeriodManagerService.cs",
+    "function": "GracePeriodManagerService.ExecuteAsync"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "OrderProcessor",
+    "class": "GracePeriodManagerService",
+    "symbol": "ExecuteAsync",
+    "start_line": 16,
+    "n_lines": 27,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      536,
+      1557
+    ]
+  },
+  "siblings": [
+    {
+      "function": "GracePeriodManagerService.CheckConfirmedGracePeriodOrders",
+      "n_gt": 2
+    },
+    {
+      "function": "GracePeriodManagerService.GetConfirmedGracePeriodOrders",
+      "n_gt": 1
+    }
+  ]
+}

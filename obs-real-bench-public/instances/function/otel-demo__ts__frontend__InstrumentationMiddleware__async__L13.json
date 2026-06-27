@@ -1,0 +1,34 @@
+{
+  "instance_id": "otel-demo__ts__frontend__InstrumentationMiddleware__async__L13-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "open-telemetry/opentelemetry-demo",
+    "local_path": "../source_repos/open-telemetry__opentelemetry-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "src/frontend/utils/telemetry/InstrumentationMiddleware.ts",
+    "function": "async"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "frontend",
+    "class": null,
+    "symbol": "async",
+    "start_line": 13,
+    "n_lines": 20,
+    "n_obs_tokens": 3,
+    "span_byte_range": [
+      527,
+      1177
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: async"
+}

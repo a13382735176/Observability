@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__UserController__UserController_getUserByUserName__L41-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-user-service/src/main/java/user/controller/UserController.java",
+    "function": "UserController.getUserByUserName"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "UserController",
+    "symbol": "getUserByUserName",
+    "start_line": 41,
+    "n_lines": 5,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      1092,
+      1418
+    ]
+  },
+  "siblings": [
+    {
+      "function": "UserController.deleteUserById",
+      "n_gt": 1
+    },
+    {
+      "function": "UserController.getAllUser",
+      "n_gt": 1
+    },
+    {
+      "function": "UserController.getUserByUserId",
+      "n_gt": 1
+    },
+    {
+      "function": "UserController.registerUser",
+      "n_gt": 1
+    },
+    {
+      "function": "UserController.updateUser",
+      "n_gt": 1
+    }
+  ]
+}

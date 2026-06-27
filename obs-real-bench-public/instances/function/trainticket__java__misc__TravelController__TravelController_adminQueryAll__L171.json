@@ -1,0 +1,54 @@
+{
+  "instance_id": "trainticket__java__misc__TravelController__TravelController_adminQueryAll__L171-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "FudanSELab/train-ticket",
+    "local_path": "../source_repos/FudanSELab__train-ticket",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "java",
+    "file": "ts-travel-service/src/main/java/travel/controller/TravelController.java",
+    "function": "TravelController.adminQueryAll"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "TravelController",
+    "symbol": "adminQueryAll",
+    "start_line": 171,
+    "n_lines": 7,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      6667,
+      6982
+    ]
+  },
+  "siblings": [
+    {
+      "function": "TravelController.queryInfo",
+      "n_gt": 2
+    },
+    {
+      "function": "TravelController.queryInfoInparallel",
+      "n_gt": 2
+    },
+    {
+      "function": "TravelController.createTrip",
+      "n_gt": 1
+    },
+    {
+      "function": "TravelController.deleteTrip",
+      "n_gt": 1
+    },
+    {
+      "function": "TravelController.getRouteByTripId",
+      "n_gt": 1
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: cron-svc-skill-f11-cpu-stress
+  namespace: vibe-coding
+spec:
+  mode: all
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      app: cron-svc-skill
+  stressors:
+    cpu:
+      workers: 2
+      load: 80          # 80% CPU × 2 threads — service alive but throttled
+  duration: "120s"

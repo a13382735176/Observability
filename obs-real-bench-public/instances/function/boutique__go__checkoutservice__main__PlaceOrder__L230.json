@@ -1,0 +1,46 @@
+{
+  "instance_id": "boutique__go__checkoutservice__main__PlaceOrder__L230-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "GoogleCloudPlatform/microservices-demo",
+    "local_path": "../source_repos/GoogleCloudPlatform__microservices-demo",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "src/checkoutservice/main.go",
+    "function": "PlaceOrder"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "checkoutservice",
+    "class": null,
+    "symbol": "PlaceOrder",
+    "start_line": 230,
+    "n_lines": 51,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      6452,
+      8261
+    ]
+  },
+  "siblings": [
+    {
+      "function": "main",
+      "n_gt": 8
+    },
+    {
+      "function": "initProfiling",
+      "n_gt": 4
+    },
+    {
+      "function": "initTracing",
+      "n_gt": 1
+    }
+  ]
+}

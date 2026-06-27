@@ -1,0 +1,16 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: recommendation-api-f11-cpu-stress
+  namespace: vibe-coding
+spec:
+  mode: all
+  selector:
+    namespaces: [vibe-coding]
+    labelSelectors:
+      app: recommendation-api
+  stressors:
+    cpu:
+      workers: 2
+      load: 80          # 80% CPU × 2 threads — service alive but throttled
+  duration: "120s"

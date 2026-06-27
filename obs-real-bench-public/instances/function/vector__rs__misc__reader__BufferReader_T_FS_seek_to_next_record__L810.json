@@ -1,0 +1,55 @@
+{
+  "instance_id": "vector__rs__misc__reader__BufferReader_T_FS_seek_to_next_record__L810-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "vectordotdev/vector",
+    "local_path": "../source_repos/vectordotdev__vector",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "rust",
+    "file": "lib/vector-buffers/src/variants/disk_v2/reader.rs",
+    "function": "BufferReader<T, FS>.seek_to_next_record"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "BufferReader<T, FS>",
+    "symbol": "seek_to_next_record",
+    "start_line": 810,
+    "n_lines": 139,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      34721,
+      42577
+    ]
+  },
+  "siblings": [
+    {
+      "function": "delete_completed_data_file",
+      "n_gt": 3
+    },
+    {
+      "function": "next",
+      "n_gt": 3
+    },
+    {
+      "function": "seek_to_next_record",
+      "n_gt": 3
+    },
+    {
+      "function": "ensure_ready_for_read",
+      "n_gt": 2
+    },
+    {
+      "function": "roll_to_next_data_file",
+      "n_gt": 2
+    }
+  ],
+  "_skip_reason": "strip-fail: function not found: BufferReader<T, FS>.seek_to_next_record"
+}

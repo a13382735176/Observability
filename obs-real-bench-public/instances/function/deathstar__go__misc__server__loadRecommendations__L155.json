@@ -1,0 +1,42 @@
+{
+  "instance_id": "deathstar__go__misc__server__loadRecommendations__L155-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "go",
+    "file": "hotelReservation/services/recommendation/server.go",
+    "function": "loadRecommendations"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": null,
+    "symbol": "loadRecommendations",
+    "start_line": 155,
+    "n_lines": 20,
+    "n_obs_tokens": 2,
+    "span_byte_range": [
+      3620,
+      4144
+    ]
+  },
+  "siblings": [
+    {
+      "function": "Run",
+      "n_gt": 2
+    },
+    {
+      "function": "GetRecommendations",
+      "n_gt": 1
+    }
+  ]
+}

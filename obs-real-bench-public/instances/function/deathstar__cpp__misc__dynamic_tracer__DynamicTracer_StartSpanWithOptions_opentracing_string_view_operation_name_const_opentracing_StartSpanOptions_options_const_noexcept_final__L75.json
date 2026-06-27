@@ -1,0 +1,34 @@
+{
+  "instance_id": "deathstar__cpp__misc__dynamic_tracer__DynamicTracer_StartSpanWithOptions_opentracing_string_view_operation_name_const_opentracing_StartSpanOptions_options_const_noexcept_final__L75-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": false,
+  "repo": {
+    "name": "delimitrou/DeathStarBench",
+    "local_path": "../source_repos/delimitrou__DeathStarBench",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "cpp",
+    "file": "mediaMicroservices/docker/openresty-thrift/lua-bridge-tracer/src/dynamic_tracer.cpp",
+    "function": "DynamicTracer.StartSpanWithOptions(\n      opentracing::string_view operation_name,\n      const opentracing::StartSpanOptions& options) const noexcept final"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "DynamicTracer",
+    "symbol": "StartSpanWithOptions(\n      opentracing::string_view operation_name,\n      const opentracing::StartSpanOptions& options) const noexcept final",
+    "start_line": 75,
+    "n_lines": 8,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      2440,
+      2849
+    ]
+  },
+  "siblings": [],
+  "_skip_reason": "strip-fail: function not found: DynamicTracer.StartSpanWithOptions(\n      opentracing::string_view operation_name,\n      const op..."
+}

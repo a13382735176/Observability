@@ -1,0 +1,33 @@
+{
+  "instance_id": "nestjs__ts__misc__injector__Injector_printResolvingDependenciesLog__L1201-v1",
+  "schema_version": "0.1",
+  "tier": "function",
+  "_auto_mined": true,
+  "_runnable": true,
+  "repo": {
+    "name": "nestjs",
+    "local_path": "../source_repos/nestjs",
+    "_base_commit": "source checkout required; record the commit used for reproduction"
+  },
+  "target": {
+    "language": "typescript",
+    "file": "packages/core/injector/injector.ts",
+    "function": "Injector.printResolvingDependenciesLog"
+  },
+  "task": {
+    "available_imports": []
+  },
+  "_meta": {
+    "service": "misc",
+    "class": "Injector",
+    "symbol": "printResolvingDependenciesLog",
+    "start_line": 1201,
+    "n_lines": 20,
+    "n_obs_tokens": 1,
+    "span_byte_range": [
+      36992,
+      37596
+    ]
+  },
+  "siblings": []
+}

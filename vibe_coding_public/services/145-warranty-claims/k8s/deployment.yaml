@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: warranty-claims
+  namespace: vibe-coding
+spec:
+  selector: { app: warranty-claims }
+  ports: [ { name: http, port: 8080, targetPort: 8080 } ]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: warranty-claims
+  namespace: vibe-coding
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: warranty-claims } }
+  template:
+    metadata:
+      labels: { app: warranty-claims }
+    spec:
+      containers:
+        - name: app
+          image: vibe/145-warranty-claims:dev
+          imagePullPolicy: Never
+          ports: [ { containerPort: 8080 } ]
+          env:
+            - { name: APP_NAME, value: warranty-claims }
+            - { name: REDIS_STREAM_HOST, value: redis-stream }
+            - { name: REDIS_STREAM_PORT, value: "6379" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 20
+            periodSeconds: 3
+            failureThreshold: 20
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 500m, memory: 512Mi }
