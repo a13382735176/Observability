@@ -55,6 +55,7 @@ The public runner includes three prompt levels:
 | `p_blind` | Control prompt with the stripped target function and context, without explicitly asking for observability. |
 | `p1_obs_hinted` | Observability-restoration prompt that tells the model the function is missing instrumentation. |
 | `p_fewshot` | Same task as `p1_obs_hinted`, plus same-file sibling examples when available. |
+| `p_skill_vibe_transfer` | Skill-transfer prompt that uses observability guidance derived from the vibe-coding benchmark. |
 
 Prompt templates are stored in `prompts/`.
 
@@ -158,6 +159,28 @@ backend:
   --workers 16 \
   --repo-search-root /path/to/source-repos
 ```
+
+Example full agent run with sanitized source-repository copies:
+
+```bash
+python -m tools.pilot \
+  --all \
+  --prompts p_blind,p1_obs_hinted,p_fewshot,p_skill_vibe_transfer \
+  --model gemini-3.1-pro \
+  --backend agent \
+  --agentic \
+  --allow-agent-tools \
+  --agent-workspace-mode sanitized-copy \
+  --agent-sanitized-copy-root /tmp/obs-real-bench-sanitized \
+  --skip-zero-gt \
+  --agent-trace \
+  --run-id agent-sanitized-copy-gemini3.1 \
+  --workers 32 \
+  --skip-existing
+```
+
+The sanitized-copy root is a local scratch directory used during agent runs. It
+can be any writable temporary path outside the repository.
 
 ## Aggregating Local Results
 

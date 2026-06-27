@@ -113,6 +113,42 @@ make all
 Large runs create local output directories such as `runs/`. These directories
 are intentionally ignored by git and should be reviewed before sharing.
 
+## Running The Skill Pipeline
+
+`tools/run_skill_model_pipeline.py` orchestrates prompt materialization, model
+generation, runtime capture, and offline judging for the skill/no-skill service
+variants.
+
+Example no-skill run:
+
+```bash
+FAULT_WINDOW_SCALE=0.5 python tools/run_skill_model_pipeline.py \
+	--models "gemini 3.1 pro" \
+	--variants no-skill \
+	--workers 32 \
+	--capture-parallel 20 \
+	--judge-parallel 8 \
+	--run-prefix full_noskill \
+	--refresh-specs \
+	--allow-partial-capture
+```
+
+If the Copilot SDK driver is outside this repository, point the runner to it
+with an environment variable:
+
+```bash
+COPILOT_SDK_SCRIPT=/path/to/demo_call_copilot_agent.py \
+FAULT_WINDOW_SCALE=0.5 python tools/run_skill_model_pipeline.py \
+	--models "gemini 3.1 pro" \
+	--variants no-skill \
+	--workers 32 \
+	--capture-parallel 20 \
+	--judge-parallel 8 \
+	--run-prefix full_noskill \
+	--refresh-specs \
+	--allow-partial-capture
+```
+
 ## Faults And Judging
 
 Fault primitives are documented in `faults/README.md`. During a fault window,
